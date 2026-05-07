@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8 МАЯ. ФАБРИКА ШУМА — АЦХ</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #080808;
+    --bg2: #0f0f0f;
+    --text: #cfc0a4;
+    --text-dim: #8a7a65;
+    --accent: #b8964a;
+    --accent-dim: #6b5530;
+    --white: #ede3d2;
+    --divider: #1e1e1e;
+  }
+
+  html { background: var(--bg); color: var(--text); }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 18px;
+    line-height: 1.85;
+    background: var(--bg);
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px 120px;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 80px;
+  }
+
+  .hero-svg {
+    width: 320px;
+    height: 220px;
+    margin-bottom: 60px;
+    opacity: 0.85;
+  }
+
+  .hero-date {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 32px;
+  }
+
+  .hero-title {
+    font-size: clamp(28px, 6vw, 52px);
+    font-weight: normal;
+    color: var(--white);
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    font-style: italic;
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  /* PROSE */
+  p {
+    margin-bottom: 1.4em;
+    color: var(--text);
+  }
+
+  p:empty { display: none; }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 80px 0 40px;
+  }
+
+  .section-num {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--accent-dim);
+    opacity: 0.4;
+  }
+
+  .section-title {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  /* PHOTO BLOCKS */
+  .photo-block {
+    margin: 60px -24px;
+    position: relative;
+  }
+
+  .photo-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: sepia(20%) contrast(95%) brightness(88%);
+  }
+
+  .photo-block .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 32px 20px;
+    background: linear-gradient(transparent, rgba(8,8,8,0.85));
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  .photo-inline {
+    margin: 60px 0;
+  }
+
+  .photo-inline img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: sepia(15%) contrast(92%) brightness(85%);
+  }
+
+  .photo-inline .cap {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text-dim);
+    font-style: italic;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  /* STANDOUT TEXT */
+  .standout {
+    font-size: 22px;
+    line-height: 1.55;
+    color: var(--white);
+    border-left: 2px solid var(--accent);
+    padding-left: 28px;
+    margin: 50px 0;
+  }
+
+  /* SHORT LINES */
+  .short {
+    color: var(--white);
+    font-size: 17px;
+  }
+
+  /* DIVIDER */
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 60px 0;
+  }
+
+  .divider::before,
+  .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--divider);
+  }
+
+  .divider-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent-dim);
+  }
+
+  /* SVG ATTIC */
+  .attic-svg {
+    margin: 60px 0;
+    text-align: center;
+  }
+
+  .attic-svg figcaption {
+    margin-top: 16px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* FINALE */
+  .finale {
+    margin-top: 90px;
+    padding-top: 60px;
+    border-top: 1px solid var(--divider);
+  }
+
+  .finale-name {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .finale-date {
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 100px;
+    padding-top: 40px;
+    border-top: 1px solid var(--divider);
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* TIMELINE BAR */
+  .timeline {
+    margin: 60px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .tl-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .tl-year {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    width: 40px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .tl-bar-wrap {
+    flex: 1;
+    height: 6px;
+    background: var(--divider);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+
+  .tl-bar {
+    height: 100%;
+    background: var(--accent-dim);
+    border-radius: 1px;
+    transition: background 0.3s;
+  }
+
+  .tl-label {
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    width: 120px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .hero-svg { width: 240px; height: 165px; }
+    .tl-label { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<header class="hero">
+
+  <!-- Aglona Basilica SVG -->
+  <svg class="hero-svg" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+    <!-- sky gradient -->
+    <defs>
+      <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#0a0a0a"/>
+        <stop offset="100%" stop-color="#181510"/>
+      </linearGradient>
+      <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#181510"/>
+        <stop offset="100%" stop-color="#0a0a0a"/>
+      </linearGradient>
+    </defs>
+    <rect width="320" height="220" fill="url(#skyGrad)"/>
+
+    <!-- distant hills -->
+    <ellipse cx="60" cy="185" rx="90" ry="18" fill="#111"/>
+    <ellipse cx="260" cy="190" rx="80" ry="14" fill="#0e0e0e"/>
+
+    <!-- water reflection line -->
+    <rect x="0" y="192" width="320" height="28" fill="url(#waterGrad)" opacity="0.5"/>
+
+    <!-- BASILICA BODY -->
+    <rect x="95" y="128" width="130" height="68" fill="#d4c5a9"/>
+
+    <!-- Left tower -->
+    <rect x="100" y="72" width="40" height="60" fill="#d4c5a9"/>
+    <!-- Left tower spire -->
+    <polygon points="100,72 120,30 140,72" fill="#d4c5a9"/>
+    <!-- Left cross -->
+    <rect x="117" y="22" width="6" height="16" fill="#b8964a"/>
+    <rect x="112" y="27" width="16" height="4" fill="#b8964a"/>
+
+    <!-- Right tower -->
+    <rect x="180" y="72" width="40" height="60" fill="#d4c5a9"/>
+    <!-- Right tower spire -->
+    <polygon points="180,72 200,30 220,72" fill="#d4c5a9"/>
+    <!-- Right cross -->
+    <rect x="197" y="22" width="6" height="16" fill="#b8964a"/>
+    <rect x="192" y="27" width="16" height="4" fill="#b8964a"/>
+
+    <!-- Main facade detail -->
+    <rect x="140" y="105" width="40" height="28" fill="#0a0a0a"/>
+    <!-- Arched door -->
+    <ellipse cx="160" cy="105" rx="20" ry="6" fill="#0a0a0a"/>
+
+    <!-- Tower windows -->
+    <ellipse cx="120" cy="90" rx="8" ry="10" fill="#0a0a0a"/>
+    <ellipse cx="200" cy="90" rx="8" ry="10" fill="#0a0a0a"/>
+
+    <!-- Side windows -->
+    <rect x="108" y="140" width="16" height="22" rx="8" fill="#0a0a0a"/>
+    <rect x="196" y="140" width="16" height="22" rx="8" fill="#0a0a0a"/>
+    <rect x="137" y="145" width="12" height="18" rx="6" fill="#0a0a0a"/>
+    <rect x="171" y="145" width="12" height="18" rx="6" fill="#0a0a0a"/>
+
+    <!-- Water reflection of basilica (faint) -->
+    <g opacity="0.12" transform="translate(0,400) scale(1,-1)">
+      <rect x="95" y="128" width="130" height="68" fill="#d4c5a9"/>
+      <rect x="100" y="72" width="40" height="60" fill="#d4c5a9"/>
+      <polygon points="100,72 120,30 140,72" fill="#d4c5a9"/>
+      <rect x="180" y="72" width="40" height="60" fill="#d4c5a9"/>
+      <polygon points="180,72 200,30 220,72" fill="#d4c5a9"/>
+    </g>
+
+    <!-- Moon -->
+    <circle cx="272" cy="38" r="14" fill="#1a1812"/>
+    <circle cx="278" cy="34" r="14" fill="#0a0a0a"/>
+
+    <!-- Stars -->
+    <circle cx="40" cy="20" r="1" fill="#d4c5a9" opacity="0.5"/>
+    <circle cx="75" cy="45" r="0.8" fill="#d4c5a9" opacity="0.4"/>
+    <circle cx="255" cy="55" r="1" fill="#d4c5a9" opacity="0.3"/>
+    <circle cx="30" cy="60" r="0.6" fill="#d4c5a9" opacity="0.4"/>
+    <circle cx="290" cy="20" r="0.7" fill="#d4c5a9" opacity="0.3"/>
+  </svg>
+
+  <p class="hero-date">8 мая</p>
+  <h1 class="hero-title">ФАБРИКА ШУМА</h1>
+  <p class="hero-subtitle">О том, как память о войне была превращена в механизм производства войны</p>
+
+</header>
+
+<!-- ═══════════════════════════════ OPENING ═══════════════════════════ -->
+
+<p>Я слышал деда раньше, чем видел.</p>
+<p>Скрип протеза. Пластиково-деревянный, чуть с хрипом, с каждым шагом. Он ещё не появлялся во дворе, а звук уже приближался.</p>
+<p>В детстве я не видел в этом звуке ничего трагического. Скрип пластиково-деревянного протеза был для меня такой же частью дома, как запах хлеба или вечерний свет на стене. Только спустя годы память медленно раскрыла то, что тогда оставалось скрытым: в этом чуть хриплом повторяющемся скрипе двигался не только человек, но и сама война, не ушедшая до конца из его тела.</p>
+
+<!-- PHOTO 1 -->
+<div class="photo-block">
+  <img src="https://i.postimg.cc/B69T5zRN/file-00000000861c71f4ba62d06fc937dd73.png" alt="Латгалия" loading="lazy">
+  <div class="caption">Латгалия</div>
+</div>
+
+<p>Я был ребёнком, и этот скрип принадлежал Латгалии так же, как петухи до восхода, как запах сырого хлева по утрам, как тяжёлый дождь по старому шиферу, как ведро у колодца, как холодный полумрак костёла, куда бабушка брала меня с собой на мессу — она пела там в хоре. Меня сажали под органом. И я помню это ожидание: орган ещё молчит, люди садятся, шепчутся, пахнет ладаном, мокрыми пальто и старым камнем, и вдруг под сводами начинает подниматься звук. Не наружу — внутрь. В свечной дым, в прохладу стен, в детское ощущение чего-то огромного, перед чем ты совсем маленький.</p>
+
+<p>Иногда приходилось долго стоять на коленях. Колени болели — по-настоящему, почти невыносимо, потому что я рос и тело сопротивлялось этой неподвижности. Но терпел. Я помню не слова мессы. Я помню эту боль, прохладу костёла летом и момент, когда начинал звучать орган.</p>
+
+<div class="standout">Наверное, память вообще остаётся не в событиях — а в ощущениях тела.</div>
+
+<p>В скрипе. В запахе. В боли коленей на холодном дереве. В жесте. В молчании.</p>
+<p>Именно поэтому война моего деда осталась не в рассказах — а в пластике и дереве протеза, в усилии закинуть ногу в лодку, в стопке изношенных протезов на чердаке. В звуке, который шёл впереди него по двору каждое утро.</p>
+<p>Я не знал тогда, что звук может быть документом.</p>
+<p>Что скрип — это тоже текст. Что в нём записано больше, чем в любом официальном нарративе о войне.</p>
+<p>Сегодня 8 мая. Европа отмечает день победы над нацизмом — тихо, без парадов, с минутой молчания, с опущенными глазами. И именно сегодня, в этой тишине, я слышу его снова. Не потому что захотел вспомнить. Память не спрашивает разрешения. Она приходит как запах — вдруг, без предупреждения — и время рушится. Латгалия семидесятых входит в сегодняшний день через звук, которого давно нет.</p>
+
+<p class="short">Скрип протеза.<br>И я снова там.</p>
+
+<div class="divider"><div class="divider-dot"></div></div>
+
+<p>Бронислав Силивестрович Друкальский. Учитель. Латгалец с польскими корнями. Человек, который играл на всех инструментах — духовых, струнных, смычковых — и держал свой оркестр из деревенских школьников. Человек, который жил в Аглоне. Не ездил туда — жил там. Базилика Аглоны была не паломничеством. Она была воздухом, которым он дышал каждый день. Частью горизонта.</p>
+<p>И человек с одной ногой.</p>
+<p>Каждый вечер — я видел это столько раз, что оно стало частью телесного пейзажа детства, как закат, как ужин, как запах хлеба — он садился на край кровати и снимал протез. Медленно. Без слов. Пластик и дерево. Не церемония и не трагедия. Просто работа. Ежедневная, привычная, неизбежная. Протез укладывался рядом с кроватью — как часть тела, которую можно отложить до утра. Потом гасил свет.</p>
+<p>Утром надевал снова.</p>
+<p>В этом жесте — надеть протез, встать, идти — было что-то такое, о чём не говорят в речах о войне. Не героизм. Не жертвенность. Просто продолжение жизни вопреки тому, что война сделала с телом. День за днём. Год за годом. Без пафоса. Без ожидания благодарности.</p>
+
+<!-- SVG: THE ATTIC ARCHIVE -->
+<figure class="attic-svg">
+  <svg width="100%" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" style="max-width:600px;">
+    <defs>
+      <linearGradient id="dustGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#181510" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#181510" stop-opacity="0.6"/>
+      </linearGradient>
+    </defs>
+    <!-- attic floor -->
+    <rect x="0" y="95" width="600" height="3" fill="#1e1e1e"/>
+    <!-- dust/shadow overlay -->
+    <rect x="0" y="0" width="600" height="120" fill="url(#dustGrad)"/>
+
+    <!-- Prosthetic 1 (oldest, darkest) -->
+    <g transform="translate(35,18) rotate(-6)">
+      <rect x="0" y="0" width="22" height="62" rx="4" fill="#2a2218" stroke="#3a2e1c" stroke-width="1"/>
+      <rect x="4" y="55" width="14" height="22" rx="3" fill="#231c11"/>
+      <rect x="2" y="8" width="18" height="8" rx="2" fill="#1a1510" opacity="0.6"/>
+      <rect x="2" y="22" width="18" height="4" rx="1" fill="#1a1510" opacity="0.4"/>
+    </g>
+
+    <!-- Prosthetic 2 -->
+    <g transform="translate(110,12) rotate(-2)">
+      <rect x="0" y="0" width="22" height="65" rx="4" fill="#2e2518" stroke="#3d3020" stroke-width="1"/>
+      <rect x="4" y="57" width="14" height="24" rx="3" fill="#272012"/>
+      <rect x="2" y="10" width="18" height="8" rx="2" fill="#1e1912" opacity="0.5"/>
+      <rect x="2" y="25" width="18" height="4" rx="1" fill="#1e1912" opacity="0.3"/>
+    </g>
+
+    <!-- Prosthetic 3 -->
+    <g transform="translate(190,8) rotate(3)">
+      <rect x="0" y="0" width="23" height="68" rx="4" fill="#33291a" stroke="#42351f" stroke-width="1"/>
+      <rect x="4" y="59" width="15" height="26" rx="3" fill="#2b2214"/>
+      <rect x="2" y="12" width="19" height="8" rx="2" fill="#221c11" opacity="0.5"/>
+      <rect x="3" y="28" width="17" height="4" rx="1" fill="#221c11" opacity="0.3"/>
+      <!-- slight metal fitting detail -->
+      <rect x="6" y="0" width="11" height="4" rx="2" fill="#3d3020"/>
+    </g>
+
+    <!-- Prosthetic 4 -->
+    <g transform="translate(275,5) rotate(-4)">
+      <rect x="0" y="0" width="23" height="70" rx="4" fill="#382c1c" stroke="#483820" stroke-width="1"/>
+      <rect x="4" y="61" width="15" height="27" rx="3" fill="#2e2516"/>
+      <rect x="2" y="14" width="19" height="8" rx="2" fill="#251f13" opacity="0.5"/>
+      <rect x="3" y="32" width="17" height="4" rx="1" fill="#251f13" opacity="0.3"/>
+      <rect x="6" y="0" width="11" height="5" rx="2" fill="#433820"/>
+    </g>
+
+    <!-- Prosthetic 5 (newest, lightest tone) -->
+    <g transform="translate(360,3) rotate(1)">
+      <rect x="0" y="0" width="24" height="72" rx="4" fill="#3e3020" stroke="#4e3c22" stroke-width="1"/>
+      <rect x="4" y="63" width="16" height="28" rx="3" fill="#342818"/>
+      <rect x="2" y="16" width="20" height="9" rx="2" fill="#2a2216" opacity="0.5"/>
+      <rect x="3" y="36" width="18" height="4" rx="1" fill="#2a2216" opacity="0.3"/>
+      <rect x="7" y="0" width="10" height="5" rx="2" fill="#4e3c22"/>
+      <!-- Strap detail -->
+      <rect x="0" y="44" width="24" height="5" rx="1" fill="#4a3c22" opacity="0.7"/>
+    </g>
+
+    <!-- year labels -->
+    <text x="42" y="112" font-size="8" fill="#4a3c22" font-family="Georgia" letter-spacing="1">1945</text>
+    <text x="116" y="112" font-size="8" fill="#4a3c22" font-family="Georgia" letter-spacing="1">195_</text>
+    <text x="195" y="112" font-size="8" fill="#4a3c22" font-family="Georgia" letter-spacing="1">196_</text>
+    <text x="280" y="112" font-size="8" fill="#4a3c22" font-family="Georgia" letter-spacing="1">197_</text>
+    <text x="365" y="112" font-size="8" fill="#4a3c22" font-family="Georgia" letter-spacing="1">198_</text>
+
+    <!-- label right -->
+    <text x="455" y="55" font-size="9" fill="#4a3c22" font-family="Georgia" font-style="italic" letter-spacing="2">личный архив войны</text>
+    <line x1="448" y1="58" x2="415" y2="58" stroke="#4a3c22" stroke-width="0.5" opacity="0.5"/>
+  </svg>
+  <figcaption>Чердак. Все протезы — один за другим. Каждый — слепок прожитого года.</figcaption>
+</figure>
+
+<p>На чердаке лежали протезы.</p>
+<p>Не один — все. За всю жизнь. Каждый, который износился, был заменён и снят — не выброшен, а отложен. Они накапливались там, слегка модифицированные каждый раз — другая форма крепления, другое соотношение пластика и дерева, другая попытка сделать невозможное чуть более возможным. Разные годы, одна и та же функция.</p>
+<p>Я помню этот чердак. Как они лежали там — тёмные, потёртые, молчаливые. Каждый был слепком определённого года его жизни. Каждый нёс в себе отпечаток тела — там, где оставшаяся конечность соприкасалась с пластиком и деревом тысячи раз.</p>
+
+<div class="standout">Это был личный архив войны.<br>Не музей. Не памятник. Просто чердак в латгальском доме.</div>
+
+<p>Государство строит монументы. Воздвигает обелиски. Отливает бронзу.</p>
+<p>А война лежала на чердаке — изношенная, пылью покрытая, без таблички. Только след тела, которое продолжало жить вопреки.</p>
+<p>Эта война не была его войной. Он жил в Латвии. История пришла к нему — он не шёл к ней. Большие силы двигались по карте, и его тело оказалось на пути. Война выбрала его — не он выбрал войну. Она взяла его ногу, оставила ему жизнь и ушла дальше, не спросив, согласен ли он стать частью чьего-то нарратива о победе.</p>
+<p>Он не был героем чужой истории.</p>
+<p>Он был человеком, которого история физически сломала и оставила жить дальше.</p>
+<p>Потому что героя можно использовать. Поставить на постамент, вписать в парад, превратить в символ. А человека, которого просто сломали и оставили — нельзя. У него нет позы для монумента. У него есть только скрип пластика и дерева по утрам.</p>
+<p>И чердак с теми, что износились.</p>
+
+<!-- PHOTO 2 -->
+<div class="photo-inline">
+  <img src="https://i.postimg.cc/qMb2Dq9q/file-000000006a1c71f488cbb4383236a728.png" alt="" loading="lazy">
+  <div class="cap">Запорожец. Газ — на ручке.</div>
+</div>
+
+<p>У него был Запорожец.</p>
+<p>Сначала старая инвалидка. Потом тридцатка. Потом — по ветеранской инвалидной субсидии — сороковка. Государство давало не из щедрости. Государство давало кость.</p>
+<p>Газ был на ручке. Машина для человека без ноги. Ремонтировал сам — в гараже, в деревне. Больше ремонтировал, чем ездил. Теми же руками, которыми держал смычок. Которыми учил детей читать ноты.</p>
+<p>Мяса в доме почти не было. Держали поросёнка. Кур. Огород. Делал вино — домашнее, латгальское. Государство, провозгласившее себя победителем фашизма, кормило своих ветеранов остатками. Талон на мясо, которого не было. Субсидия на машину, которую сам и чинишь.</p>
+
+<div class="standout">Победители жили вот так.</div>
+
+<p>В деревянных домах с огородами, с пластиково-деревянными протезами рядом с кроватью и с чердаками, где лежали все предыдущие — как летопись тела, пережившего то, чего лучше бы не было.</p>
+<p>Те, кто сегодня строит храмы войны и проводит парады — они выросли не из этого. Они выросли из мифа об этом. Миф красив, монументален, пригоден для использования. Реальность лежит на чердаке и пахнет пылью и кожей и старым пластиком.</p>
+
+<!-- PHOTO 3 — August, Basilica -->
+<div class="photo-block">
+  <img src="https://i.postimg.cc/BbhPz7wv/file-0000000058ac720aa51a6c460ca008f9.png" alt="Аглона" loading="lazy">
+  <div class="caption">Аглона. Август.</div>
+</div>
+
+<p>Раз в год, в августе — на четырнадцатое и пятнадцатое, на праздник Успения Пресвятой Богородицы — к деду приезжал друг.</p>
+<p>Не на 9 мая. Не на государственный праздник.</p>
+<p>В август. В Аглону. К базилике.</p>
+<p>Они прошли войну вместе. Один вернулся учителем. Другой стал ксёндзом.</p>
+
+<!-- SVG: TWO FIGURES WALKING -->
+<svg width="100%" viewBox="0 0 500 90" xmlns="http://www.w3.org/2000/svg" style="max-width:500px; display:block; margin: 50px auto;">
+  <!-- path/road -->
+  <line x1="0" y1="72" x2="500" y2="72" stroke="#1e1e1e" stroke-width="1"/>
+  <!-- Figure 1: teacher (asymmetric gait — prosthetic leg) -->
+  <g transform="translate(155,20)">
+    <!-- body -->
+    <line x1="0" y1="0" x2="0" y2="28" stroke="#8a7a65" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- head -->
+    <circle cx="0" cy="-7" r="7" fill="none" stroke="#8a7a65" stroke-width="2"/>
+    <!-- arms -->
+    <line x1="0" y1="8" x2="-14" y2="20" stroke="#8a7a65" stroke-width="2" stroke-linecap="round"/>
+    <line x1="0" y1="8" x2="12" y2="18" stroke="#8a7a65" stroke-width="2" stroke-linecap="round"/>
+    <!-- legs: left normal, right prosthetic (slightly different angle) -->
+    <line x1="0" y1="28" x2="-10" y2="52" stroke="#8a7a65" stroke-width="2" stroke-linecap="round"/>
+    <line x1="0" y1="28" x2="9" y2="52" stroke="#6b5530" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- prosthetic foot: slightly boxier -->
+    <rect x="4" y="49" width="8" height="4" rx="1" fill="#6b5530"/>
+  </g>
+
+  <!-- Figure 2: priest with camera and missing hand -->
+  <g transform="translate(240,20)">
+    <!-- body -->
+    <line x1="0" y1="0" x2="0" y2="28" stroke="#8a7a65" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- head -->
+    <circle cx="0" cy="-7" r="7" fill="none" stroke="#8a7a65" stroke-width="2"/>
+    <!-- right arm: full, holds camera strap -->
+    <line x1="0" y1="8" x2="-14" y2="20" stroke="#8a7a65" stroke-width="2" stroke-linecap="round"/>
+    <!-- left arm: shorter (missing hand) — camera pressed against body -->
+    <line x1="0" y1="8" x2="10" y2="16" stroke="#8a7a65" stroke-width="2" stroke-linecap="round"/>
+    <!-- camera body pressed at arm end -->
+    <rect x="9" y="13" width="10" height="7" rx="1" fill="none" stroke="#b8964a" stroke-width="1.5"/>
+    <circle cx="14" cy="16" r="2" fill="none" stroke="#b8964a" stroke-width="1"/>
+    <!-- legs -->
+    <line x1="0" y1="28" x2="-9" y2="52" stroke="#8a7a65" stroke-width="2" stroke-linecap="round"/>
+    <line x1="0" y1="28" x2="9" y2="52" stroke="#8a7a65" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- destination: basilica silhouette small -->
+  <g transform="translate(390,20)" opacity="0.4">
+    <rect x="0" y="25" width="36" height="27" fill="#d4c5a9"/>
+    <rect x="2" y="10" width="12" height="18" fill="#d4c5a9"/>
+    <polygon points="2,10 8,0 14,10" fill="#d4c5a9"/>
+    <rect x="22" y="10" width="12" height="18" fill="#d4c5a9"/>
+    <polygon points="22,10 28,0 34,10" fill="#d4c5a9"/>
+    <rect x="13" y="35" width="10" height="17" fill="#080808"/>
+  </g>
+
+  <!-- dotted path between figures and basilica -->
+  <line x1="268" y1="55" x2="385" y2="55" stroke="#2a2218" stroke-width="1" stroke-dasharray="4,6"/>
+
+  <!-- labels -->
+  <text x="138" y="82" font-size="8" fill="#4a3c22" font-family="Georgia" font-style="italic" text-anchor="middle">учитель</text>
+  <text x="240" y="82" font-size="8" fill="#4a3c22" font-family="Georgia" font-style="italic" text-anchor="middle">ксёндз</text>
+  <text x="408" y="82" font-size="8" fill="#4a3c22" font-family="Georgia" font-style="italic" text-anchor="middle">Аглона</text>
+</svg>
+
+<p>Я помню его отчётливо. На шее — фотоаппарат. Он фотографировал. Прижимал фотоаппарат протезом к телу, а другой рукой медленно перематывал плёнку для следующего кадра. В этом чувствовалось напряжение — не театральное, не героическое, а привычное, телесное. Война взяла руку, но не взяла взгляд. Он всё ещё смотрел на мир и хотел его удержать.</p>
+<p>И они шли вместе по латгальской земле — учитель без ноги и ксёндз с фотоаппаратом на шее — в базилику, которая стояла рядом с домом деда всю его жизнь. Белая, над озером, в августовском свете.</p>
+<p>Не праздновать победу.</p>
+<p>Молчать перед чем-то большим, чем любое государство.</p>
+<p>Раз в год они встречались в августе, и это молчание было плотнее любой речи.</p>
+
+<div class="standout">Вот что такое память о войне.<br>Не флаг. Не марш. Не символ на машине.<br>Перчатка. Фотоаппарат. Скрип пластика и дерева. Чердак. Август. Белая базилика над озером.</div>
+
+<p>Тот Запорожец дед оставил мне в наследство.</p>
+<p>Мне было четырнадцать лет. Я продал его, не поездив.</p>
+<p>Не понимал тогда, что продаю. Не понимал, что в металле этой машины — в ручке газа, отполированной его ладонью — записано что-то, чего нельзя купить обратно.</p>
+<p>Но он оставил мне больше, чем машину.</p>
+<p>Он оставил мне дом. И память.</p>
+<p>Дом в Аглоне, где пахло деревом и старым воском и чем-то ещё, чему нет названия. Память о чердаке с протезами, о лодке у школьного пляжа, о скрипе, который шёл впереди человека по утрам. Образ человека, который прижимал фотоаппарат протезом к телу и медленно перематывал плёнку — потому что мир всё равно стоит того, чтобы его удержать.</p>
+<p>Это и есть наследство. Не то, что можно продать.</p>
+<p>То, что остаётся в теле. И в памяти.</p>
+<p>Он выжил случайно. В лесу, после бомбёжки, солдаты прошли мимо — приняли за мёртвого. Ошиблись.</p>
+<p>И никогда не делал из этого легенду.</p>
+<p>Никогда не говорил о войне. Совсем.</p>
+
+<div class="standout">Это молчание было не слабостью. Это было знанием. Те, кто знают цену, не кричат о цене.</div>
+
+<p>Они просто живут с ней — в теле, в скрипе, в протезе рядом с кроватью, в тех, что лежат на чердаке.</p>
+<p>Понимание приходит позже.</p>
+<p>Если приходит вообще.</p>
+
+<!-- ═══════════════════════ SECTIONS I–V ═══════════════════════════════ -->
+
+<div class="section-header">
+  <span class="section-num">I</span>
+  <div class="section-line"></div>
+  <span class="section-title">Рана и монумент</span>
+</div>
+
+<p>Сегодня 8 мая.</p>
+<p>Европа вспоминает. Тихо. С опущенными головами.</p>
+<p>Завтра — 9 мая. Россия будет праздновать. Громко. С техникой на Красной площади, с детьми в пилотках, с Z на груди, с речами о вечной победе и вечном враге.</p>
+<p>Эти два дня — не просто разные даты. Это два разных ответа на один вопрос: что делать с памятью о катастрофе.</p>
+<p>Первый: помнить. Скорбеть. Не повторять.</p>
+<p>Второй: использовать. Мобилизовать. Повторять.</p>
+<p>9 мая не всегда было тем, чем стало. Люди, пережившие войну, не праздновали её. Они помнили — телесно, тихо, в темноте. Массовый государственный культ Победы начал формироваться при Брежневе, с 1965 года. Живая рана начала превращаться в монумент.</p>
+
+<!-- SVG: WOUND → MONUMENT -->
+<svg width="100%" viewBox="0 0 500 60" xmlns="http://www.w3.org/2000/svg" style="max-width:500px; display:block; margin: 40px auto;">
+  <!-- wound side -->
+  <text x="20" y="22" font-size="10" fill="#8a7a65" font-family="Georgia" font-style="italic">живая рана</text>
+  <rect x="20" y="30" width="120" height="6" rx="3" fill="#3d2a1a"/>
+  <text x="20" y="52" font-size="8" fill="#4a3c22" font-family="Georgia">1945 — 1965</text>
+  <!-- arrow -->
+  <line x1="150" y1="33" x2="340" y2="33" stroke="#2a2218" stroke-width="1" stroke-dasharray="5,4"/>
+  <polygon points="340,28 352,33 340,38" fill="#4a3c22"/>
+  <!-- monument side -->
+  <text x="362" y="22" font-size="10" fill="#b8964a" font-family="Georgia" font-style="italic">монумент</text>
+  <rect x="362" y="30" width="118" height="6" rx="3" fill="#b8964a" opacity="0.4"/>
+  <text x="362" y="52" font-size="8" fill="#4a3c22" font-family="Georgia">1965 — сейчас</text>
+</svg>
+
+<p class="short">Монумент не болит.<br>Монументом управляют.</p>
+
+<p>«Бессмертный полк» начинался как живой жест — люди несли портреты своих мёртвых. Личное. Больное. Потом государство присвоило движение — и портреты мёртвых начали маршировать в государственной колонне. Мёртвые перестали принадлежать семьям. Они стали функцией.</p>
+<p>Портрет Бронислава Силивестровича — человека, у которого на чердаке лежали все его протезы, весь телесный архив прожитых после войны лет — мог бы оказаться в этой колонне. Маршируя. Превращённый в символ того, от чего он всю жизнь молчал.</p>
+<p>Мёртвые не могут возразить.</p>
+<p>Это и есть главное удобство мёртвых для государства.</p>
+
+<div class="section-header">
+  <span class="section-num">II</span>
+  <div class="section-line"></div>
+  <span class="section-title">Подмена</span>
+</div>
+
+<p>Пишется об этом так: тоталитарная система начинается не с лагерей — а с языка. С замены конкретного человека абстрактной функцией. Там, где человек перестаёт быть уникальной судьбой и становится солдатом, героем, народом, массой, бессмертным полком — там у него отнимают не только свободу. У него отнимают биографию.</p>
+<p>Бронислав Силивестрович — это не «ветеран». Это человек, чей скрип пластикового и деревянного протеза я слышал издалека. Который играл на скрипке и учил детей слышать музыку. Который в августе шёл к базилике рядом с другом — тем, кто прижимал фотоаппарат протезом к телу и медленно перематывал плёнку. На чердаке которого лежали все его протезы — молчаливый архив тела, пережившего то, что не следовало переживать.</p>
+<p>Это и есть война.</p>
+<p>Не парад. Не знамя. Не «можем повторить».</p>
+<p>Скрип. Фотоаппарат. Чердак. Август. Тишина у белой базилики над озером.</p>
+<p>Когда государство забирает эту конкретность и превращает в коллективный символ — оно совершает насилие над памятью. Разрушает личные связи и замещает их связью с массой, с государством, с мифом.</p>
+
+<div class="standout">Из тишины — в шум.<br>Из раны — в костюм.<br>Из чердака с протезами — в бронзовый монумент.</div>
+
+<div class="section-header">
+  <span class="section-num">III</span>
+  <div class="section-line"></div>
+  <span class="section-title">Миф без раны</span>
+</div>
+
+<p>Размышляется об этом так: те, кто громче всех кричат о войне — никогда не просыпались ночью от стонов человека, у которого оставшаяся конечность ноет и не даёт спать.</p>
+<p>Они не знают этого звука.</p>
+<p>Не скрипа — это дневной звук, почти привычный. А ночного — когда тело говорит правду без свидетелей. Когда оставшаяся плоть болит за ту, которой больше нет. Когда человек, переживший войну, лежит в темноте — и война продолжается в нём тихо, методично, без конца.</p>
+
+<p class="short">Они этого не слышали.<br>Они не поднимались на такой чердак.<br>Они наследуют не рану.<br>Они наследуют миф.</p>
+
+<p>Когда реальное переживание исчезает, остаётся идеологическая форма. Она начинает жить сама по себе — форма без содержания, символ без тела, парад без боли.</p>
+<p>Катастрофа становится красивой.</p>
+<p>Война превращается в эстетический объект — парад, лента, храм войны, детская форма, марш, Z как графический знак. Это уже не память. Это визуальная религия государства. И это страшнее любой открытой жестокости — потому что красота обезоруживает, а обезоруженный человек перестаёт задавать вопросы.</p>
+<p>Ребёнок в пилотке не анализирует историю.</p>
+<p>Он переживает принадлежность.</p>
+<p>Он учится видеть войну не как то, что лежит на чердаке в виде изношенных протезов — а как сцену силы, красоты, гордости.</p>
+
+<div class="section-header">
+  <span class="section-num">IV</span>
+  <div class="section-line"></div>
+  <span class="section-title">Противоречие</span>
+</div>
+
+<p>Страна, которая громче всех говорит о традиционных ценностях — о семье, о вере, о достоинстве — одновременно и методично уничтожает единственное условие, при котором достоинство вообще возможно.</p>
+<p>Достоинство невозможно без внутренней свободы.</p>
+<p>Без свободы совести. Без свободы слова. Без права на внутреннее несогласие. Без права не участвовать в коллективном экстазе.</p>
+<p>Система требует не совести.</p>
+<p>Она требует принадлежности.</p>
+<p>Не внутренней правды — а участия в ритуале.</p>
+<p>Человек не может полностью спрятаться за «мы». За народ. За праздник. За историю. В тот момент, когда он растворяется в коллективном «мы» — он перестаёт отвечать за себя. И именно тогда становится возможным всё.</p>
+<p>Мой дед никогда не растворялся в «мы».</p>
+<p>Он был конкретным человеком. С конкретным пластиково-деревянным протезом. С конкретной лодкой. С конкретным чердаком. Он шёл в конкретную базилику с конкретным другом — тем, кто прижимал фотоаппарат протезом к телу и смотрел на мир через объектив. Он молчал конкретным молчанием.</p>
+
+<div class="standout">Это и есть достоинство.<br>Не то, о котором говорят с трибун.<br>То, которое живёт в теле и не нуждается в словах.</div>
+
+<div class="section-header">
+  <span class="section-num">V</span>
+  <div class="section-line"></div>
+  <span class="section-title">Парадокс</span>
+</div>
+
+<p>С февраля 2022 года стало видно, во что эта культура памяти превращается в действии.</p>
+<p>Россия начала войну против Украины под риторику борьбы с нацизмом. Победа над фашизмом — реальная, оплаченная реальными телами, включая тело Бронислава Силивестровича — была использована как моральный капитал для оправдания агрессии, разрушения городов, убийства мирных людей.</p>
+<p>Система говорит языком антифашизма.</p>
+<p>И воспроизводит его механизмы.</p>
+<p>Тоталитаризм умеет говорить любым языком. В том числе языком своей жертвы. Важно не то, какие слова произносятся. Важно — что происходит с человеком внутри системы.</p>
+
+<p class="short">Происходит вот что: у него отнимают чердак.</p>
+
+<p>Отнимают право на личную, тихую, телесную, неудобную память. Взамен дают флаг, ленту, пилотку, коллективное возбуждение.</p>
+<p>А протезы на чердаке — пылятся.</p>
+<p>Никто о них не говорит.</p>
+<p>Потому что они неудобны. Потому что они не красивы. Потому что они — правда.</p>
+
+<!-- ═══════════════════════ ФИНАЛ ═══════════════════════════════════════ -->
+
+<!-- PHOTO 4 -->
+<div class="photo-block" style="margin-top: 80px;">
+  <img src="https://i.postimg.cc/hjcJtRkc/20250728-130834.jpg" alt="" loading="lazy">
+  <div class="caption">Наследство. Не то, что можно продать.</div>
+</div>
+
+<div class="finale">
+  <p class="short">Там, где должна была быть минута молчания, государство построило фабрику шума.</p>
+
+  <p>Я думаю о чердаке.</p>
+  <p>О том, как они лежали там — все эти протезы, один за другим, за каждый прожитый год. Потёртые. Тёмные от времени и от кожи. Пластик и дерево. Слегка изменённые каждый раз. Они не были выброшены. Они просто лежали — как лежат вещи, которым нет имени, которые не знаешь куда деть, но не можешь отдать.</p>
+
+  <div class="standout">Это был единственный памятник, который он себе поставил.<br>Не из бронзы. Не на площади.<br>На чердаке. Из пластика и дерева и времени.</div>
+
+  <p>Он не оставил мне речи о войне.</p>
+  <p>Оставил дом. Оставил память. Оставил чердак с протезами. Оставил скрип, который я слышал издалека. Оставил августовский свет над Аглоной и образ двух людей, идущих по латгальской земле к белой базилике над озером. Оставил образ человека, который прижимал фотоаппарат протезом к телу и медленно перематывал плёнку — потому что мир всё равно стоит того, чтобы его удержать.</p>
+  <p>Это и есть наследство. Не то, что можно продать.</p>
+  <p>То, что остаётся в теле. И в памяти.</p>
+  <p>Война страшна не тогда, когда её помнят.</p>
+  <p>Она страшна тогда, когда её начинают красиво оформлять люди, которые никогда не просыпались ночью от стонов оставшейся конечности. Которые никогда не поднимались на такой чердак. Которые никогда не видели, как человек прижимает фотоаппарат протезом к телу и перематывает плёнку — потому что мир всё равно стоит того, чтобы его удержать.</p>
+  <p>Память остаётся не в событиях.</p>
+  <p>В ощущениях тела.</p>
+  <p>В скрипе. В боли коленей на холодном дереве. В запахе ладана. В звуке органа под сводами. В пластике и дереве протеза, который надеваешь каждое утро, потому что жизнь продолжается.</p>
+
+  <div class="standout" style="font-size:20px; margin-top: 50px;">
+    Разрушенное тело человека.<br>
+    Одного конкретного человека.<br>
+    Бронислава Силивестровича.<br>
+    Который молчал.
+  </div>
+</div>
+
+<!-- PHOTO bottom -->
+<div class="photo-inline" style="margin-top: 70px;">
+  <img src="https://i.postimg.cc/B69T5zRN/file-00000000861c71f4ba62d06fc937dd73.png" alt="" loading="lazy" style="opacity: 0.6;">
+</div>
+
+<footer>
+  <p class="finale-name" style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color: var(--accent); margin-bottom:4px;">АЦХ</p>
+  <p style="font-size:11px; letter-spacing:3px; color: var(--text-dim); margin-bottom: 30px;">8 мая</p>
+  <p style="font-size:10px; color: var(--divider); letter-spacing:2px;">Spirit of Time Archive &nbsp;·&nbsp; Codex</p>
+</footer>
+
+</body>
+</html>
