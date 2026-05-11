@@ -3,242 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glasnevin Appliance Services | Repairs, Parts & Lawnmowers Dublin 9</title>
-    
+    <title>Glasnevin Appliance Services | Dublin 9</title>
     <style>
         :root {
-            --primary: #1c3f6e;
-            --accent: #c8a84b;
-            --dark: #111418;
-            --light: #f4f5f7;
-            --border: #e0e2e6;
-            --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --accent-blue: #1c3f6e;
+            --gold: #c8a84b;
+            --deep-dark: #0f172a;
+            --text-gray: #4b5563;
+            --white: #ffffff;
+            --soft-bg: #f8fafc;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: var(--font); color: var(--dark); line-height: 1.6; background: #fff; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-        img { max-width: 100%; display: block; }
-        a { text-decoration: none; transition: 0.3s; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            color: var(--deep-dark);
+            line-height: 1.5;
+            background: var(--white);
+        }
 
-        /* --- TOPBAR WITH LOGO --- */
-        .topbar {
-            background: var(--dark);
-            color: #fff;
-            padding: 12px 0;
-        }
-        .topbar-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .logo-img {
-            width: 55px;
-            height: 38px;
-            object-fit: cover;
-            border-radius: 4px;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .brand-text b { display: block; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; color: #fff; }
-        .brand-text span { font-size: 10px; color: #8a939f; text-transform: uppercase; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        a { text-decoration: none; transition: 0.2s ease; }
 
-        .top-contact a {
-            color: #fff;
-            font-weight: 700;
-            font-size: 15px;
-        }
-        .top-contact a:hover { color: var(--accent); }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            padding: 70px 0;
-            background: #fff;
-            border-bottom: 5px solid var(--primary);
-        }
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        .hero-text h1 { font-size: 42px; color: var(--primary); margin-bottom: 20px; line-height: 1.1; font-weight: 800; }
-        .hero-text h1 span { color: var(--accent); }
-        .hero-text p { margin-bottom: 30px; color: #4b5563; font-size: 18px; }
+        /* HEADER / LOGOTYPE */
+        header { padding: 30px 0; background: var(--white); }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         
-        .main-photo-frame {
-            position: relative;
-            border: 4px solid var(--primary);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(28,63,110,0.2);
+        /* Типографический логотип (без картинок) */
+        .logo-type { 
+            font-size: 24px; 
+            font-weight: 900; 
+            letter-spacing: -1px; 
+            text-transform: uppercase; 
+            line-height: 0.9;
+            color: var(--accent-blue);
         }
-        .experience-badge {
+        .logo-type span { color: var(--gold); display: block; font-size: 14px; letter-spacing: 2px; margin-top: 4px; }
+
+        .contact-link { font-weight: 700; color: var(--accent-blue); border-bottom: 2px solid var(--gold); padding-bottom: 2px; }
+
+        /* HERO SECTION - БЕСШОВНОЕ ФОТО */
+        .hero { padding: 60px 0 100px; }
+        .hero-grid { 
+            display: grid; 
+            grid-template-columns: 1.1fr 0.9fr; 
+            gap: 60px; 
+            align-items: center; 
+        }
+
+        .hero-text h1 { 
+            font-size: clamp(40px, 6vw, 64px); 
+            font-weight: 900; 
+            line-height: 1; 
+            color: var(--accent-blue);
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .hero-text p { font-size: 18px; color: var(--text-gray); margin-bottom: 32px; max-width: 500px; }
+
+        /* Фотография без рамы, современная интеграция */
+        .hero-image-wrap { position: relative; }
+        .hero-image-wrap img { 
+            width: 100%; 
+            height: auto; 
+            display: block;
+            border-radius: 4px; /* минимальное скругление */
+            filter: grayscale(10%) contrast(105%);
+        }
+        /* Декоративный элемент вместо рамы */
+        .hero-image-wrap::after {
+            content: '';
             position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: #fff;
-            padding: 12px;
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 22px;
-            line-height: 1;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background: var(--soft-bg);
+            z-index: -1;
         }
-        .experience-badge small { font-size: 9px; text-transform: uppercase; margin-top: 2px; }
 
-        .btn {
+        .btn-main {
             display: inline-block;
-            padding: 18px 35px;
-            background: var(--primary);
-            color: #fff;
-            font-weight: 700;
-            border-radius: 6px;
-            box-shadow: 0 4px 12px rgba(28,63,110,0.3);
+            background: var(--accent-blue);
+            color: var(--white);
+            padding: 20px 40px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
         }
-        .btn:hover { background: var(--dark); transform: translateY(-3px); }
+        .btn-main:hover { background: var(--deep-dark); }
 
-        /* --- SERVICES SECTION --- */
-        .services { padding: 80px 0; background: var(--light); }
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 32px; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
-        .section-title .divider { width: 60px; height: 4px; background: var(--accent); margin: 15px auto; }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+        /* INFO PANEL - МОЩНЫЙ СИНИЙ БЛОК */
+        .info-panel { background: var(--accent-blue); color: var(--white); padding: 80px 0; }
+        .info-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 40px; 
         }
-        .card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            border-top: 5px solid var(--primary);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: 0.3s;
+        .info-item h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 12px; }
+        .info-item p { font-size: 24px; font-weight: 700; line-height: 1.2; }
+
+        /* SERVICES - ЛАКОНИЧНОСТЬ */
+        .services { padding: 120px 0; }
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 60px; 
         }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .card h3 { color: var(--primary); margin-bottom: 15px; font-size: 21px; }
-        .card p { font-size: 15px; color: #6b7280; }
+        .service-card h2 { font-size: 20px; font-weight: 800; text-transform: uppercase; margin-bottom: 16px; position: relative; }
+        .service-card h2::before { content: ''; position: absolute; left: 0; bottom: -8px; width: 30px; height: 3px; background: var(--gold); }
+        .service-card p { font-size: 15px; color: var(--text-gray); }
 
-        /* --- CONTACT & FOOTER --- */
-        .footer { background: var(--dark); color: #9aa1ab; padding: 60px 0; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
-        .footer h4 { color: #fff; margin-bottom: 25px; text-transform: uppercase; font-size: 13px; letter-spacing: 1.5px; border-left: 3px solid var(--accent); padding-left: 10px; }
-        .footer p, .footer a { font-size: 15px; color: #9aa1ab; display: block; margin-bottom: 10px; }
-        .footer a:hover { color: #fff; text-decoration: underline; }
+        /* FOOTER */
+        footer { padding: 60px 0; border-top: 1px solid #eee; font-size: 12px; color: #999; }
+        .footer-flex { display: flex; justify-content: space-between; align-items: flex-end; }
 
-        .brand-list { margin-top: 50px; padding-top: 30px; border-top: 1px solid #1e2530; text-align: center; }
-        .brand-list span { color: #5a6272; font-size: 12px; font-weight: 700; margin: 0 10px; text-transform: uppercase; }
-
-        @media (max-width: 850px) {
-            .hero-grid { grid-template-columns: 1fr; text-align: center; }
-            .hero-text { order: 2; }
-            .main-photo-frame { order: 1; max-width: 500px; margin: 0 auto; }
-            .topbar-inner { flex-direction: column; gap: 12px; }
+        @media (max-width: 900px) {
+            .hero-grid, .info-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-text h1 { font-size: 48px; }
+            .hero-image-wrap { order: -1; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="topbar">
-        <div class="container topbar-inner">
-            <div class="brand">
-                <img src="https://i.postimg.cc/fT6jJ96X/file-000000009b64720aafde63f822cfb309.png" class="logo-img" alt="Glasnevin Appliance Logo">
-                <div class="brand-text">
-                    <b>Glasnevin Appliance</b>
-                    <span>Dublin 9 • Est. 2007</span>
-                </div>
+<header>
+    <div class="container nav-flex">
+        <div class="logo-type">
+            Glasnevin Appliance
+            <span>Services • Dublin 9</span>
+        </div>
+        <a href="tel:+35318570221" class="contact-link">01 857 02 21</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-text">
+            <h1>Expert<br>Repairs.</h1>
+            <p>17+ years of industrial-grade experience in domestic appliance repairs and professional lawnmower servicing across North Dublin.</p>
+            <a href="tel:+35318570221" class="btn-main">Get Technician Now</a>
+        </div>
+        <div class="hero-image-wrap">
+            <img src="https://i.postimg.cc/fT6jJ96X/file-000000009b64720aafde63f822cfb309.png" alt="Glasnevin Appliance Workshop">
+        </div>
+    </div>
+</section>
+
+<div class="info-panel">
+    <div class="container info-grid">
+        <div class="info-item">
+            <h3>Visit Us</h3>
+            <p>3 St Mobhi Road,<br>Glasnevin, Dublin 9</p>
+        </div>
+        <div class="info-item">
+            <h3>Working Hours</h3>
+            <p>Monday – Friday<br>09:00 – 17:00</p>
+        </div>
+        <div class="info-item">
+            <h3>Contact</h3>
+            <p>glasnevinappliances<br>@eircom.net</p>
+        </div>
+    </div>
+</div>
+
+<section class="services">
+    <div class="container">
+        <div class="services-grid">
+            <div class="service-card">
+                <h2>Appliance Repair</h2>
+                <p>Specialist fixing for washing machines, dishwashers, ovens, and microwaves. Home visits for all major units.</p>
             </div>
-            <div class="top-contact">
-                <a href="tel:+35318570221">📞 CALL: 01 857 02 21</a>
+            <div class="service-card">
+                <h2>Spare Parts</h2>
+                <p>Direct supply of genuine parts for Electrolux, Zanussi, AEG, Flymo, and Whirlpool. Call with model details.</p>
+            </div>
+            <div class="service-card">
+                <h2>Lawnmowers</h2>
+                <p>Mechanical repair and professional blade sharpening for all petrol and electric models.</p>
             </div>
         </div>
-    </nav>
+    </div>
+</section>
 
-    <section class="hero">
-        <div class="container hero-grid">
-            <div class="hero-text">
-                <h1>Expert Repairs & <br><span>Spare Parts</span></h1>
-                <p>North Dublin's premier destination for domestic appliance repairs and lawnmower servicing. With over 17 years of experience, we provide fast, reliable solutions for your home.</p>
-                <a href="tel:+35318570221" class="btn">BOOK A REPAIR NOW</a>
-            </div>
-            <div class="main-photo-frame">
-                <img src="https://i.postimg.cc/fT6jJ96X/file-000000009b64720aafde63f822cfb309.png" alt="Glasnevin Appliance Services Storefront">
-                <div class="experience-badge">
-                    17+
-                    <small>Years</small>
-                </div>
-            </div>
+<footer>
+    <div class="container footer-flex">
+        <div>
+            <p>GLASNEVIN APPLIANCE SERVICES</p>
+            <p>ESTABLISHED 2007 • NORTH DUBLIN</p>
         </div>
-    </section>
-
-    <section class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Core Services</h2>
-                <div class="divider"></div>
-            </div>
-            <div class="services-grid">
-                <div class="card">
-                    <h3>Appliance Repairs</h3>
-                    <p>Expert fixing of washing machines, dishwashers, ovens, and microwaves. We offer home visits for all large appliances across Dublin 9.</p>
-                </div>
-                <div class="card">
-                    <h3>Genuine Spare Parts</h3>
-                    <p>Supplying high-quality parts for leading brands including Electrolux, Zanussi, AEG, and Whirlpool. Call us with your model number.</p>
-                </div>
-                <div class="card">
-                    <h3>Lawnmower Service</h3>
-                    <p>Specialist repairs for petrol and electric mowers. We provide professional blade sharpening and Flymo authorized servicing.</p>
-                </div>
-            </div>
+        <div style="text-align: right;">
+            <p>© 2026 EALOIONTOIR STUDIO PROTOTYPE</p>
+            <p>OFFICIAL REPAIR AGENTS</p>
         </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h4>Find Us</h4>
-                    <p>3 St Mobhi Road<br>Glasnevin, Dublin 9<br>Ireland</p>
-                    <a href="https://maps.google.com/?cid=18207613182350119821" target="_blank">📍 Open in Google Maps</a>
-                </div>
-                <div>
-                    <h4>Opening Hours</h4>
-                    <p>Monday – Friday: 9am – 5pm</p>
-                    <p>Saturday: Closed</p>
-                    <p>Sunday: Closed</p>
-                </div>
-                <div>
-                    <h4>Contact Us</h4>
-                    <a href="tel:+35318570221">Phone: 01 857 02 21</a>
-                    <a href="mailto:glasnevinappliances@eircom.net">Email: Click to Mail</a>
-                </div>
-                <div>
-                    <h4>Social Media</h4>
-                    <a href="https://www.facebook.com/Glasnevin.Appliances/" target="_blank">Facebook Profile</a>
-                </div>
-            </div>
-
-            <div class="brand-list">
-                <span>Electrolux</span> | <span>Zanussi</span> | <span>AEG</span> | <span>Flymo</span> | <span>Whirlpool</span> | <span>Nilfisk</span>
-            </div>
-            
-            <p style="margin-top: 30px; font-size: 11px; opacity: 0.5;">© 2026 Glasnevin Appliance Services. Professional Repair Shop in Dublin 9.</p>
-        </div>
-    </footer>
+    </div>
+</footer>
 
 </body>
 </html>
