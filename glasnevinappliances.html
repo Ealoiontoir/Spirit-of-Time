@@ -12,7 +12,7 @@
   <meta property="og:title" content="Glasnevin Appliance Services – Dublin 9">
   <meta property="og:description" content="Expert home appliance repairs, spare parts, servicing and lawnmower repair in Glasnevin, Dublin 9. Over 17 years experience.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ealoiontoir.github.io/company/glasnevin-appliance/">
+  <meta property="og:url" content="https://ealoiontoir.github.io/Spirit-of-Time/glasnevinappliances.html">
   <meta property="og:image" content="https://i.postimg.cc/fT6jJ96X/file-000000009b64720aafde63f822cfb309.png">
 
   <!-- Structured Data: Local Business -->
@@ -22,7 +22,7 @@
     "@type": "LocalBusiness",
     "name": "Glasnevin Appliance Services",
     "description": "Home appliance repairs, spare parts, servicing and lawnmower repair in Glasnevin, Dublin 9. Over 17 years of professional experience.",
-    "url": "https://www.glasnevinappliances.ie/",
+    "url": "https://ealoiontoir.github.io/Spirit-of-Time/glasnevinappliances.html",
     "telephone": "+353-1-857-0221",
     "email": "glasnevinappliances@eircom.net",
     "address": {
@@ -111,6 +111,7 @@ img { display: block; max-width: 100%; }
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 14px 24px;
   font-size: 15px;
@@ -140,7 +141,7 @@ img { display: block; max-width: 100%; }
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0;
+  gap: 14px;
   min-height: 42px;
 }
 
@@ -150,6 +151,7 @@ img { display: block; max-width: 100%; }
   align-items: center;
   gap: 10px;
   padding: 6px 0;
+  min-width: 0;
 }
 .topbar-thumb {
   width: 52px;
@@ -177,19 +179,23 @@ img { display: block; max-width: 100%; }
 .topbar-contacts {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 14px;
   flex-wrap: wrap;
   padding: 6px 0;
+  min-width: 0;
 }
 .topbar-contacts a {
   color: #c8cdd4;
   font-size: 12px;
+  white-space: nowrap;
 }
 .topbar-contacts a:hover { color: #fff; text-decoration: underline; }
 .topbar-contacts .sep { color: #3d4550; }
 .topbar-hours {
   font-size: 11px;
   color: #8a939f;
+  white-space: nowrap;
 }
 
 /* ══════════════════════════════════════════════════
@@ -217,10 +223,11 @@ img { display: block; max-width: 100%; }
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 380px;
+  grid-template-columns: minmax(0, 1fr) 380px;
   gap: 48px;
   align-items: center;
 }
+.hero-text { min-width: 0; }
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -280,6 +287,7 @@ img { display: block; max-width: 100%; }
 /* ── Hero photo column ── */
 .hero-photo-col {
   position: relative;
+  min-width: 0;
 }
 .hero-photo-frame {
   border-radius: 6px;
@@ -340,10 +348,17 @@ img { display: block; max-width: 100%; }
   color: #fff;
   padding: 36px 0;
 }
+
+/* FIX: minmax(0, ...) lets long text shrink inside grid columns.
+   The email can now wrap instead of pushing into the address block. */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: 1.15fr 1.35fr 1.25fr 1fr;
   gap: 28px;
+  align-items: start;
+}
+.contact-item {
+  min-width: 0;
 }
 .contact-item .ci-label {
   font-size: 10px;
@@ -357,8 +372,15 @@ img { display: block; max-width: 100%; }
   font-size: 15px;
   font-weight: 600;
   line-height: 1.45;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
-.contact-item .ci-value a { color: inherit; }
+.contact-item .ci-value a {
+  color: inherit;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
 .contact-item .ci-value a:hover { text-decoration: underline; }
 .phone-big {
   font-size: clamp(18px, 4vw, 28px);
@@ -372,10 +394,10 @@ img { display: block; max-width: 100%; }
   opacity: .75;
   margin-top: 3px;
 }
-.hours-grid { display: flex; flex-direction: column; gap: 3px; }
+.hours-grid { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .hours-row { display: flex; justify-content: space-between; gap: 16px; font-size: 13px; }
 .hours-row .day { opacity: .75; }
-.hours-row .time { font-weight: 600; }
+.hours-row .time { font-weight: 600; white-space: nowrap; }
 .hours-closed { opacity: .45; }
 
 /* ══════════════════════════════════════════════════
@@ -418,10 +440,11 @@ img { display: block; max-width: 100%; }
 ══════════════════════════════════════════════════ */
 .about-layout {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: minmax(0, 1fr) 300px;
   gap: 48px;
   align-items: start;
 }
+.about-block { min-width: 0; }
 .about-block p {
   font-size: 15px;
   color: var(--col-mid);
@@ -475,6 +498,7 @@ img { display: block; max-width: 100%; }
   border-radius: var(--radius);
   font-size: 13px;
   color: var(--col-mid);
+  overflow-wrap: anywhere;
 }
 .about-detail-item strong {
   display: block;
@@ -485,7 +509,7 @@ img { display: block; max-width: 100%; }
   color: var(--col-dark);
   margin-bottom: 3px;
 }
-.about-detail-item a { color: var(--col-accent); }
+.about-detail-item a { color: var(--col-accent); overflow-wrap: anywhere; }
 .about-detail-item a:hover { text-decoration: underline; }
 
 /* ══════════════════════════════════════════════════
@@ -564,7 +588,7 @@ img { display: block; max-width: 100%; }
 ══════════════════════════════════════════════════ */
 .visit-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 32px;
   align-items: start;
 }
@@ -581,11 +605,11 @@ img { display: block; max-width: 100%; }
   font-size: 13px;
   text-align: center;
   gap: 10px;
+  padding: 18px;
 }
 .map-placeholder .map-pin { font-size: 36px; }
 .map-placeholder strong { color: var(--col-mid); font-size: 14px; }
-.visit-info { display: flex; flex-direction: column; gap: 20px; }
-.visit-block {}
+.visit-info { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
 .visit-block h4 {
   font-size: 11px;
   font-weight: 700;
@@ -599,6 +623,7 @@ img { display: block; max-width: 100%; }
   font-weight: 600;
   color: var(--col-dark);
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 .visit-block a:hover { color: var(--col-accent); text-decoration: underline; }
 .visit-block .hours-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
@@ -612,11 +637,12 @@ img { display: block; max-width: 100%; }
 .footer { background: var(--col-dark); color: #9aa1ab; font-size: 13px; padding: 36px 0; }
 .footer-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   gap: 28px;
 }
+.footer-col { min-width: 0; }
 .footer-col strong { display: block; color: #fff; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
-.footer-col a { color: #9aa1ab; display: block; margin-bottom: 4px; font-size: 13px; }
+.footer-col a { color: #9aa1ab; display: block; margin-bottom: 4px; font-size: 13px; overflow-wrap: anywhere; }
 .footer-col a:hover { color: #fff; }
 .footer-col p { font-size: 12px; line-height: 1.6; color: #6b7484; }
 .footer-bottom {
@@ -635,6 +661,10 @@ img { display: block; max-width: 100%; }
 /* ══════════════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (max-width: 700px) {
   .hero-split { grid-template-columns: 1fr; }
   .hero-photo-col { order: -1; }
@@ -644,20 +674,23 @@ img { display: block; max-width: 100%; }
   .visit-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: 20px; }
   .topbar { flex-direction: column; align-items: flex-start; gap: 6px; padding: 10px 16px; }
-  .topbar-contacts { gap: 10px; }
+  .topbar-contacts { justify-content: flex-start; gap: 10px; }
   .hero-cta .btn { width: 100%; justify-content: center; }
 }
+
 @media (max-width: 500px) {
-  .contact-grid { grid-template-columns: 1fr 1fr; }
-  .contact-grid .contact-item:first-child { grid-column: 1 / -1; } /* phone spans full width */
+  .container { padding: 0 18px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 22px; }
   .services-grid { grid-template-columns: 1fr; }
+  .btn { width: 100%; }
+  .map-placeholder { height: auto; min-height: 240px; }
 }
 </style>
 </head>
 <body>
 
 <!-- ═══════════════════════════════════════════════════
-     JS CONFIG — real data from glasnevinappliances.ie
+     JS CONFIG — real data
 ═══════════════════════════════════════════════════ -->
 <script>
   const BUSINESS_NAME    = "Glasnevin Appliance Services";
@@ -667,7 +700,7 @@ img { display: block; max-width: 100%; }
   const BUSINESS_HOURS   = "Mon–Fri 9am–5pm";
   const BUSINESS_MAP_URL = "https://maps.google.com/?cid=18207613182350119821";
   const BUSINESS_FB      = "https://www.facebook.com/Glasnevin.Appliances/";
-  const WEBSITE_URL      = "https://www.glasnevinappliances.ie/";
+  const WEBSITE_URL      = "https://ealoiontoir.github.io/Spirit-of-Time/glasnevinappliances.html";
   const SHOP_PHOTO       = "https://i.postimg.cc/fT6jJ96X/file-000000009b64720aafde63f822cfb309.png";
 
   function buildTelHref(phone) {
@@ -709,7 +742,6 @@ img { display: block; max-width: 100%; }
 ══════════════════════════════════════════════════ -->
 <div class="topbar">
   <div class="topbar-brand">
-    <!-- Photo 1: small shop thumbnail in topbar -->
     <img class="topbar-thumb"
          src="https://i.postimg.cc/fT6jJ96X/file-000000009b64720aafde63f822cfb309.png"
          alt="Glasnevin Appliance Services shopfront">
@@ -734,7 +766,6 @@ img { display: block; max-width: 100%; }
   <div class="container">
     <div class="hero-split">
 
-      <!-- Left column: text + CTA -->
       <div class="hero-text">
         <div class="hero-eyebrow">&#9874; Appliance Repairs &amp; Parts &nbsp;&middot;&nbsp; Dublin 9</div>
         <h1>Glasnevin<br><span>Appliance Services</span></h1>
@@ -759,7 +790,6 @@ img { display: block; max-width: 100%; }
         </div>
       </div>
 
-      <!-- Right column: Photo 2 — main hero shop photo -->
       <div class="hero-photo-col">
         <div class="hero-photo-frame">
           <img src="https://i.postimg.cc/fT6jJ96X/file-000000009b64720aafde63f822cfb309.png"
@@ -1005,10 +1035,6 @@ img { display: block; max-width: 100%; }
           &#128205; Open in Google Maps
         </a>
       </div>
-      <!-- To embed a real map, replace the div above with:
-      <iframe src="https://www.google.com/maps/embed?pb=..."
-        width="100%" height="240" style="border:0;border-radius:5px;"
-        allowfullscreen loading="lazy"></iframe> -->
 
       <div class="visit-info">
         <div class="visit-block">
@@ -1071,10 +1097,11 @@ img { display: block; max-width: 100%; }
     </div>
     <div class="footer-bottom">
       <span>Mon–Fri 9am–5pm &nbsp;&middot;&nbsp; 3 St Mobhi Road, Glasnevin, Dublin 9</span>
-      <span>Prototype micro-site &mdash; Ealoiontoir Studio</span>
+      <span>Prototype micro-site &middot; Ealoiontoir Studio</span>
     </div>
   </div>
 </footer>
 
 </body>
 </html>
+
