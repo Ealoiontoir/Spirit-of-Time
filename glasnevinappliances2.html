@@ -1,208 +1,245 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Expert appliance repairs in Glasnevin & Dublin 9. Washing machines, fridges, vacuums. 17+ years experience.">
-  <title>Glasnevin Appliances | Premium Repair Service</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-    body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-    .hero-bg { background: radial-gradient(circle at top right, #1e40af, #1e3a8a, #0f172a); }
-    .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-    .card-shadow { box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.08); }
-    .mobile-call-bar { display: none; }
-    @media (max-width: 768px) { .mobile-call-bar { display: flex; } }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glasnevin Appliance Services | Repairs, Parts & Lawnmowers Dublin 9</title>
+    
+    <style>
+        :root {
+            --primary: #1c3f6e;
+            --accent: #c8a84b;
+            --dark: #111418;
+            --light: #f4f5f7;
+            --border: #e0e2e6;
+            --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font); color: var(--dark); line-height: 1.6; background: #fff; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* --- TOPBAR WITH LOGO --- */
+        .topbar {
+            background: var(--dark);
+            color: #fff;
+            padding: 12px 0;
+        }
+        .topbar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-img {
+            width: 55px;
+            height: 38px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .brand-text b { display: block; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; color: #fff; }
+        .brand-text span { font-size: 10px; color: #8a939f; text-transform: uppercase; }
+
+        .top-contact a {
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+        }
+        .top-contact a:hover { color: var(--accent); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 70px 0;
+            background: #fff;
+            border-bottom: 5px solid var(--primary);
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .hero-text h1 { font-size: 42px; color: var(--primary); margin-bottom: 20px; line-height: 1.1; font-weight: 800; }
+        .hero-text h1 span { color: var(--accent); }
+        .hero-text p { margin-bottom: 30px; color: #4b5563; font-size: 18px; }
+        
+        .main-photo-frame {
+            position: relative;
+            border: 4px solid var(--primary);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(28,63,110,0.2);
+        }
+        .experience-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: #fff;
+            padding: 12px;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 22px;
+            line-height: 1;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .experience-badge small { font-size: 9px; text-transform: uppercase; margin-top: 2px; }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 35px;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 700;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(28,63,110,0.3);
+        }
+        .btn:hover { background: var(--dark); transform: translateY(-3px); }
+
+        /* --- SERVICES SECTION --- */
+        .services { padding: 80px 0; background: var(--light); }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 32px; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
+        .section-title .divider { width: 60px; height: 4px; background: var(--accent); margin: 15px auto; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            border-top: 5px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .card h3 { color: var(--primary); margin-bottom: 15px; font-size: 21px; }
+        .card p { font-size: 15px; color: #6b7280; }
+
+        /* --- CONTACT & FOOTER --- */
+        .footer { background: var(--dark); color: #9aa1ab; padding: 60px 0; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
+        .footer h4 { color: #fff; margin-bottom: 25px; text-transform: uppercase; font-size: 13px; letter-spacing: 1.5px; border-left: 3px solid var(--accent); padding-left: 10px; }
+        .footer p, .footer a { font-size: 15px; color: #9aa1ab; display: block; margin-bottom: 10px; }
+        .footer a:hover { color: #fff; text-decoration: underline; }
+
+        .brand-list { margin-top: 50px; padding-top: 30px; border-top: 1px solid #1e2530; text-align: center; }
+        .brand-list span { color: #5a6272; font-size: 12px; font-weight: 700; margin: 0 10px; text-transform: uppercase; }
+
+        @media (max-width: 850px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-text { order: 2; }
+            .main-photo-frame { order: 1; max-width: 500px; margin: 0 auto; }
+            .topbar-inner { flex-direction: column; gap: 12px; }
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body>
 
-  <div class="mobile-call-bar fixed bottom-0 left-0 right-0 z-[100] bg-white border-t p-3 gap-3 shadow-[0_-5px_20px_rgba(0,0,0,0.1)]">
-    <a href="tel:018570221" class="flex-1 bg-blue-600 text-white rounded-2xl py-4 font-black text-center flex items-center justify-center gap-2">
-      <i class="fa-solid fa-phone"></i> CALL NOW
-    </a>
-    <a href="https://facebook.com/glasnevinappliances" target="_blank" class="w-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-xl">
-      <i class="fa-brands fa-facebook-f"></i>
-    </a>
-  </div>
-
-  <nav class="bg-white/90 backdrop-blur-xl sticky top-0 z-50 border-b border-slate-100">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <div class="bg-blue-600 p-2.5 rounded-2xl text-white shadow-lg shadow-blue-200">
-          <i class="fa-solid fa-screwdriver-wrench text-xl"></i>
-        </div>
-        <div class="leading-none">
-          <span class="text-xl font-extrabold tracking-tight block">GLASNEVIN</span>
-          <span class="text-lg font-bold text-blue-600 block">APPLIANCES</span>
-        </div>
-      </div>
-      
-      <div class="hidden lg:flex gap-10 font-bold text-slate-600">
-        <a href="#services" class="hover:text-blue-600 transition">Services</a>
-        <a href="#reviews" class="hover:text-blue-600 transition">Reviews</a>
-        <a href="#contact" class="hover:text-blue-600 transition">Location</a>
-      </div>
-
-      <div class="flex items-center gap-4">
-        <a href="https://facebook.com/glasnevinappliances" target="_blank" class="hidden sm:flex w-11 h-11 bg-slate-100 rounded-xl items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all">
-          <i class="fa-brands fa-facebook-f"></i>
-        </a>
-        <a href="tel:018570221" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3.5 rounded-2xl font-black flex items-center gap-2 shadow-xl shadow-blue-200 transition-transform active:scale-95">
-          <i class="fa-solid fa-phone"></i>
-          <span class="hidden md:inline font-black">01 857 0221</span>
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <section class="hero-bg text-white pt-24 pb-32 overflow-hidden relative">
-    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-      <div class="relative z-10">
-        <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/10 mb-8">
-          <span class="flex h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
-          <span class="text-sm font-bold tracking-wide uppercase">Open & Responding Now</span>
-        </div>
-        <h1 class="text-5xl md:text-7xl font-black mb-8 leading-[1.1] tracking-tighter">
-          Dublin's Trusted <br><span class="text-blue-400">Appliance Masters.</span>
-        </h1>
-        <p class="text-xl text-slate-300 mb-10 max-w-lg leading-relaxed">
-          Quick response repairs in Glasnevin & Dublin 9. Over 17 years fixing the brands you love with 12-month guarantees.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-5">
-          <a href="tel:018570221" class="bg-white text-blue-900 px-10 py-5 rounded-[2rem] font-black text-xl text-center shadow-2xl hover:scale-105 transition-all">
-            Call Specialist
-          </a>
-          <div class="flex items-center gap-4 px-4">
-            <div class="flex -space-x-3">
-              <div class="w-10 h-10 rounded-full border-2 border-blue-900 bg-slate-400 flex items-center justify-center text-xs">JD</div>
-              <div class="w-10 h-10 rounded-full border-2 border-blue-900 bg-slate-500 flex items-center justify-center text-xs">MK</div>
-              <div class="w-10 h-10 rounded-full border-2 border-blue-900 bg-slate-600 flex items-center justify-center text-xs text-white">+50</div>
+    <nav class="topbar">
+        <div class="container topbar-inner">
+            <div class="brand">
+                <img src="https://i.postimg.cc/fT6jJ96X/file-000000009b64720aafde63f822cfb309.png" class="logo-img" alt="Glasnevin Appliance Logo">
+                <div class="brand-text">
+                    <b>Glasnevin Appliance</b>
+                    <span>Dublin 9 • Est. 2007</span>
+                </div>
             </div>
-            <p class="text-sm font-bold text-slate-400">Trusted by 5000+ <br>Local Households</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="hidden lg:block glass rounded-[3rem] p-12">
-        <h3 class="text-2xl font-black mb-8">Why Choose Us?</h3>
-        <div class="space-y-8">
-          <div class="flex gap-5">
-            <div class="text-blue-400 text-2xl"><i class="fa-solid fa-bolt"></i></div>
-            <div><p class="font-bold text-lg">Same/Next Day Service</p><p class="text-slate-400 text-sm">We aim to be at your door within 24 hours.</p></div>
-          </div>
-          <div class="flex gap-5">
-            <div class="text-blue-400 text-2xl"><i class="fa-solid fa-shield-check"></i></div>
-            <div><p class="font-bold text-lg">Full Warranty</p><p class="text-slate-400 text-sm">12-month parts and labor guarantee on all repairs.</p></div>
-          </div>
-          <div class="flex gap-5">
-            <div class="text-blue-400 text-2xl"><i class="fa-solid fa-euro-sign"></i></div>
-            <div><p class="font-bold text-lg">No Hidden Fees</p><p class="text-slate-400 text-sm">Clear, upfront pricing before we start any work.</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="py-32 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center max-w-2xl mx-auto mb-20">
-        <h2 class="text-4xl md:text-5xl font-black mb-6">Expertise In Every Fix</h2>
-        <p class="text-slate-500 text-lg">We bring life back to your essential appliances using only original or premium grade parts.</p>
-      </div>
-      
-      <div class="grid md:grid-cols-3 gap-10">
-        <div class="p-12 rounded-[3.5rem] bg-slate-50 border border-slate-100 card-shadow group hover:bg-blue-600 transition-all duration-500 hover:-translate-y-4">
-          <i class="fa-solid fa-washing-machine text-5xl text-blue-600 mb-8 group-hover:text-white"></i>
-          <h3 class="text-2xl font-black mb-4 group-hover:text-white">Washing & Drying</h3>
-          <p class="text-slate-600 group-hover:text-blue-100 leading-relaxed">Fixing leaks, drum issues, and electronics for all washers and dryers.</p>
-        </div>
-        <div class="p-12 rounded-[3.5rem] bg-slate-50 border border-slate-100 card-shadow group hover:bg-blue-600 transition-all duration-500 hover:-translate-y-4">
-          <i class="fa-solid fa-refrigerator text-5xl text-blue-600 mb-8 group-hover:text-white"></i>
-          <h3 class="text-2xl font-black mb-4 group-hover:text-white">Refrigeration</h3>
-          <p class="text-slate-600 group-hover:text-blue-100 leading-relaxed">Thermostat calibration, gas re-fills, and motor repairs for all fridges.</p>
-        </div>
-        <div class="p-12 rounded-[3.5rem] bg-slate-50 border border-slate-100 card-shadow group hover:bg-blue-600 transition-all duration-500 hover:-translate-y-4">
-          <i class="fa-solid fa-vacuum text-5xl text-blue-600 mb-8 group-hover:text-white"></i>
-          <h3 class="text-2xl font-black mb-4 group-hover:text-white">Vacuum Experts</h3>
-          <p class="text-slate-600 group-hover:text-blue-100 leading-relaxed">Specialist Dyson and Miele center. Suction restoration and battery replacement.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="reviews" class="py-32 bg-slate-50 border-y border-slate-200">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-center text-4xl font-black mb-20 tracking-tight">What Your Neighbors Say</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100">
-          <div class="flex text-yellow-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="italic text-slate-600 mb-6 font-medium">"Brilliant service! Fixed my Bosch washing machine within 2 hours of calling. Very reasonable price."</p>
-          <p class="font-bold text-slate-900">— Sarah M., Glasnevin</p>
-        </div>
-        <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100">
-          <div class="flex text-yellow-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="italic text-slate-600 mb-6 font-medium">"The only place I go for Dyson repairs. They had the part in stock and it was ready the same day."</p>
-          <p class="font-bold text-slate-900">— Thomas R., Dublin 9</p>
-        </div>
-        <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100">
-          <div class="flex text-yellow-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="italic text-slate-600 mb-6 font-medium">"Highly recommend. Honest assessment of my fridge repair—no pushy sales, just great work."</p>
-          <p class="font-bold text-slate-900">— Linda D., Phibsborough</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="py-32 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="bg-slate-950 rounded-[4rem] p-12 md:p-24 text-white overflow-hidden relative">
-        <div class="grid lg:grid-cols-2 gap-20 relative z-10">
-          <div>
-            <h2 class="text-4xl md:text-6xl font-black mb-10">Find Us in <br>The Heart of <br>Glasnevin.</h2>
-            <div class="space-y-8">
-              <div class="flex gap-6 items-start">
-                <div class="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"><i class="fa-solid fa-map-location-dot"></i></div>
-                <div><p class="text-xl font-bold">3 St Mobhi Road</p><p class="text-slate-400">Glasnevin, Dublin 9, D09 A8P6</p></div>
-              </div>
-              <div class="flex gap-6 items-start">
-                <div class="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"><i class="fa-solid fa-clock"></i></div>
-                <div><p class="text-xl font-bold">Opening Hours</p><p class="text-slate-400">Mon - Fri: 09:00 - 17:30 <br>Sat: 09:00 - 13:00</p></div>
-              </div>
+            <div class="top-contact">
+                <a href="tel:+35318570221">📞 CALL: 01 857 02 21</a>
             </div>
-          </div>
-          
-          <div class="flex flex-col gap-8 justify-center">
-            <div class="bg-white/5 border border-white/10 p-12 rounded-[3rem] text-center">
-              <p class="text-blue-400 font-black tracking-widest uppercase mb-4">Direct Repair Line</p>
-              <a href="tel:018570221" class="text-4xl md:text-6xl font-black hover:text-blue-400 transition-colors">01 857 0221</a>
-              <div class="mt-8 flex justify-center gap-4">
-                <a href="https://facebook.com/glasnevinappliances" target="_blank" class="bg-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center text-2xl hover:bg-blue-700 transition">
-                  <i class="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="mailto:info@glasnevinappliances.ie" class="bg-white/10 w-16 h-16 rounded-2xl flex items-center justify-center text-2xl hover:bg-white/20 transition">
-                  <i class="fa-solid fa-envelope"></i>
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <footer class="py-20 text-center border-t border-slate-200">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex justify-center gap-10 mb-10 text-slate-400 font-bold">
-        <a href="#services" class="hover:text-blue-600">Services</a>
-        <a href="#reviews" class="hover:text-blue-600">Reviews</a>
-        <a href="https://facebook.com/glasnevinappliances" target="_blank" class="hover:text-blue-600 underline">Follow us on Facebook</a>
-      </div>
-      <p class="text-slate-400 font-medium">© 2026 Glasnevin Appliances. All rights reserved.</p>
-    </div>
-  </footer>
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Expert Repairs & <br><span>Spare Parts</span></h1>
+                <p>North Dublin's premier destination for domestic appliance repairs and lawnmower servicing. With over 17 years of experience, we provide fast, reliable solutions for your home.</p>
+                <a href="tel:+35318570221" class="btn">BOOK A REPAIR NOW</a>
+            </div>
+            <div class="main-photo-frame">
+                <img src="https://i.postimg.cc/fT6jJ96X/file-000000009b64720aafde63f822cfb309.png" alt="Glasnevin Appliance Services Storefront">
+                <div class="experience-badge">
+                    17+
+                    <small>Years</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Services</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="services-grid">
+                <div class="card">
+                    <h3>Appliance Repairs</h3>
+                    <p>Expert fixing of washing machines, dishwashers, ovens, and microwaves. We offer home visits for all large appliances across Dublin 9.</p>
+                </div>
+                <div class="card">
+                    <h3>Genuine Spare Parts</h3>
+                    <p>Supplying high-quality parts for leading brands including Electrolux, Zanussi, AEG, and Whirlpool. Call us with your model number.</p>
+                </div>
+                <div class="card">
+                    <h3>Lawnmower Service</h3>
+                    <p>Specialist repairs for petrol and electric mowers. We provide professional blade sharpening and Flymo authorized servicing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Find Us</h4>
+                    <p>3 St Mobhi Road<br>Glasnevin, Dublin 9<br>Ireland</p>
+                    <a href="https://maps.google.com/?cid=18207613182350119821" target="_blank">📍 Open in Google Maps</a>
+                </div>
+                <div>
+                    <h4>Opening Hours</h4>
+                    <p>Monday – Friday: 9am – 5pm</p>
+                    <p>Saturday: Closed</p>
+                    <p>Sunday: Closed</p>
+                </div>
+                <div>
+                    <h4>Contact Us</h4>
+                    <a href="tel:+35318570221">Phone: 01 857 02 21</a>
+                    <a href="mailto:glasnevinappliances@eircom.net">Email: Click to Mail</a>
+                </div>
+                <div>
+                    <h4>Social Media</h4>
+                    <a href="https://www.facebook.com/Glasnevin.Appliances/" target="_blank">Facebook Profile</a>
+                </div>
+            </div>
+
+            <div class="brand-list">
+                <span>Electrolux</span> | <span>Zanussi</span> | <span>AEG</span> | <span>Flymo</span> | <span>Whirlpool</span> | <span>Nilfisk</span>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 11px; opacity: 0.5;">© 2026 Glasnevin Appliance Services. Professional Repair Shop in Dublin 9.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
