@@ -3,171 +3,143 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta name="description" content="Professional appliance repair in Glasnevin and Dublin 9. 17 years experience.">
-  <title>Glasnevin Appliances | Appliance Repair in Dublin 9</title>
-  
+  <meta name="description" content="Professional domestic appliance repairs in Glasnevin and North Dublin. 17 years of experience.">
+  <title>Glasnevin Appliances | Expert Repair Service Dublin 9</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  
   <style>
-    body { font-family: 'Segoe UI', system-ui, sans-serif; }
-    
-    /* Стилизованный фон без использования фото */
-    .hero-bg { 
-      background: radial-gradient(circle at top right, #2563eb, #1e40af, #111827); 
-    }
-
-    /* Стили для текстовых логотипов брендов */
-    .brand-box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 80px;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-    .brand-box:hover {
-      transform: scale(1.1);
-    }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .hero-gradient { background: radial-gradient(circle at 70% 30%, #1e40af, #1e3a8a, #0f172a); }
+    .brand-text { transition: all 0.3s ease; cursor: default; }
+    .brand-text:hover { transform: translateY(-3px); color: #2563eb; }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-slate-50 text-slate-900">
 
-  <nav class="bg-white shadow-md sticky top-0 z-50">
+  <nav class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <i class="fa-solid fa-screwdriver-wrench text-3xl text-blue-600"></i>
-        <div>
-          <span class="text-2xl font-bold text-gray-900">Glasnevin</span>
-          <span class="text-2xl font-bold text-blue-600">Appliances</span>
+      <div class="flex items-center gap-2">
+        <div class="bg-blue-600 p-2 rounded-lg text-white">
+          <i class="fa-solid fa-screwdriver-wrench text-xl"></i>
+        </div>
+        <div class="leading-tight">
+          <span class="text-xl font-extrabold block text-slate-900 uppercase tracking-tight">Glasnevin</span>
+          <span class="text-lg font-bold block text-blue-600 -mt-1">Appliances</span>
         </div>
       </div>
-      <div class="hidden md:flex gap-8 text-lg font-medium">
+      <div class="hidden md:flex gap-8 font-medium">
         <a href="#services" class="hover:text-blue-600 transition">Services</a>
+        <a href="#about" class="hover:text-blue-600 transition">About</a>
         <a href="#brands" class="hover:text-blue-600 transition">Brands</a>
-        <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+        <a href="#contact" class="hover:text-blue-600 transition">Location</a>
       </div>
-      <a href="tel:018570221" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl font-bold flex items-center gap-2 transition shadow-lg shadow-blue-200">
-        <i class="fa-solid fa-phone"></i> 
-        <span class="hidden sm:inline">01 857 0221</span>
+      <a href="tel:018570221" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-bold flex items-center gap-2 shadow-lg shadow-blue-200 transition">
+        <i class="fa-solid fa-phone"></i> 01 857 0221
       </a>
     </div>
   </nav>
 
-  <section class="hero-bg text-white py-24 md:py-32">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
-        Local Appliance Repair <br><span class="text-blue-400">Glasnevin & Dublin 9</span>
+  <section class="hero-gradient text-white py-24 md:py-32 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 relative z-10 text-center md:text-left">
+      <div class="inline-block bg-blue-500/20 border border-blue-400/30 px-4 py-1.5 rounded-full text-blue-200 text-sm font-semibold mb-6">
+        📍 Serving Glasnevin & Dublin 9 since 2007
+      </div>
+      <h1 class="text-5xl md:text-7xl font-black mb-8 leading-[1.1] tracking-tight">
+        Reliable Appliance <br><span class="text-blue-400">Repair Specialists.</span>
       </h1>
-      <p class="text-xl md:text-2xl mb-10 text-blue-100 opacity-90 max-w-3xl mx-auto">
-        17 years of trusted service. Honest pricing. <br class="hidden md:block"> We fix washing machines, fridges, and vacuums fast.
+      <p class="text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl leading-relaxed">
+        Professional service for washing machines, fridges, vacuum cleaners and more. Trusted by thousands of local customers.
       </p>
-      
-      <div class="flex justify-center">
-        <a href="tel:018570221" class="bg-white text-blue-700 text-2xl px-12 py-6 rounded-2xl font-bold flex items-center gap-4 transition hover:bg-blue-50 shadow-2xl">
-          <i class="fa-solid fa-phone-volume"></i> Call Now: 01 857 0221
+      <div class="flex flex-col sm:flex-row gap-5">
+        <a href="tel:018570221" class="bg-white text-blue-900 hover:bg-slate-100 px-10 py-5 rounded-2xl font-black text-lg text-center transition shadow-2xl">
+          Call 01 857 0221
+        </a>
+        <a href="#services" class="border-2 border-white/30 hover:border-white/60 px-10 py-5 rounded-2xl font-bold text-lg text-center transition">
+          View Services
         </a>
       </div>
     </div>
   </section>
 
-  <section id="services" class="py-20 bg-white">
+  <section id="services" class="py-24 bg-white">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-16">Expert Repairs For</h2>
-      <div class="grid md:grid-cols-3 gap-10">
-        <div class="bg-gray-50 p-10 rounded-3xl border border-gray-100 hover:border-blue-300 transition-all shadow-sm">
-          <i class="fa-solid fa-soap text-5xl text-blue-600 mb-6"></i>
-          <h3 class="text-2xl font-bold mb-4">Laundry</h3>
-          <p class="text-gray-600 leading-relaxed">Expert repair for washing machines and tumble dryers. All major faults fixed.</p>
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-black mb-4">Expert Repair Services</h2>
+        <p class="text-slate-500 text-lg">We fix all major domestic appliances with original parts.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:shadow-xl transition-all group">
+          <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 text-3xl mb-8 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+            <i class="fa-solid fa-soap"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Laundry & Kitchen</h3>
+          <p class="text-slate-600 leading-relaxed">Comprehensive repair for washing machines, tumble dryers, dishwashers, electric cookers, and ovens.</p>
         </div>
-        <div class="bg-gray-50 p-10 rounded-3xl border border-gray-100 hover:border-blue-300 transition-all shadow-sm">
-          <i class="fa-solid fa-snowflake text-5xl text-blue-600 mb-6"></i>
+        <div class="p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:shadow-xl transition-all group">
+          <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 text-3xl mb-8 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+            <i class="fa-solid fa-snowflake"></i>
+          </div>
           <h3 class="text-2xl font-bold mb-4">Refrigeration</h3>
-          <p class="text-gray-600 leading-relaxed">Fridges and freezers. Cooling issues, seal replacements, and thermostat repairs.</p>
+          <p class="text-slate-600 leading-relaxed">Fixing cooling issues, thermostat failures, and seal replacements for all fridge-freezer models.</p>
         </div>
-        <div class="bg-gray-50 p-10 rounded-3xl border border-gray-100 hover:border-blue-300 transition-all shadow-sm">
-          <i class="fa-solid fa-wind text-5xl text-blue-600 mb-6"></i>
-          <h3 class="text-2xl font-bold mb-4">Vacuums</h3>
-          <p class="text-gray-600 leading-relaxed">Full service and repair for Dyson, Miele, and Hoover. Restoring full suction power.</p>
+        <div class="p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:shadow-xl transition-all group">
+          <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 text-3xl mb-8 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+            <i class="fa-solid fa-wind"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Vacuum & Small</h3>
+          <p class="text-slate-600 leading-relaxed">Specialist in Dyson, Miele, and Henry vacuum repairs. We also sharpen lawnmower blades.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="brands" class="py-24 bg-gray-50">
+  <section id="brands" class="py-20 bg-slate-100">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-center text-gray-500 uppercase tracking-[0.3em] font-bold mb-16">Brands We Service</h2>
-      
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-y-16 gap-x-10 items-center">
-        
-        <div class="brand-box">
-          <span class="text-4xl font-black tracking-tighter text-gray-800" style="font-family: sans-serif;">BOSCH</span>
-        </div>
-        
-        <div class="brand-box">
-          <span class="text-2xl font-light tracking-[0.25em] text-gray-700" style="font-family: 'Segoe UI', sans-serif;">SIEMENS</span>
-        </div>
-        
-        <div class="brand-box">
-          <span class="text-4xl font-serif font-bold italic text-red-800">Miele</span>
-        </div>
-        
-        <div class="brand-box">
-          <span class="text-2xl font-semibold tracking-tight text-blue-900">Electrolux</span>
-        </div>
-        
-        <div class="brand-box">
-          <span class="text-3xl font-bold tracking-[0.2em] text-gray-900">DYSON</span>
-        </div>
-        
-        <div class="brand-box">
-          <span class="text-3xl font-bold text-red-700" style="border: 3px solid #b91c1c; padding: 0 12px; border-radius: 50px;">Hoover</span>
-        </div>
-        
-        <div class="brand-box">
-          <span class="text-5xl font-black text-gray-900">AEG</span>
-        </div>
-        
-        <div class="brand-box">
-          <span class="text-2xl font-extrabold tracking-tighter text-gray-800">Hotpoint</span>
-        </div>
-        
-        <div class="brand-box">
-          <span class="text-2xl font-semibold italic text-gray-700" style="font-family: serif;">Whirlpool</span>
-        </div>
-        
-        <div class="brand-box">
-          <span class="text-3xl font-bold tracking-tighter text-gray-900 uppercase">Zanussi</span>
-        </div>
-
+      <h2 class="text-center text-sm font-bold uppercase tracking-[0.3em] text-slate-400 mb-16">Brands We Master</h2>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-y-12 gap-x-8 items-center justify-items-center opacity-70">
+        <span class="brand-text text-3xl font-black tracking-tighter" style="font-family: sans-serif;">BOSCH</span>
+        <span class="brand-text text-2xl font-light tracking-[0.2em]">SIEMENS</span>
+        <span class="brand-text text-3xl font-serif italic font-bold text-red-900">Miele</span>
+        <span class="brand-text text-2xl font-semibold tracking-tight">Electrolux</span>
+        <span class="brand-text text-2xl font-bold tracking-[0.3em]">DYSON</span>
+        <span class="brand-text text-3xl font-bold" style="font-family: cursive;">Hoover</span>
+        <span class="brand-text text-4xl font-black">AEG</span>
+        <span class="brand-text text-2xl font-extrabold tracking-tighter">Hotpoint</span>
+        <span class="brand-text text-2xl font-semibold italic font-serif">Whirlpool</span>
+        <span class="brand-text text-3xl font-bold tracking-tighter">ZANUSSI</span>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-8">Ready to help</h2>
-      <div class="bg-blue-50 rounded-[40px] p-12 shadow-inner">
-        <p class="text-2xl font-bold mb-2">Glasnevin Appliances</p>
-        <p class="text-lg text-gray-600 mb-8">3 St Mobhi Road, Glasnevin, Dublin 9, D09 A8P6</p>
-        
-        <div class="flex flex-col gap-4 items-center">
-          <a href="tel:018570221" class="text-4xl md:text-5xl font-black text-blue-600 hover:text-blue-700 transition">
+  <section id="contact" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="bg-blue-900 rounded-[3rem] p-10 md:p-20 text-white flex flex-col md:flex-row justify-between items-center gap-12">
+        <div class="text-center md:text-left">
+          <h2 class="text-4xl font-black mb-6">Need a repair today?</h2>
+          <div class="space-y-4 text-xl">
+            <p class="flex items-center justify-center md:justify-start gap-4 text-blue-200">
+              <i class="fa-solid fa-location-dot"></i> 3 St Mobhi Road, Glasnevin, D09
+            </p>
+            <p class="flex items-center justify-center md:justify-start gap-4">
+              <i class="fa-solid fa-clock text-blue-400"></i> Open Mon-Sat
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4 w-full md:w-auto">
+          <a href="tel:018570221" class="bg-white text-blue-900 px-12 py-6 rounded-3xl font-black text-2xl text-center hover:scale-105 transition-transform">
             01 857 0221
           </a>
-          <p class="text-gray-500 font-medium">Local service • Quick response</p>
+          <a href="https://maps.google.com/?cid=18207613182350119821" target="_blank" class="text-center text-blue-300 hover:text-white transition font-bold">
+            View on Google Maps →
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="bg-gray-900 text-gray-500 py-12 text-center border-t border-gray-800">
-    <div class="max-w-6xl mx-auto px-6">
-      <p class="font-medium text-gray-400 italic">"Transparency over freedom. We don't just mimic — we fix."</p>
-      <div class="h-px bg-gray-800 w-24 mx-auto my-6"></div>
-      <p>© 2026 Glasnevin Appliances • Established 2007</p>
-    </div>
+  <footer class="py-12 border-t border-slate-200 text-center text-slate-400 font-medium">
+    <p>© 2026 Glasnevin Appliances • Your Local Repair Partner</p>
   </footer>
 
 </body>
