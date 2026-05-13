@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,32 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Lúcás Ó Dathaire — Painting • Repairs • Restoration</title>
-<meta name="description" content="Lúcás Ó Dathaire — painter and handyman in Dublin. Painting, wall repairs, door repairs, restoration and small property services.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
-  --blue:#edf6f8;
-  --blue2:#e4f0f3;
-  --blue3:#d9e8ec;
-  --paper:#f8fbfb;
-  --cream:#f6f1e8;
+  --blue:#eef6f8;
+  --blue2:#e6f1f4;
+  --paper:#f9fcfc;
+  --gold:#b08b4f;
+  --gold2:#c7a970;
   --ink:#202426;
-  --soft:#5f686b;
-  --gold:#ad8a4a;
-  --gold2:#c2a46d;
-  --line:rgba(173,138,74,.38);
-  --shadow:0 18px 46px rgba(32,36,38,.10);
-  --serif:'Cormorant Garamond', Georgia, serif;
-  --sans:'Jost', Arial, sans-serif;
+  --soft:#667174;
+  --line:rgba(176,139,79,.35);
+
+  --serif:'Cormorant Garamond', serif;
+  --sans:'Jost', sans-serif;
 }
 
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
+  box-sizing:border-box;
 }
 
 html{
@@ -40,12 +37,13 @@ html{
 
 body{
   background:
-    radial-gradient(circle at top left,rgba(173,138,74,.10),transparent 34%),
-    linear-gradient(135deg,var(--blue),var(--blue2));
+  radial-gradient(circle at top left, rgba(176,139,79,.08), transparent 30%),
+  linear-gradient(135deg,var(--blue),var(--blue2));
+
   color:var(--ink);
   font-family:var(--sans);
   font-weight:300;
-  line-height:1.65;
+  line-height:1.7;
 }
 
 body:after{
@@ -53,27 +51,38 @@ body:after{
   position:fixed;
   inset:0;
   pointer-events:none;
-  opacity:.035;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.03;
+
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 a{
-  color:inherit;
   text-decoration:none;
+  color:inherit;
 }
 
 .page{
   width:min(1120px,94vw);
   margin:0 auto;
-  padding:26px 0 42px;
+  padding:28px 0 42px;
 }
+
+.card{
+  background:rgba(249,252,252,.88);
+  border:1px solid var(--line);
+  box-shadow:0 18px 48px rgba(32,36,38,.08);
+}
+
+/* NAV */
 
 .nav{
   display:flex;
   justify-content:flex-end;
   align-items:center;
-  gap:30px;
+  gap:28px;
+
   padding:8px 0 24px;
+
   font-size:12px;
   letter-spacing:2px;
   text-transform:uppercase;
@@ -89,40 +98,36 @@ a{
   border-color:var(--gold);
 }
 
-.nav .quote-link{
+.quote-link{
   border:1px solid var(--gold);
   padding:10px 18px;
-  background:rgba(255,255,255,.36);
+  background:rgba(255,255,255,.4);
 }
 
-.card{
-  background:rgba(248,251,251,.88);
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
-}
+/* HEADER IMAGE */
 
-.logo-banner{
-  position:relative;
+.header-image{
   overflow:hidden;
-  background:var(--paper);
+  position:relative;
 }
 
-.logo-banner:before{
+.header-image:before{
   content:'';
   position:absolute;
   inset:15px;
-  border:1px solid rgba(173,138,74,.24);
+  border:1px solid rgba(176,139,79,.2);
   pointer-events:none;
   z-index:2;
 }
 
-.logo-banner img{
-  display:block;
+.header-image img{
   width:100%;
+  display:block;
   aspect-ratio:16/7;
   object-fit:cover;
-  object-position:center;
 }
+
+/* HERO */
 
 .hero{
   display:grid;
@@ -132,7 +137,7 @@ a{
 
 .hero-left,
 .hero-right{
-  padding:54px 52px;
+  padding:56px 54px;
 }
 
 .hero-left{
@@ -150,10 +155,9 @@ a{
 
 h1{
   font-family:var(--serif);
-  font-size:clamp(46px,6vw,76px);
-  line-height:.95;
-  font-weight:700;
-  margin-bottom:12px;
+  font-size:clamp(46px,6vw,78px);
+  line-height:.92;
+  margin-bottom:14px;
 }
 
 .subtitle{
@@ -161,28 +165,28 @@ h1{
   letter-spacing:5px;
   text-transform:uppercase;
   color:var(--gold);
+  margin-bottom:24px;
   font-weight:500;
-  margin-bottom:22px;
 }
 
 .hero-text{
   font-family:var(--serif);
-  font-size:24px;
-  line-height:1.34;
-  color:var(--ink);
-  max-width:460px;
+  font-size:25px;
+  line-height:1.35;
+  max-width:470px;
 }
 
 .contact{
   display:grid;
   gap:13px;
-  margin-bottom:26px;
+  margin-bottom:24px;
 }
 
 .contact-row{
   display:grid;
   grid-template-columns:34px 1fr;
   align-items:center;
+
   font-size:18px;
   font-weight:400;
 }
@@ -193,16 +197,18 @@ h1{
   border-radius:50%;
   background:var(--gold);
   color:#fff;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-size:14px;
 }
 
 .rule{
   height:1px;
   background:var(--line);
-  margin:8px 0 22px;
+  margin:10px 0 22px;
 }
 
 .service-line{
@@ -217,7 +223,6 @@ h1{
   text-transform:uppercase;
   letter-spacing:4px;
   color:var(--soft);
-  font-weight:500;
   margin-top:4px;
 }
 
@@ -232,17 +237,15 @@ h1{
   background:var(--ink);
   color:#fff;
   border:1px solid var(--ink);
+
   padding:13px 22px;
+
   text-transform:uppercase;
   letter-spacing:2px;
   font-size:12px;
   font-weight:600;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
+
   transition:.25s;
-  cursor:pointer;
 }
 
 .btn:hover{
@@ -261,6 +264,8 @@ h1{
   color:#fff;
 }
 
+/* STORY */
+
 .story{
   padding:58px 56px;
   text-align:center;
@@ -270,7 +275,6 @@ h1{
 .story h2{
   font-family:var(--serif);
   font-size:44px;
-  line-height:1;
   margin-bottom:8px;
 }
 
@@ -279,179 +283,64 @@ h1{
   letter-spacing:5px;
   text-transform:uppercase;
   color:var(--gold);
+  margin-bottom:30px;
   font-weight:500;
-  margin-bottom:28px;
 }
 
 .story-text{
-  max-width:780px;
+  max-width:820px;
   margin:0 auto;
+
   font-size:18px;
-  color:var(--ink);
 }
 
-.story-text p + p{
-  margin-top:17px;
+.story-text p+p{
+  margin-top:18px;
 }
 
-.values{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-  margin-top:42px;
-}
+/* PROJECT */
 
-.value{
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.42);
-  padding:20px 14px;
-  text-align:center;
-  text-transform:uppercase;
-  letter-spacing:1.5px;
-  font-size:12px;
-  font-weight:500;
-}
-
-.value svg{
-  width:36px;
-  height:36px;
-  display:block;
-  margin:0 auto 8px;
-  stroke:var(--ink);
-  fill:none;
-  stroke-width:1.8;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-
-.info-strip{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  background:rgba(255,255,255,.36);
-}
-
-.info-item{
-  padding:20px 14px;
-  text-align:center;
-  border-right:1px solid var(--line);
-}
-
-.info-item:last-child{
-  border-right:0;
-}
-
-.info-item b{
-  display:block;
-  font-family:var(--serif);
-  font-size:20px;
-  margin-bottom:4px;
-}
-
-.info-item span{
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--soft);
-  font-weight:500;
-}
-
-.services-section{
+.project{
   padding:58px 56px;
   border-top:0;
 }
 
-.section-title{
-  font-family:var(--serif);
-  font-size:42px;
-  line-height:1;
-  margin-bottom:10px;
-}
-
-.section-note{
-  color:var(--soft);
-  max-width:680px;
+.project-top{
   margin-bottom:28px;
 }
 
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
+.project-label{
+  font-size:12px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:10px;
+  font-weight:600;
 }
 
-.service{
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.44);
-  padding:22px;
-}
-
-.service svg{
-  width:32px;
-  height:32px;
-  stroke:var(--gold);
-  fill:none;
-  stroke-width:1.9;
-  stroke-linecap:round;
-  stroke-linejoin:round;
+.project h2{
+  font-family:var(--serif);
+  font-size:44px;
   margin-bottom:12px;
 }
 
-.service h3{
-  font-family:var(--serif);
-  font-size:25px;
-  line-height:1.05;
-  margin-bottom:8px;
-}
-
-.service p{
+.project p{
+  max-width:720px;
   color:var(--soft);
-  font-size:14px;
 }
 
-.gallery{
-  padding:58px 56px;
-  border-top:0;
-}
-
-.gallery-head{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:24px;
-  margin-bottom:24px;
-}
-
-.gallery-head p{
-  color:var(--soft);
-  max-width:500px;
-}
-
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-}
-
-.gallery-item{
-  background:rgba(255,255,255,.5);
+.project-image{
+  overflow:hidden;
   border:1px solid var(--line);
-  min-height:210px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:var(--soft);
-  padding:20px;
+  background:#fff;
 }
 
-.gallery-item img{
+.project-image img{
   width:100%;
-  height:100%;
-  object-fit:cover;
   display:block;
 }
+
+/* QUOTE */
 
 .quote-section{
   padding:58px 56px;
@@ -461,26 +350,29 @@ h1{
 .quote-layout{
   display:grid;
   grid-template-columns:.9fr 1.1fr;
-  gap:32px;
-  align-items:start;
+  gap:30px;
 }
 
 .quote-help{
   border:1px solid var(--line);
-  background:rgba(255,255,255,.38);
+  background:rgba(255,255,255,.35);
+
   padding:26px;
 }
 
 .quote-help h3{
   font-family:var(--serif);
-  font-size:30px;
-  margin-bottom:12px;
+  font-size:32px;
+  margin-bottom:14px;
 }
 
 .quote-help ul{
   list-style:none;
   display:grid;
-  gap:11px;
+  gap:12px;
+}
+
+.quote-help li{
   color:var(--soft);
 }
 
@@ -488,25 +380,27 @@ h1{
   content:'✓';
   color:var(--gold);
   font-weight:700;
-  margin-right:9px;
+  margin-right:10px;
 }
 
 .quote-box{
   border:1px solid var(--line);
-  background:linear-gradient(180deg,#fafdff,#eef6f8);
-  padding:26px;
+
+  background:
+  linear-gradient(180deg,#fbfeff,#eef6f8);
+
+  padding:28px;
 }
 
 .quote-box h2{
   font-family:var(--serif);
-  font-size:38px;
-  line-height:1;
+  font-size:42px;
   margin-bottom:8px;
 }
 
 .quote-box p{
   color:var(--soft);
-  margin-bottom:22px;
+  margin-bottom:24px;
 }
 
 .form-grid{
@@ -534,48 +428,54 @@ h1{
 }
 
 .field input,
-.field select,
 .field textarea{
   width:100%;
-  border:1px solid var(--line);
-  background:#fbfeff;
   padding:12px;
+
+  border:1px solid var(--line);
+
+  background:#fbfeff;
+
   font-family:var(--sans);
   font-size:14px;
-  color:var(--ink);
 }
 
 .field textarea{
-  min-height:105px;
+  min-height:110px;
   resize:vertical;
 }
 
 .check-title{
   grid-column:1/-1;
+
   font-size:11px;
   letter-spacing:2px;
   text-transform:uppercase;
   color:var(--gold);
+
+  margin-top:6px;
   font-weight:600;
-  margin-top:4px;
 }
 
 .check-grid{
   grid-column:1/-1;
+
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:1fr 1fr;
   gap:10px;
 }
 
 .check{
   border:1px solid var(--line);
   background:rgba(255,255,255,.55);
+
   padding:12px;
+
   display:flex;
   align-items:center;
   gap:9px;
+
   font-size:14px;
-  cursor:pointer;
 }
 
 .check input{
@@ -584,37 +484,32 @@ h1{
   accent-color:var(--gold);
 }
 
-.file-note{
-  grid-column:1/-1;
-  font-size:13px;
-  color:var(--soft);
-  border:1px dashed var(--line);
-  padding:12px;
-  background:rgba(255,255,255,.36);
-}
-
 .quote-actions{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
-  margin-top:20px;
+  margin-top:22px;
 }
+
+/* FOOTER */
 
 .footer{
   display:grid;
   grid-template-columns:1fr 1fr 1fr;
+
   gap:20px;
   align-items:center;
+
   padding:30px 0;
+
   color:var(--soft);
   font-size:14px;
 }
 
 .footer-logo{
   font-family:var(--serif);
-  font-size:24px;
+  font-size:25px;
   color:var(--ink);
-  font-weight:700;
 }
 
 .footer-center{
@@ -625,357 +520,360 @@ h1{
 .footer-social{
   text-align:right;
   font-size:28px;
-  color:var(--ink);
 }
 
+/* MOBILE */
+
 @media(max-width:900px){
-  .nav{
-    justify-content:center;
-    gap:16px;
-    flex-wrap:wrap;
-  }
 
-  .hero,
-  .quote-layout{
-    grid-template-columns:1fr;
-  }
+.hero,
+.quote-layout{
+  grid-template-columns:1fr;
+}
 
-  .hero-left{
-    border-right:0;
-    border-bottom:1px solid var(--line);
-  }
+.hero-left{
+  border-right:0;
+  border-bottom:1px solid var(--line);
+}
 
-  .hero-left,
-  .hero-right,
-  .story,
-  .services-section,
-  .gallery,
-  .quote-section{
-    padding:40px 28px;
-  }
+.hero-left,
+.hero-right,
+.story,
+.project,
+.quote-section{
+  padding:40px 28px;
+}
 
-  .values,
-  .services-grid,
-  .gallery-grid,
-  .info-strip{
-    grid-template-columns:1fr 1fr;
-  }
+.footer{
+  grid-template-columns:1fr;
+  text-align:center;
+}
 
-  .footer{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
+.footer-social{
+  text-align:center;
+}
 
-  .footer-social{
-    text-align:center;
-  }
 }
 
 @media(max-width:560px){
-  .logo-banner img{
-    aspect-ratio:16/9;
-  }
 
-  .values,
-  .services-grid,
-  .gallery-grid,
-  .info-strip,
-  .form-grid,
-  .check-grid{
-    grid-template-columns:1fr;
-  }
-
-  .info-item{
-    border-right:0;
-    border-bottom:1px solid var(--line);
-  }
-
-  .info-item:last-child{
-    border-bottom:0;
-  }
-
-  h1{
-    font-size:48px;
-  }
-
-  .story h2,
-  .section-title,
-  .quote-box h2{
-    font-size:34px;
-  }
-
-  .nav{
-    font-size:10px;
-  }
+.form-grid,
+.check-grid{
+  grid-template-columns:1fr;
 }
+
+h1{
+  font-size:50px;
+}
+
+.story h2,
+.project h2,
+.quote-box h2{
+  font-size:36px;
+}
+
+.header-image img{
+  aspect-ratio:16/10;
+}
+
+}
+
 </style>
 </head>
 
 <body>
+
 <div class="page">
 
-  <nav class="nav">
-    <a href="#top">Home</a>
-    <a href="#services">Services</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#quote" class="quote-link">Request a Quote</a>
-  </nav>
+<nav class="nav">
+  <a href="#top">Home</a>
+  <a href="#project">Project</a>
+  <a href="#quote">Quote</a>
+  <a href="#quote" class="quote-link">Request a Quote</a>
+</nav>
 
-  <header class="logo-banner card" id="top">
-    <img src="https://i.postimg.cc/D0CW9rfT/file-00000000d9f47243a78fa9d87388472c.png" alt="Lúcás Ó Dathaire emblem">
-  </header>
+<header class="header-image card" id="top">
 
-  <main class="hero card">
-    <section class="hero-left">
-      <div class="kicker">Painting • Repairs • Restoration</div>
-      <h1>Lúcás<br>Ó Dathaire</h1>
-      <div class="subtitle">Painter & Handyman</div>
-      <div class="hero-text">
-        Quiet, honest craftsmanship with attention to detail.
-        Restoring warmth, balance and life back into a space.
-      </div>
-    </section>
+<img src="https://i.postimg.cc/D0CW9rfT/file-00000000d9f47243a78fa9d87388472c.png" alt="Lúcás Ó Dathaire">
 
-    <section class="hero-right">
-      <div class="contact">
-        <a class="contact-row" href="tel:+353871234567">
-          <span class="ico">☎</span>
-          <span>087 123 4567</span>
-        </a>
+</header>
 
-        <a class="contact-row" href="mailto:lucasodathaire@gmail.com">
-          <span class="ico">✉</span>
-          <span>lucasodathaire@gmail.com</span>
-        </a>
+<main class="hero card">
 
-        <div class="contact-row">
-          <span class="ico">⌖</span>
-          <span>Dublin, Ireland</span>
-        </div>
+<section class="hero-left">
 
-        <div class="contact-row">
-          <span class="ico">⌂</span>
-          <span>Available for Home & Small Property Services</span>
-        </div>
-      </div>
+<div class="kicker">
+Painting • Repairs • Restoration
+</div>
 
-      <div class="rule"></div>
-      <div class="service-line">Interior & Exterior</div>
-      <div class="trust">Reliable · Professional · Trusted</div>
+<h1>
+Lúcás<br>
+Ó Dathaire
+</h1>
 
-      <div class="buttons">
-        <a class="btn" href="tel:+353871234567">Call Now</a>
-        <a class="btn light" href="#quote">Get Quote</a>
-      </div>
-    </section>
-  </main>
+<div class="subtitle">
+Painter & Handyman
+</div>
 
-  <section class="story card">
-    <h2>Lúcás Ó Dathaire</h2>
-    <div class="story-sub">Painting • Repairs • Restoration</div>
+<div class="hero-text">
+Quiet, honest craftsmanship with attention to detail.
+Restoring warmth, balance and life back into a space.
+</div>
 
-    <div class="story-text">
-      <p>
-        The name <em>Ó Dathaire</em> is inspired by old Irish language and the ideas of colour, light, and restoration.
-        It reflects a simple belief: a well cared-for home changes how people feel inside it.
-      </p>
+</section>
 
-      <p>
-        For over 15 years, Lúcás has worked across Dublin providing reliable painting,
-        wall repairs, door repairs, and general handyman services.
-      </p>
+<section class="hero-right">
 
-      <p>
-        No unnecessary complications. No rushed work. Just steady hands,
-        practical experience, and respect for the homes and people behind every door.
-      </p>
+<div class="contact">
 
-      <p>
-        Because good work is not only about fixing things.
-        It is about restoring warmth, balance, and life back into a space.
-      </p>
-    </div>
+<a class="contact-row" href="tel:+353871234567">
+<span class="ico">☎</span>
+<span>087 123 4567</span>
+</a>
 
-    <div class="values">
-      <div class="value">
-        <svg viewBox="0 0 48 48"><path d="M24 6l15 6v10c0 10-6 18-15 21C15 40 9 32 9 22V12z"/><path d="M17 24l5 5 10-11"/></svg>
-        Quality<br>Work
-      </div>
+<a class="contact-row" href="mailto:lucasodathaire@gmail.com">
+<span class="ico">✉</span>
+<span>lucasodathaire@gmail.com</span>
+</a>
 
-      <div class="value">
-        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><path d="M24 12v13l9 5"/></svg>
-        On<br>Time
-      </div>
+<div class="contact-row">
+<span class="ico">⌖</span>
+<span>Dublin, Ireland</span>
+</div>
 
-      <div class="value">
-        <svg viewBox="0 0 48 48"><path d="M18 26l6 6 13-13"/><path d="M8 24l10-10 6 6"/><path d="M40 24l-10-10-6 6"/><path d="M14 30l6 6c3 3 6 3 9 0l5-5"/></svg>
-        Fair &<br>Honest
-      </div>
-
-      <div class="value">
-        <svg viewBox="0 0 48 48"><path d="M7 24L24 10l17 14"/><path d="M12 22v18h24V22"/><path d="M20 40V28h8v12"/></svg>
-        Clean &<br>Respectful
-      </div>
-    </div>
-  </section>
-
-  <section class="info-strip card">
-    <div class="info-item">
-      <b>15 Years</b>
-      <span>Experience</span>
-    </div>
-
-    <div class="info-item">
-      <b>Dublin</b>
-      <span>Service Area</span>
-    </div>
-
-    <div class="info-item">
-      <b>Interior</b>
-      <span>Painting</span>
-    </div>
-
-    <div class="info-item">
-      <b>Repairs</b>
-      <span>Walls & Doors</span>
-    </div>
-
-    <div class="info-item">
-      <b>Clean Finish</b>
-      <span>Respectful Work</span>
-    </div>
-  </section>
-
-  <section class="services-section card" id="services">
-    <h2 class="section-title">Services</h2>
-    <p class="section-note">
-      Practical, careful work for homes, apartments and small properties.
-      Simple communication, clean finish and reliable timing.
-    </p>
-
-    <div class="services-grid">
-      <div class="service">
-        <svg viewBox="0 0 48 48"><path d="M8 35h18"/><path d="M13 35v-9h8v9"/><path d="M10 26h14l2-10H8z"/><path d="M13 16v-4h8v4"/></svg>
-        <h3>Painting</h3>
-        <p>Interior and exterior painting, walls, ceilings, doors and woodwork.</p>
-      </div>
-
-      <div class="service">
-        <svg viewBox="0 0 48 48"><path d="M10 31l17-17 7 7-17 17z"/><path d="M29 12l7-4 4 4-4 7"/></svg>
-        <h3>Plastering</h3>
-        <p>Small plastering, skimming, filling, sanding and surface preparation.</p>
-      </div>
-
-      <div class="service">
-        <svg viewBox="0 0 48 48"><path d="M16 12l8 8"/><path d="M20 8l20 20-6 6-20-20z"/><path d="M10 36l10-10 4 4-10 10z"/></svg>
-        <h3>Repairs</h3>
-        <p>Wall repairs, cracks, holes, doors, frames, handles and minor fixes.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="gallery card" id="gallery">
-    <div class="gallery-head">
-      <div>
-        <h2 class="section-title">Gallery</h2>
-        <p>Recent work and before / after examples. Replace these blocks with your new photo links.</p>
-      </div>
-    </div>
-
-    <div class="gallery-grid">
-      <div class="gallery-item">Photo 1<br>Before / After</div>
-      <div class="gallery-item">Photo 2<br>Painting Work</div>
-      <div class="gallery-item">Photo 3<br>Repairs</div>
-    </div>
-  </section>
-
-  <section class="quote-section card" id="quote">
-    <div class="quote-layout">
-      <div class="quote-help">
-        <h3>To make the quote easier</h3>
-        <ul>
-          <li>Choose the type of work</li>
-          <li>Add your location</li>
-          <li>Write room size or number of rooms</li>
-          <li>Mention wall condition</li>
-          <li>Attach or send photos by WhatsApp</li>
-        </ul>
-      </div>
-
-      <div class="quote-box">
-        <h2>Request a Quote</h2>
-        <p>Simple form for painting, repairs and small handyman jobs.</p>
-
-        <div class="form-grid">
-          <div class="field">
-            <label>Your Name</label>
-            <input placeholder="e.g. John Smith">
-          </div>
-
-          <div class="field">
-            <label>Phone</label>
-            <input placeholder="e.g. 087 123 4567">
-          </div>
-
-          <div class="field">
-            <label>Location</label>
-            <input placeholder="e.g. Dublin 9">
-          </div>
-
-          <div class="field">
-            <label>Approx. Size</label>
-            <input placeholder="e.g. 1 room / 45 m² / 3 doors">
-          </div>
-
-          <div class="check-title">What do you need?</div>
-
-          <div class="check-grid">
-            <label class="check"><input type="checkbox"> Painting</label>
-            <label class="check"><input type="checkbox"> Wall repairs</label>
-            <label class="check"><input type="checkbox"> Plastering</label>
-            <label class="check"><input type="checkbox"> Door repair</label>
-            <label class="check"><input type="checkbox"> Woodwork</label>
-            <label class="check"><input type="checkbox"> Other small job</label>
-          </div>
-
-          <div class="field full">
-            <label>Message</label>
-            <textarea placeholder="Describe the work, surface condition, timing, access, colours or anything important."></textarea>
-          </div>
-
-          <div class="file-note">
-            Photo upload can be added later with a real form service. For now, send photos by WhatsApp or email.
-          </div>
-        </div>
-
-        <div class="quote-actions">
-          <a class="btn" href="mailto:lucasodathaire@gmail.com?subject=Quote%20Request%20-%20Painting%20and%20Handyman%20Work&body=Hello%20L%C3%BAc%C3%A1s%2C%0A%0AI%20would%20like%20to%20request%20a%20quote.%0A%0AName%3A%0APhone%3A%0ALocation%3A%0AType%20of%20work%3A%0AApprox.%20size%3A%0ASurface%20condition%3A%0APreferred%20timing%3A%0AAdditional%20notes%3A%0A%0AThank%20you.">
-            ✉ Email Quote
-          </a>
-
-          <a class="btn light" href="https://wa.me/353871234567?text=Hello%20L%C3%BAc%C3%A1s%2C%20I%20would%20like%20to%20request%20a%20quote%20for%20painting%20or%20handyman%20work." target="_blank">
-            ☏ WhatsApp Quote
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-logo">
-      Lúcás Ó Dathaire<br>
-      <small>Painter & Handyman</small>
-    </div>
-
-    <div class="footer-center">
-      <a href="tel:+353871234567">087 123 4567</a>
-      <a href="mailto:lucasodathaire@gmail.com">lucasodathaire@gmail.com</a>
-      <span>Dublin, Ireland</span>
-    </div>
-
-    <div class="footer-social">f</div>
-  </footer>
+<div class="contact-row">
+<span class="ico">⌂</span>
+<span>Available for Home & Small Property Services</span>
+</div>
 
 </div>
+
+<div class="rule"></div>
+
+<div class="service-line">
+Interior & Exterior
+</div>
+
+<div class="trust">
+Reliable · Professional · Trusted
+</div>
+
+<div class="buttons">
+
+<a class="btn" href="tel:+353871234567">
+Call Now
+</a>
+
+<a class="btn light" href="#quote">
+Get Quote
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+<section class="story card">
+
+<h2>Lúcás Ó Dathaire</h2>
+
+<div class="story-sub">
+Painting • Repairs • Restoration
+</div>
+
+<div class="story-text">
+
+<p>
+The name <em>Ó Dathaire</em> is inspired by old Irish language and the ideas of colour, light, and restoration.
+</p>
+
+<p>
+For over 15 years, Lúcás has worked across Dublin providing reliable painting,
+wall repairs, door repairs, and general handyman services.
+</p>
+
+<p>
+No unnecessary complications. No rushed work.
+Just steady hands, practical experience, and respect for the homes and people behind every door.
+</p>
+
+<p>
+Because good work is not only about fixing things.
+It is about restoring warmth, balance, and life back into a space.
+</p>
+
+</div>
+
+</section>
+
+<section class="project card" id="project">
+
+<div class="project-top">
+
+<div class="project-label">
+Recent Project
+</div>
+
+<h2>
+Recent Stairwell & Communal Area Renovation
+</h2>
+
+<p>
+One of the latest completed projects.
+Full repainting, wall preparation and restoration work across communal interior spaces.
+Before and after results shown below.
+</p>
+
+</div>
+
+<div class="project-image">
+
+<img src="https://i.postimg.cc/prCfbWK7/file-00000000c690720a8c27f859f4138abb-1.png" alt="Recent Project">
+
+</div>
+
+</section>
+
+<section class="quote-section card" id="quote">
+
+<div class="quote-layout">
+
+<div class="quote-help">
+
+<h3>
+To make the quote easier
+</h3>
+
+<ul>
+<li>Choose the type of work</li>
+<li>Add your location</li>
+<li>Write room size or number of rooms</li>
+<li>Mention wall condition</li>
+<li>Send photos by WhatsApp or email</li>
+</ul>
+
+</div>
+
+<div class="quote-box">
+
+<h2>
+Request a Quote
+</h2>
+
+<p>
+Simple form for painting, repairs and handyman work.
+</p>
+
+<div class="form-grid">
+
+<div class="field">
+<label>Your Name</label>
+<input placeholder="e.g. John Smith">
+</div>
+
+<div class="field">
+<label>Phone</label>
+<input placeholder="e.g. 087 123 4567">
+</div>
+
+<div class="field">
+<label>Location</label>
+<input placeholder="e.g. Dublin 9">
+</div>
+
+<div class="field">
+<label>Approx. Size</label>
+<input placeholder="e.g. 1 room / 45 m²">
+</div>
+
+<div class="check-title">
+What do you need?
+</div>
+
+<div class="check-grid">
+
+<label class="check">
+<input type="checkbox">
+Painting
+</label>
+
+<label class="check">
+<input type="checkbox">
+Wall repairs
+</label>
+
+<label class="check">
+<input type="checkbox">
+Plastering
+</label>
+
+<label class="check">
+<input type="checkbox">
+Door repair
+</label>
+
+<label class="check">
+<input type="checkbox">
+Woodwork
+</label>
+
+<label class="check">
+<input type="checkbox">
+Other small job
+</label>
+
+</div>
+
+<div class="field full">
+<label>Message</label>
+
+<textarea placeholder="Describe the work, surface condition, timing or anything important."></textarea>
+
+</div>
+
+</div>
+
+<div class="quote-actions">
+
+<a class="btn"
+href="mailto:lucasodathaire@gmail.com?subject=Quote%20Request">
+✉ Email Quote
+</a>
+
+<a class="btn light"
+href="https://wa.me/353871234567"
+target="_blank">
+☏ WhatsApp Quote
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<div class="footer-logo">
+Lúcás Ó Dathaire
+</div>
+
+<div class="footer-center">
+<a href="tel:+353871234567">087 123 4567</a>
+<a href="mailto:lucasodathaire@gmail.com">lucasodathaire@gmail.com</a>
+<span>Dublin, Ireland</span>
+</div>
+
+<div class="footer-social">
+f
+</div>
+
+</footer>
+
+</div>
+
 </body>
 </html>
