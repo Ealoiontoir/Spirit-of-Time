@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Трансформация / Угроза — Ealoiontoir</title>
+  <meta name="description" content="Документально-философское эссе о картине Transformation / Threat, NCAD, The Anthropocene, Warhol, Drella, поезд под краской и цифровой антропоцен." />
+  <meta property="og:title" content="Трансформация / Угроза — Ealoiontoir" />
+  <meta property="og:description" content="Картина как архив: куклы, зеркало, цифровые коды, поезд под краской, Drella, 22 февраля, 24 февраля и порог цифрового антропоцена." />
+  <meta property="og:image" content="https://i.postimg.cc/yxkMff12/file-00000000d6b071fd94a0872c2a65617a-(31)(1)(1).png" />
+  <meta property="og:type" content="article" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #05060b;
+      --bg2: #0a0d16;
+      --bg3: #10131f;
+      --ink: #e7dfd0;
+      --muted: #a69b88;
+      --dim: #6e6d73;
+      --gold: #c7a25a;
+      --gold2: #f0d28b;
+      --red: #9f3934;
+      --blue: #7ea6c6;
+      --line: rgba(199, 162, 90, 0.22);
+      --glass: rgba(12, 16, 27, 0.72);
+      --shadow: 0 24px 80px rgba(0,0,0,.55);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(142, 48, 42, 0.18), transparent 34rem),
+        radial-gradient(circle at 85% 10%, rgba(126, 166, 198, 0.15), transparent 28rem),
+        linear-gradient(180deg, #05060b 0%, #080a12 42%, #030408 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 74px 74px;
+      mask-image: radial-gradient(circle at center, black 0%, transparent 78%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .page { position: relative; z-index: 1; }
+
+    #stars {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: .72;
+      pointer-events: none;
+    }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      z-index: 20;
+      background: linear-gradient(90deg, var(--red), var(--gold2), var(--blue));
+      box-shadow: 0 0 20px rgba(240, 210, 139, .55);
+    }
+
+    header.hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 6rem 1.2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      width: min(1160px, 100%);
+      display: grid;
+      grid-template-columns: 1fr .86fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-family: Cinzel, serif;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--gold2);
+      font-size: .75rem;
+      margin-bottom: 1.2rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Cinzel, serif;
+      font-weight: 500;
+      letter-spacing: .04em;
+      font-size: clamp(3.2rem, 8vw, 8.4rem);
+      line-height: .92;
+      text-shadow: 0 0 46px rgba(199, 162, 90, .16);
+    }
+
+    .slash { color: var(--red); text-shadow: 0 0 28px rgba(159,57,52,.35); }
+
+    .subtitle {
+      margin: 1.7rem 0 0;
+      max-width: 760px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.35rem, 2vw, 2rem);
+      line-height: 1.35;
+      color: rgba(231, 223, 208, .86);
+    }
+
+    .meta-line {
+      margin-top: 1.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      border-radius: 999px;
+      padding: .55rem .8rem;
+      color: var(--muted);
+      font-size: .78rem;
+      letter-spacing: .03em;
+    }
+
+    .hero-card {
+      position: relative;
+      border: 1px solid rgba(199,162,90,.24);
+      border-radius: calc(var(--radius) + 10px);
+      background: linear-gradient(145deg, rgba(15,19,32,.82), rgba(8,10,17,.72));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: .8rem;
+    }
+
+    .hero-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: var(--radius);
+      filter: saturate(.9) contrast(1.05);
+    }
+
+    .hero-card::after {
+      content: "Mirror · Drella · 22.2.22 · Sapsan";
+      position: absolute;
+      left: 1.4rem;
+      right: 1.4rem;
+      bottom: 1.4rem;
+      font-family: Cinzel, serif;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: .66rem;
+      color: rgba(240,210,139,.8);
+      background: rgba(3,4,8,.62);
+      border: 1px solid rgba(240,210,139,.18);
+      border-radius: 999px;
+      padding: .65rem .85rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    nav.toc {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(5, 6, 11, .76);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(255,255,255,.05);
+      border-bottom: 1px solid rgba(199,162,90,.16);
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    nav.toc .toc-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: .72rem 1rem;
+      display: flex;
+      gap: .7rem;
+    }
+
+    nav.toc a {
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,.07);
+      padding: .5rem .72rem;
+      border-radius: 999px;
+      font-size: .78rem;
+      transition: .25s ease;
+    }
+
+    nav.toc a:hover { color: var(--gold2); border-color: rgba(199,162,90,.4); background: rgba(199,162,90,.06); }
+
+    main { width: min(1100px, calc(100% - 2rem)); margin: 0 auto; }
+
+    section {
+      padding: clamp(4.5rem, 9vw, 7rem) 0;
+      border-bottom: 1px solid rgba(199,162,90,.11);
+      position: relative;
+    }
+
+    .section-kicker {
+      font-family: Cinzel, serif;
+      color: var(--gold);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: .72rem;
+      margin-bottom: .9rem;
+    }
+
+    h2 {
+      margin: 0 0 1.7rem;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 400;
+      font-size: clamp(2.3rem, 5vw, 4.7rem);
+      line-height: 1;
+      color: #f1eadc;
+    }
+
+    h3 {
+      font-family: Cinzel, serif;
+      font-weight: 500;
+      letter-spacing: .08em;
+      color: var(--gold2);
+      margin-top: 2rem;
+    }
+
+    p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.22rem, 1.65vw, 1.55rem);
+      line-height: 1.72;
+      color: rgba(231, 223, 208, .88);
+      margin: 0 0 1.25rem;
+    }
+
+    .lead {
+      font-size: clamp(1.45rem, 2vw, 2.05rem);
+      color: rgba(241, 234, 220, .94);
+      line-height: 1.45;
+      max-width: 960px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .82fr);
+      gap: clamp(1.4rem, 4vw, 3rem);
+      align-items: start;
+    }
+
+    .card {
+      border: 1px solid rgba(199,162,90,.18);
+      background: var(--glass);
+      box-shadow: 0 18px 60px rgba(0,0,0,.33);
+      border-radius: var(--radius);
+      overflow: hidden;
+      backdrop-filter: blur(14px);
+    }
+
+    .card.pad { padding: 1.25rem; }
+
+    .caption {
+      padding: .85rem 1rem 1rem;
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.45;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+
+    .quote {
+      margin: 2.2rem 0;
+      padding: 1.4rem 1.5rem;
+      border-left: 2px solid var(--gold);
+      background: linear-gradient(90deg, rgba(199,162,90,.08), rgba(199,162,90,.015));
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.45rem, 2vw, 2rem);
+      line-height: 1.45;
+      color: #f2e6d0;
+    }
+
+    .constellation {
+      margin-top: 2.2rem;
+      position: relative;
+      min-height: 520px;
+      border: 1px solid rgba(199,162,90,.2);
+      border-radius: calc(var(--radius) + 8px);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(159,57,52,.18), transparent 20rem),
+        radial-gradient(circle at 80% 35%, rgba(126,166,198,.13), transparent 18rem),
+        rgba(8, 10, 18, .68);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    #mapCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .95;
+    }
+
+    .node {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(240,210,139,.35);
+      background: rgba(5,6,11,.72);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: .58rem .74rem;
+      font-size: .76rem;
+      letter-spacing: .04em;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      transition: .25s ease;
+      box-shadow: 0 0 24px rgba(199,162,90,.08);
+    }
+
+    .node::before {
+      content: "";
+      display: inline-block;
+      width: .42rem;
+      height: .42rem;
+      margin-right: .45rem;
+      border-radius: 50%;
+      background: var(--gold2);
+      box-shadow: 0 0 16px rgba(240,210,139,.8);
+    }
+
+    .node:hover { color: var(--gold2); border-color: var(--gold2); transform: translate(-50%, -50%) scale(1.04); }
+    .node.red::before { background: var(--red); box-shadow: 0 0 18px rgba(159,57,52,.9); }
+    .node.blue::before { background: var(--blue); box-shadow: 0 0 18px rgba(126,166,198,.9); }
+
+    .node-info {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      background: rgba(3,4,8,.78);
+      padding: 1rem;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.55;
+      backdrop-filter: blur(10px);
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .image-tile {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(199,162,90,.16);
+      background: rgba(255,255,255,.035);
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .image-tile:hover { transform: translateY(-3px); border-color: rgba(240,210,139,.42); }
+    .image-tile img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+    .image-tile.wide { grid-column: span 2; }
+    .image-tile.wide img { aspect-ratio: 16 / 10; }
+    .image-tile.tall img { aspect-ratio: 4 / 5; }
+
+    .mini-caption {
+      padding: .7rem .8rem;
+      font-size: .76rem;
+      color: var(--muted);
+      line-height: 1.42;
+    }
+
+    .timeline {
+      margin-top: 2rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .event {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 1.2rem;
+      border: 1px solid rgba(199,162,90,.15);
+      background: rgba(255,255,255,.028);
+      border-radius: 20px;
+      padding: 1rem;
+    }
+
+    .date {
+      font-family: Cinzel, serif;
+      color: var(--gold2);
+      letter-spacing: .08em;
+      font-size: .82rem;
+    }
+
+    .event div:last-child { color: rgba(231,223,208,.86); line-height: 1.55; }
+
+    .words {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .word {
+      border: 1px solid rgba(199,162,90,.18);
+      border-radius: 22px;
+      background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.012));
+      padding: 1.25rem;
+      min-height: 125px;
+    }
+
+    .word strong {
+      display: block;
+      color: var(--gold2);
+      font-family: Cinzel, serif;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: .85rem;
+      margin-bottom: .6rem;
+    }
+
+    .word span { color: var(--muted); font-size: .9rem; line-height: 1.55; }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .video-wrap {
+      aspect-ratio: 16 / 9;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(199,162,90,.18);
+      background: rgba(0,0,0,.35);
+    }
+
+    iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      margin-top: 1.5rem;
+    }
+
+    .button {
+      border: 1px solid rgba(199,162,90,.28);
+      background: rgba(199,162,90,.06);
+      color: var(--gold2);
+      border-radius: 999px;
+      padding: .75rem 1rem;
+      font-size: .82rem;
+      letter-spacing: .04em;
+      transition: .25s ease;
+    }
+
+    .button:hover { background: rgba(199,162,90,.12); transform: translateY(-2px); }
+
+    footer {
+      text-align: center;
+      padding: 4rem 1rem 5rem;
+      color: var(--dim);
+      font-size: .86rem;
+    }
+
+    .reveal { opacity: 0; transform: translateY(26px); transition: .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 860px) {
+      .hero-inner, .grid-2, .video-grid { grid-template-columns: 1fr; }
+      .image-grid { grid-template-columns: 1fr 1fr; }
+      .image-tile.wide { grid-column: span 2; }
+      .words { grid-template-columns: 1fr; }
+      .event { grid-template-columns: 1fr; gap: .35rem; }
+      .constellation { min-height: 640px; }
+      .node { font-size: .68rem; padding: .5rem .58rem; }
+    }
+
+    @media (max-width: 540px) {
+      header.hero { padding-top: 4.5rem; }
+      .image-grid { grid-template-columns: 1fr; }
+      .image-tile.wide { grid-column: span 1; }
+      .hero-card::after { font-size: .55rem; }
+      main { width: min(100% - 1rem, 1100px); }
+      section { padding-left: .25rem; padding-right: .25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <canvas id="stars"></canvas>
+  <div class="page">
+    <header class="hero" id="top">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Ealoiontoir · The Spirit of Time</div>
+          <h1>Трансформация <span class="slash">/</span><br>Угроза</h1>
+          <p class="subtitle">Документально-философское эссе о картине, её скрытом первом слое, цифровом антропоцене, Drella, 22 февраля и поезде под краской.</p>
+          <div class="meta-line">
+            <span class="pill">Oil on canvas · 110×110 cm</span>
+            <span class="pill">NCAD Dublin · Fine Art</span>
+            <span class="pill">The Anthropocene · 2021–2022</span>
+            <span class="pill">Mirror · Sapsan · Drella</span>
+          </div>
+        </div>
+        <a class="hero-card" href="https://i.postimg.cc/yxkMff12/file-00000000d6b071fd94a0872c2a65617a-(31)(1)(1).png" target="_blank" rel="noopener">
+          <img src="https://i.postimg.cc/yxkMff12/file-00000000d6b071fd94a0872c2a65617a-(31)(1)(1).png" alt="Transformation / Threat, original painting" />
+        </a>
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="Навигация по эссе">
+      <div class="toc-inner">
+        <a href="#map">Карта</a>
+        <a href="#origin">Происхождение</a>
+        <a href="#train">Поезд</a>
+        <a href="#mirror">Зеркало</a>
+        <a href="#codes">Коды</a>
+        <a href="#drella">Drella</a>
+        <a href="#february">22 / 24</a>
+        <a href="#rothko">Ротко</a>
+        <a href="#ai">Порог</a>
+        <a href="#archive">Архив</a>
+      </div>
+    </nav>
+
+    <main>
+      <section id="map" class="reveal">
+        <div class="section-kicker">Constellation of coincidences</div>
+        <h2>Карта пересечений</h2>
+        <p class="lead">Эта история не держится на одной линии. Она устроена как созвездие: куклы, зеркало, поезд, дата, война, Ротко, цифровой мир и будущий Кодекс образуют не доказательство, а поле взаимных откликов.</p>
+        <div class="constellation" id="constellation">
+          <canvas id="mapCanvas"></canvas>
+          <button class="node" style="left: 14%; top: 24%;" data-info="NCAD, The Anthropocene. Учебная рамка становится входом в психологический цифровой антропоцен." data-target="origin">Anthropocene</button>
+          <button class="node blue" style="left: 31%; top: 18%;" data-info="Warhol / Pop Art. Массовые образы, симулякры, повторение, куклы как предметы эпохи." data-target="drella">Warhol</button>
+          <button class="node" style="left: 51%; top: 30%;" data-info="Draculaura + Cinderella. Выбор рукой раньше знания. Позже: Drella." data-target="drella">Drella</button>
+          <button class="node red" style="left: 72%; top: 20%;" data-info="Sapsan с justgorussia. Первый слой: поезд, рельсы, угроза, затем закрашивание." data-target="train">Sapsan</button>
+          <button class="node" style="left: 82%; top: 47%;" data-info="22 февраля: смерть отчима и дата смерти Уорхола. Узел не объясняется, он документируется." data-target="february">22.2</button>
+          <button class="node red" style="left: 65%; top: 70%;" data-info="24 февраля 2022. Историческое событие меняет чтение уже существовавшего образа угрозы." data-target="february">24.2</button>
+          <button class="node blue" style="left: 42%; top: 76%;" data-info="Rothko / Red. Отложенное узнавание пространства сна через тело, не через теорию." data-target="rothko">Rothko</button>
+          <button class="node" style="left: 22%; top: 63%;" data-info="Коды: угроза, зависимость, вера, эго, одиночество, общение. Человеческие состояния переводятся в числа." data-target="codes">Codes</button>
+          <button class="node blue" style="left: 12%; top: 43%;" data-info="MidJourney и ChatGPT появляются позже: цифровая угроза превращается также в инструмент архива и видения." data-target="ai">AI Threshold</button>
+          <div class="node-info" id="nodeInfo">Нажмите на любой узел: карта покажет, как отдельный факт входит в общую структуру картины.</div>
+        </div>
+      </section>
+
+      <section id="origin" class="reveal">
+        <div class="section-kicker">I · Origin</div>
+        <h2>Откуда взялась картина</h2>
+        <div class="grid-2">
+          <div>
+            <p>NCAD. National College of Art and Design. Дублин. Период обучения Fine Art, 2021–2022. Тема проекта: <em>The Anthropocene</em>.</p>
+            <p>Антропоцен обычно понимают как эпоху, в которой человек стал геологической силой. Но в этой работе он сместился внутрь психики: человек меняет не только климат, почву и воздух, но и собственное восприятие. Экран становится новой кожей. Образ становится средой обитания.</p>
+            <p>Тогда речь ещё не шла об искусственном интеллекте как о массовой культурной силе. Вопрос был шире: цифровой мир, телефоны, гаджеты, IT-компании, роботизация, Boston Dynamics, алгоритмы. Что всё это делает с человеком? И что делает с художником?</p>
+            <div class="quote">Картина началась не с концепции. Она началась с руки.</div>
+            <p>Изучая Энди Уорхола и поп-арт, я пошёл в комнату дочери и взял две куклы: Draculaura и Cinderella. Не потому, что уже знал скрытую связь. Просто рука потянулась. Знание пришло позже.</p>
+          </div>
+          <div class="card">
+            <img src="https://i.postimg.cc/DwV9gdtq/file-00000000d6b071fd94a0872c2a65617a-(31)(1).png" alt="Transformation painting detail" />
+            <div class="caption">Оригинал картины Transformation / Threat. Куклы, зеркало, телефоны, цифровая среда и поп-артовая поверхность.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="train" class="reveal">
+        <div class="section-kicker">II · Hidden Layer</div>
+        <h2>Первый слой: поезд</h2>
+        <div class="grid-2">
+          <div>
+            <p>Прежде чем появилась окончательная версия, в картине был другой образ. Поезд. Образ был взят с сайта <strong>justgorussia.co.uk/en/sapsan.html</strong>, где был изображён российский скоростной поезд «Сапсан».</p>
+            <p>В первом слое поезд двигался по рельсам в сторону кукол. Куклы находились на рельсах, поглощённые телефонами, не видящие того, что приближается сзади. Это был прямой образ угрозы. Слишком прямой.</p>
+            <p>В какой-то момент возникла телесная тревога. Не теория, не эстетическая правка, а ощущение крови внутри образа. Поезд был закрашен. Угроза ушла под поверхность.</p>
+            <div class="quote">Закрашенное не равно уничтоженному. Иногда скрытый слой действует сильнее, потому что он начинает говорить изнутри картины.</div>
+            <p>После 24 февраля 2022 года этот слой стал читаться иначе. Картина не предсказала войну. Но образ угрозы возник до события, был скрыт до события, а затем историческая реальность изменила его вес.</p>
+          </div>
+          <div class="card">
+            <img src="https://i.postimg.cc/HLnFWZ5W/file-00000000d6b071fd94a0872c2a65617a-(27).png" alt="Original Sapsan sketch layer" />
+            <div class="caption">Первоначальный слой с поездом: Сапсан, рельсы, куклы, угроза, которая потом была закрашена.</div>
+          </div>
+        </div>
+        <div class="image-grid">
+          <a class="image-tile wide" href="https://i.postimg.cc/QdxyS4f0/file-00000000d6b071fd94a0872c2a65617a-(20).png" target="_blank" rel="noopener">
+            <img src="https://i.postimg.cc/QdxyS4f0/file-00000000d6b071fd94a0872c2a65617a-(20).png" alt="justgorussia Sapsan screenshot" />
+            <div class="mini-caption">Скриншот источника: justgorussia.co.uk/en/sapsan.html. Документальный след происхождения поезда.</div>
+          </a>
+          <a class="image-tile" href="https://i.postimg.cc/vThvVMFJ/20260519-131605.jpg" target="_blank" rel="noopener">
+            <img src="https://i.postimg.cc/vThvVMFJ/20260519-131605.jpg" alt="FRAGILE documentation sheet" />
+            <div class="mini-caption">Лист FRAGILE: раннее описание картины, где уже присутствуют Transformation, Threat, train, 22.2.22.</div>
+          </a>
+        </div>
+      </section>
+
+      <section id="mirror" class="reveal">
+        <div class="section-kicker">III · Mirror</div>
+        <h2>Куклы перед зеркалом</h2>
+        <p class="lead">Поверх поезда появляется окончательная композиция: Draculaura и Cinderella перед зеркалом Mirror. В руках телефоны. Они смотрят не в мир, а в экраны.</p>
+        <p>В зеркале находятся люди, срисованные с натуры в центре Дублина. Они тоже поглощены телефонами. Возникает вопрос: куклы отражают людей или люди отражают кукол? Или цифровой мир уже сделал и тех, и других частью одной системы внимания?</p>
+        <p>По краям холста появляются названия компаний. Они не просто перечислены, они находятся на теле картины. Цифровая среда не только изображена внутри композиции. Она буквально вписана в её рамку.</p>
+        <div class="image-grid">
+          <a class="image-tile" href="https://i.postimg.cc/8CNq8kkw/file-00000000d6b071fd94a0872c2a65617a-(31).png" target="_blank" rel="noopener"><img src="https://i.postimg.cc/8CNq8kkw/file-00000000d6b071fd94a0872c2a65617a-(31).png" alt="Transformation artwork" /><div class="mini-caption">Оригинал картины: зеркало, куклы и цифровая поверхность.</div></a>
+          <a class="image-tile" href="https://i.postimg.cc/SRBvgktN/file-00000000d6b071fd94a0872c2a65617a-(28).png" target="_blank" rel="noopener"><img src="https://i.postimg.cc/SRBvgktN/file-00000000d6b071fd94a0872c2a65617a-(28).png" alt="Transformation artwork variant" /><div class="mini-caption">Вариант визуальной фиксации оригинала.</div></a>
+          <a class="image-tile" href="https://i.postimg.cc/B6k3GWVG/20260519-131422.jpg" target="_blank" rel="noopener"><img src="https://i.postimg.cc/B6k3GWVG/20260519-131422.jpg" alt="Transformation 110x110 cm" /><div class="mini-caption">Transformation, 110×110 cm. Живописная поверхность как архив.</div></a>
+        </div>
+      </section>
+
+      <section id="codes" class="reveal">
+        <div class="section-kicker">IV · Numeric Field</div>
+        <h2>Шесть слов</h2>
+        <p class="lead">В картину встроены слова, переведённые в цифровую форму. Не подписи, а коды. Человеческие состояния становятся числовыми последовательностями.</p>
+        <div class="words">
+          <div class="word"><strong>Угроза</strong><span>То, что приближается, пока внимание занято экраном.</span></div>
+          <div class="word"><strong>Зависимость</strong><span>Связь, превращённая в механизм удержания.</span></div>
+          <div class="word"><strong>Вера</strong><span>То, что может быть живой вертикалью или цифровой маской.</span></div>
+          <div class="word"><strong>Эго</strong><span>Центр, вокруг которого собираются страх, одиночество и желание связи.</span></div>
+          <div class="word"><strong>Одиночество</strong><span>Пустота, которая может расти даже внутри постоянного соединения.</span></div>
+          <div class="word"><strong>Общение</strong><span>Попытка выйти из изоляции, которую экран может как открыть, так и подменить.</span></div>
+        </div>
+        <div class="image-grid">
+          <a class="image-tile wide" href="https://i.postimg.cc/prWfx7hs/20260519-131538.png" target="_blank" rel="noopener"><img src="https://i.postimg.cc/prWfx7hs/20260519-131538.png" alt="Encoded words sheet" /><div class="mini-caption">Лист с кодированием слов, встроенных в картину.</div></a>
+          <a class="image-tile" href="https://i.postimg.cc/qMZsV1km/20260519-131542.png" target="_blank" rel="noopener"><img src="https://i.postimg.cc/qMZsV1km/20260519-131542.png" alt="Technology companies sheet" /><div class="mini-caption">Компании и технологическое поле картины.</div></a>
+        </div>
+      </section>
+
+      <section id="drella" class="reveal">
+        <div class="section-kicker">V · Warhol</div>
+        <h2>Drella</h2>
+        <p>Позже обнаружилось то, чего я не знал при выборе кукол: у Энди Уорхола было прозвище <strong>Drella</strong>, соединение Dracula и Cinderella.</p>
+        <p>Я выбрал Draculaura и Cinderella для картины, которую писал в контексте изучения Уорхола, не зная этой связи. Сначала рука взяла кукол. Потом сознание узнало, что эти куклы уже скрыто принадлежали имени Уорхола.</p>
+        <div class="quote">Образ пришёл раньше знания.</div>
+        <p>Это было не интеллектуальное открытие, а телесное узнавание: мурашки, внутренний разряд, ощущение, что знак был распознан, а не придуман.</p>
+        <p>Уорхол работал с симулякрами: Campbell’s Soup, Marilyn, Mao. В моей картине куклы тоже являются симулякрами. Но разница в позиции: Уорхол смотрел снаружи. Я оказался внутри. Куклы были из комнаты дочери. Телефон был предметом повседневности. Цифровой мир был воздухом.</p>
+      </section>
+
+      <section id="february" class="reveal">
+        <div class="section-kicker">VI · Dates</div>
+        <h2>22 февраля / 24 февраля</h2>
+        <div class="grid-2">
+          <div>
+            <p>Картина была завершена около 20 февраля 2022 года. Через два дня, 22 февраля, умер мой отчим. Затем я узнал, что Энди Уорхол умер 22 февраля 1987 года.</p>
+            <p>Две смерти. Одна дата. Тридцать пять лет разницы. И рядом с этим картина, в которой Уорхол уже присутствовал скрыто через Drella.</p>
+            <p>24 февраля Россия начала полномасштабное вторжение в Украину. Первый слой с поездом, закрашенный до события, получил новое историческое измерение.</p>
+            <p>Здесь важно не говорить о пророчестве. Точнее другое: образ угрозы возник до события, был скрыт до события, а после события открылся заново, уже в другом регистре.</p>
+          </div>
+          <div class="card pad">
+            <h3>Формула узла</h3>
+            <p>Факт: поезд существовал как слой картины.</p>
+            <p>Факт: источник образа сохранился.</p>
+            <p>Факт: слой был закрашен.</p>
+            <p>Факт: после 24 февраля этот слой стал читаться иначе.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="rothko" class="reveal">
+        <div class="section-kicker">VII · Rothko</div>
+        <h2>Ротко как следующий узел</h2>
+        <p>Ротко не был главным центром этой картины. Во время работы я был занят Уорхолом. Но в тот же период, в разговоре с коллегой о синхронистичности с клиентом, она почему-то посоветовала посмотреть <em>Red</em>, спектакль о Ротко.</p>
+        <p>Я не посмотрел сразу. Ротко не был моим.</p>
+        <p>Спустя примерно полгода я всё-таки посмотрел <em>Red</em>. Там прозвучал диалог о смене эпох: Уорхол наступает на хвост Ротко, как Ротко в своё время наступил на хвост Кандинскому. После картины, через которую я пропустил Уорхола, этот диалог стал звучать почти лично.</p>
+        <p>Но главный удар был не в тексте. Он был в пространстве: тёмная мастерская, стол, лампа, густая тьма, картины как присутствия. Я узнал комнату из сна 2021 года. Не мыслью, а телом.</p>
+        <div class="quote">Мурашки. Волосы дыбом. Нуминозное состояние, которое невозможно вызвать искусственно.</div>
+        <p>Только тогда фигура из сна начала соединяться с Ротко. Не во время картины. Позже. Через телесное узнавание.</p>
+      </section>
+
+      <section id="ai" class="reveal">
+        <div class="section-kicker">VIII · Digital Threshold</div>
+        <h2>Цифровой мир переходит порог</h2>
+        <p>Когда я писал эту картину, я не был человеком, глубоко погружённым в технологии. Я был с цифровым миром скорее на “вы”. Не отрицал его, но не принадлежал ему внутренне.</p>
+        <p>Именно поэтому странно, что картина так настойчиво вошла в эту тему: телефоны, коды, логотипы, роботизация, цифровая зависимость, технологическая угроза.</p>
+        <p>Через несколько месяцев появился MidJourney. В конце июля 2022 года я почти сразу начал им пользоваться. Реакция была неожиданной: не страх, а художественное узнавание. Потом появился ChatGPT, и через него начала формироваться другая часть пути: диалоги, архив, фиксация синхронистичностей, тексты, карты, Spirit of Time.</p>
+        <div class="quote">Сначала цифровой мир был изображён как внешняя угроза. Потом он стал инструментом, через который я начал понимать собственную историю.</div>
+        <p>Это не отменяет угрозу и не превращает цифровой мир в спасение. Двойственность остаётся. Именно поэтому название <em>Transformation / Threat</em> точное: не трансформация вместо угрозы, не угроза вместо трансформации, а оба полюса одновременно.</p>
+        <div class="image-grid">
+          <a class="image-tile" href="https://i.postimg.cc/D0wXRXHM/file-0000000074a07243b7e4c73729d575b0.png" target="_blank" rel="noopener"><img src="https://i.postimg.cc/D0wXRXHM/file-0000000074a07243b7e4c73729d575b0.png" alt="Generated context image" /><div class="mini-caption">Генеративная визуализация контекста: Andy, картина, цифровое поле.</div></a>
+          <a class="image-tile" href="https://i.postimg.cc/RCgfKgJj/file-000000003b80720a891eb202374d1878.png" target="_blank" rel="noopener"><img src="https://i.postimg.cc/RCgfKgJj/file-000000003b80720a891eb202374d1878.png" alt="Generated context image" /><div class="mini-caption">Образ-метафора всей истории как цифрового поля угрозы.</div></a>
+          <a class="image-tile" href="https://i.postimg.cc/65Sv1T0k/file-00000000d8247243ae6a1f0c95f00bd0.png" target="_blank" rel="noopener"><img src="https://i.postimg.cc/65Sv1T0k/file-00000000d8247243ae6a1f0c95f00bd0.png" alt="Generated context image" /><div class="mini-caption">Поздняя генерация как продолжение темы цифрового медиума.</div></a>
+          <a class="image-tile" href="https://i.postimg.cc/SsDXLKR5/file-00000000d2c871f4b3a50e16e9642c46.png" target="_blank" rel="noopener"><img src="https://i.postimg.cc/SsDXLKR5/file-00000000d2c871f4b3a50e16e9642c46.png" alt="Generated context image" /><div class="mini-caption">Визуальный синтез: Andy, поезд, цифровое поле и картина.</div></a>
+        </div>
+      </section>
+
+      <section id="archive" class="reveal">
+        <div class="section-kicker">IX · Archive</div>
+        <h2>Картина как архив</h2>
+        <p class="lead">Картина не объясняет время. Она хранит его следы. Под видимым слоем находится поезд. В куклах скрыто имя Drella. В числах скрыты слова. На кантах записаны корпорации. В зеркале находятся реальные люди из Дублина.</p>
+        <p>Архив не всегда создаётся после события. Иногда само произведение становится архивом до того, как событие обнаружит его смысл.</p>
+        <div class="video-grid">
+          <div class="video-wrap"><iframe src="https://drive.google.com/file/d/1mr08l_wkmJ3C-P3L06FrqQLinEh85Npi/preview" allow="autoplay" title="Video archive 1"></iframe></div>
+          <div class="video-wrap"><iframe src="https://drive.google.com/file/d/1QU_vmOnq_V4RzHZr6PJTHn3VCbmnrN8M/preview" allow="autoplay" title="Video archive 2"></iframe></div>
+        </div>
+        <div class="timeline">
+          <div class="event"><div class="date">Осень 2021</div><div>Сон, который позже станет частью текста «Это она». Структурный перелом внутреннего состояния.</div></div>
+          <div class="event"><div class="date">Ноябрь 2021</div><div>Dorset Street. Синхронистичность с клиентом из Риги.</div></div>
+          <div class="event"><div class="date">Зима 2021–2022</div><div>NCAD, The Anthropocene. Начало работы над картиной и изучение Уорхола.</div></div>
+          <div class="event"><div class="date">Начало 2022</div><div>Первый слой: поезд, Сапсан, рельсы, угроза. Затем закрашивание.</div></div>
+          <div class="event"><div class="date">Около 20.02.2022</div><div>Картина завершена.</div></div>
+          <div class="event"><div class="date">22.02.2022</div><div>Смерть отчима. Позже обнаруживается совпадение с датой смерти Энди Уорхола.</div></div>
+          <div class="event"><div class="date">24.02.2022</div><div>Начало полномасштабного вторжения России в Украину. Закрашенный поезд получает новое историческое измерение.</div></div>
+          <div class="event"><div class="date">Июль 2022</div><div>MidJourney. Цифровая среда начинает переходить из угрозы в инструмент.</div></div>
+          <div class="event"><div class="date">Конец 2022</div><div>ChatGPT. Начало новой формы архива, диалога и будущего Кодекса.</div></div>
+        </div>
+        <div class="links">
+          <a class="button" href="https://ealoiontoir.weebly.com/beacons-of-thought.html" target="_blank" rel="noopener">Back to Beacons of Thought</a>
+          <a class="button" href="#top">Наверх</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Ealoiontoir · The Spirit of Time · Transformation / Threat · Dublin, May 2026
+    </footer>
+  </div>
+
+<script>
+  const stars = document.getElementById('stars');
+  const ctx = stars.getContext('2d');
+  let particles = [];
+
+  function resizeStars() {
+    stars.width = window.innerWidth * devicePixelRatio;
+    stars.height = window.innerHeight * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    const count = Math.min(160, Math.floor(window.innerWidth / 8));
+    particles = Array.from({ length: count }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      r: Math.random() * 1.4 + .25,
+      vx: (Math.random() - .5) * .12,
+      vy: (Math.random() - .5) * .12,
+      a: Math.random() * .55 + .12
+    }));
+  }
+
+  function drawStars() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    for (const p of particles) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = window.innerWidth;
+      if (p.x > window.innerWidth) p.x = 0;
+      if (p.y < 0) p.y = window.innerHeight;
+      if (p.y > window.innerHeight) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(240, 210, 139, ${p.a})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(drawStars);
+  }
+
+  resizeStars();
+  drawStars();
+  window.addEventListener('resize', resizeStars);
+
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    progress.style.width = `${(scrollY / h) * 100}%`;
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const nodeInfo = document.getElementById('nodeInfo');
+  document.querySelectorAll('.node').forEach(node => {
+    node.addEventListener('click', () => {
+      nodeInfo.textContent = node.dataset.info;
+      const target = document.getElementById(node.dataset.target);
+      if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 350);
+    });
+  });
+
+  const mapCanvas = document.getElementById('mapCanvas');
+  const mapCtx = mapCanvas.getContext('2d');
+  const constellation = document.getElementById('constellation');
+
+  function drawMap() {
+    const rect = constellation.getBoundingClientRect();
+    mapCanvas.width = rect.width * devicePixelRatio;
+    mapCanvas.height = rect.height * devicePixelRatio;
+    mapCtx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    mapCtx.clearRect(0, 0, rect.width, rect.height);
+
+    const nodes = [...document.querySelectorAll('.node')].map(n => {
+      const left = parseFloat(n.style.left) / 100 * rect.width;
+      const top = parseFloat(n.style.top) / 100 * rect.height;
+      return { x: left, y: top, cls: n.className };
+    });
+    const links = [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,0],[2,6],[3,5],[1,6],[0,7]];
+    for (const [a,b] of links) {
+      const A = nodes[a], B = nodes[b];
+      const grad = mapCtx.createLinearGradient(A.x, A.y, B.x, B.y);
+      grad.addColorStop(0, 'rgba(199,162,90,.26)');
+      grad.addColorStop(1, 'rgba(126,166,198,.14)');
+      mapCtx.strokeStyle = grad;
+      mapCtx.lineWidth = 1;
+      mapCtx.beginPath();
+      mapCtx.moveTo(A.x, A.y);
+      mapCtx.lineTo(B.x, B.y);
+      mapCtx.stroke();
+    }
+    for (const n of nodes) {
+      mapCtx.beginPath();
+      mapCtx.arc(n.x, n.y, 3, 0, Math.PI * 2);
+      mapCtx.fillStyle = 'rgba(240,210,139,.6)';
+      mapCtx.fill();
+    }
+  }
+  drawMap();
+  window.addEventListener('resize', drawMap);
+</script>
+</body>
+</html>
