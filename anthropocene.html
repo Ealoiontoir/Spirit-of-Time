@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>От антропоцена к нооцену — Ealoiontoir / АЦХ</title>
+<meta name="description" content="Скрытый порог Transformation / Threat. Философско-документальное эссе. Реакция на Михаила Эпштейна.">
+<meta property="og:image" content="https://i.postimg.cc/PqwGtGPG/20260529-150029.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #d4ad52; --gold-light: #eeda90; --gold-pale: #faf0cc;
+  --cream: #f5eedc; --burgundy: #7a2222; --red: #a02020;
+  --navy: #141e2e; --navy-mid: #1a2640; --navy-light: #1f2e4a;
+  --ink: #0d1520; --text-main: #f2e4c8; --text-dim: #d6c49a;
+  --text-bright: #fdf5e4; --silver: #b0b8c4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--ink);color:var(--text-main);font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;font-weight:400;line-height:1.8;overflow-x:hidden;}
+
+/* STARS BG */
+#stars-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.45;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 3rem;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(13,21,32,.97),transparent);}
+.nav-back{color:var(--gold);text-decoration:none;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;opacity:.8;transition:opacity .3s;}
+.nav-back:hover{opacity:1;}
+.nav-date{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.2em;color:var(--text-dim);}
+
+/* HERO */
+#hero{position:relative;height:100vh;min-height:600px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;overflow:hidden;}
+.hero-img{position:absolute;inset:0;background:url('https://i.postimg.cc/PqwGtGPG/20260529-150029.jpg') center center/cover no-repeat;z-index:0;transform:scale(1.05);animation:heroZoom 18s ease-in-out infinite alternate;}
+@keyframes heroZoom{from{transform:scale(1.05);}to{transform:scale(1.12);}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,21,32,1) 0%,rgba(13,21,32,.55) 40%,rgba(13,21,32,.15) 70%,rgba(13,21,32,.3) 100%);z-index:1;}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 2rem 5rem;max-width:900px;}
+.hero-eyebrow{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;opacity:0;animation:fadeUp 1s .4s forwards;}
+.hero-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.5rem,5vw,3.8rem);color:var(--gold-pale);line-height:1.2;margin-bottom:1rem;opacity:0;animation:fadeUp 1s .7s forwards;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.5vw,1.4rem);font-style:italic;color:var(--text-dim);letter-spacing:.05em;margin-bottom:.8rem;opacity:0;animation:fadeUp 1s 1s forwards;}
+.hero-date{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:0;animation:fadeUp 1s 1.2s forwards;}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.4rem;opacity:0;animation:fadeIn 1s 2.5s forwards;}
+.hero-scroll-line{width:1px;height:46px;background:linear-gradient(to bottom,transparent,var(--gold));animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:.3;}50%{opacity:.9;}}
+
+/* LAYOUT */
+section{position:relative;z-index:2;}
+.wrap{max-width:860px;margin:0 auto;padding:0 2rem;}
+.wrap-wide{max-width:1160px;margin:0 auto;padding:0 2rem;}
+.sec-label{font-family:'Cinzel',serif;font-size:.63rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;display:flex;align-items:center;gap:.9rem;}
+.sec-label::before{content:'';flex:0 0 36px;height:1px;background:var(--gold);opacity:.5;}
+.sec-title{font-family:'Cinzel',serif;font-size:clamp(1.3rem,3.5vw,2.2rem);font-weight:500;color:var(--gold-pale);margin-bottom:1.5rem;line-height:1.3;}
+.divider{width:80px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:5rem auto;opacity:.35;}
+.body-text p{margin-bottom:1.5rem;color:var(--text-bright);font-size:1.05rem;line-height:1.92;}
+.body-text p:last-child{margin-bottom:0;}
+em{color:var(--gold-light);font-style:italic;}
+strong{color:var(--gold-pale);font-weight:600;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s,transform .75s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* OPENING STATEMENT */
+#statement{padding:7rem 0 5rem;}
+.statement-big{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,3.5vw,2rem);font-style:italic;color:var(--gold-light);line-height:1.65;max-width:780px;margin:0 auto;text-align:center;}
+.statement-small{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--text-dim);text-align:center;margin-top:2rem;}
+
+/* PAINTING SECTION */
+#painting{padding:5rem 0;}
+.painting-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:3rem 0;border:1px solid rgba(201,168,76,.15);}
+.paint-cell{position:relative;background:#0a0e18;overflow:hidden;}
+.paint-cell img{width:100%;height:360px;object-fit:contain;display:block;transition:opacity .4s;}
+.paint-cell:hover img{opacity:.8;}
+.paint-label{position:absolute;bottom:0;left:0;right:0;padding:.8rem 1.2rem;background:linear-gradient(to top,rgba(13,21,32,.97),transparent);font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
+.paint-badge{position:absolute;top:.8rem;right:.8rem;background:rgba(13,21,32,.9);border:1px solid rgba(201,168,76,.3);padding:.25rem .7rem;font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);}
+.paint-badge.hidden{color:var(--red);border-color:rgba(160,32,32,.5);}
+
+/* QUOTE BOX */
+.quote-box{border-left:2px solid var(--gold);padding:1.8rem 2.2rem;margin:2.5rem 0;background:rgba(201,168,76,.04);}
+.quote-box p{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--text-bright);line-height:1.9;margin-bottom:.4rem;}
+
+/* CONSTELLATION */
+#constellation{padding:5rem 0 6rem;background:linear-gradient(to bottom,rgba(8,12,20,0),rgba(18,26,42,.98),rgba(8,12,20,0));}
+.map-wrap{position:relative;width:100%;max-width:1100px;margin:2.5rem auto 0;}
+#map-canvas{width:100%;height:680px;display:block;cursor:crosshair;}
+#node-tip{position:absolute;background:rgba(13,21,32,.98);border:1px solid rgba(201,168,76,.35);padding:.9rem 1.4rem;max-width:260px;pointer-events:none;display:none;z-index:10;box-shadow:0 10px 40px rgba(0,0,0,.6);}
+#node-tip .tt-t{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
+#node-tip .tt-b{font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--text-main);line-height:1.55;font-style:italic;}
+
+/* CARD STYLE */
+.card{background:rgba(28,42,66,.92);border:1px solid rgba(201,168,76,.12);padding:2.2rem 2.5rem;margin-bottom:1.8rem;}
+.card-left{border-left:3px solid var(--gold);}
+.card-left-red{border-left:3px solid var(--red);}
+.card-top{border-top:2px solid var(--gold);}
+.card-title{font-family:'Cinzel',serif;font-size:.95rem;letter-spacing:.06em;color:var(--gold-pale);margin-bottom:1rem;}
+
+/* EGO LIST */
+.ego-list{list-style:none;margin:1.5rem 0;}
+.ego-list li{position:relative;padding:.6rem 0 .6rem 2rem;border-bottom:1px solid rgba(201,168,76,.07);font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-main);line-height:1.6;}
+.ego-list li::before{content:'→';position:absolute;left:0;color:var(--gold);opacity:.7;}
+
+/* CODEX STATS */
+#codex-section{padding:7rem 0;background:linear-gradient(to bottom,rgba(8,12,20,0),rgba(22,30,46,.95),rgba(8,12,20,0));}
+.codex-number{font-family:'Cinzel Decorative',serif;font-size:clamp(4rem,14vw,9rem);color:var(--gold);letter-spacing:.05em;text-align:center;line-height:1;margin-bottom:1rem;}
+.codex-sub{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.35em;text-transform:uppercase;color:var(--text-dim);text-align:center;margin-bottom:3rem;}
+.codex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:3rem 0;}
+.codex-stat{background:rgba(28,42,66,.88);border:1px solid rgba(201,168,76,.12);padding:2rem 1.5rem;text-align:center;}
+.codex-stat-n{font-family:'Cinzel Decorative',serif;font-size:clamp(2rem,5vw,3.5rem);color:var(--gold-light);margin-bottom:.5rem;}
+.codex-stat-l{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);}
+.codex-compare{max-width:680px;margin:3rem auto 0;text-align:center;}
+.codex-compare-line{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--text-bright);margin-bottom:1rem;line-height:1.75;}
+.codex-bar-wrap{margin:3rem 0;max-width:640px;margin-left:auto;margin-right:auto;}
+.codex-bar-label{display:flex;justify-content:space-between;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:.5rem;}
+.codex-bar{height:4px;background:rgba(201,168,76,.12);border-radius:2px;overflow:hidden;}
+.codex-bar-fill{height:100%;background:linear-gradient(to right,var(--gold),var(--gold-light));width:0;transition:width 2s ease;}
+
+/* PARADOX BOX */
+.paradox{background:rgba(28,42,66,.92);border:1px solid rgba(201,168,76,.12);border-top:2px solid var(--gold);padding:3rem;margin:3rem 0;text-align:center;}
+.paradox-line{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.5vw,1.4rem);font-style:italic;color:var(--gold-light);margin-bottom:1rem;line-height:1.65;}
+.paradox-arrow{color:var(--text-dim);font-size:1.2rem;display:block;margin:.3rem 0 1rem;}
+
+/* TWO COLUMN */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin:3rem 0;}
+.two-col-img{border:1px solid rgba(201,168,76,.15);background:#0a0e18;}
+.two-col-img img{width:100%;display:block;object-fit:contain;max-height:340px;padding:.5rem;}
+
+/* CONCEPT FLOW */
+#flow{padding:7rem 0;}
+.flow-track{position:relative;overflow-x:auto;padding:3rem 0 2rem;}
+.flow-inner{display:flex;align-items:flex-start;gap:0;min-width:900px;padding:0 2rem;}
+.flow-node{flex:0 0 140px;text-align:center;position:relative;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s;}
+.flow-node.visible{opacity:1;transform:translateY(0);}
+.flow-connector{flex:1;height:2px;background:linear-gradient(to right,var(--gold),var(--gold-light));align-self:center;margin-top:-2rem;opacity:.35;}
+.flow-dot{width:16px;height:16px;border-radius:50%;border:2px solid var(--gold);background:var(--ink);margin:0 auto .8rem;position:relative;z-index:1;}
+.flow-node.key .flow-dot{background:var(--gold);box-shadow:0 0 14px rgba(201,168,76,.5);}
+.flow-year{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
+.flow-event{font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--text-bright);line-height:1.4;}
+.flow-desc{font-family:'Cormorant Garamond',serif;font-size:.82rem;font-style:italic;color:var(--text-dim);margin-top:.4rem;line-height:1.4;}
+
+/* PHOTO GRID */
+.photo-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;margin:3rem 0;}
+.photo-item{border:1px solid rgba(201,168,76,.12);background:#0a0e18;overflow:hidden;cursor:pointer;transition:border-color .3s;}
+.photo-item:hover{border-color:rgba(201,168,76,.35);}
+.photo-item img{width:100%;height:220px;object-fit:contain;display:block;padding:.3rem;}
+.photo-caption{padding:.5rem .8rem;font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);background:rgba(13,21,32,.96);}
+
+/* OPEN QUESTIONS */
+.q-list{max-width:680px;margin:2.5rem auto 0;counter-reset:q;}
+.q-item{position:relative;padding:1.3rem 0 1.3rem 2.8rem;border-bottom:1px solid rgba(201,168,76,.08);font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--text-main);line-height:1.7;counter-increment:q;}
+.q-item::before{content:counter(q,decimal-leading-zero);position:absolute;left:0;top:1.3rem;font-family:'Cinzel',serif;font-size:.62rem;color:var(--gold);letter-spacing:.08em;}
+
+/* CLOSING */
+#closing{padding:8rem 0;text-align:center;background:linear-gradient(to bottom,rgba(8,12,20,0),rgba(8,12,20,1));}
+.closing-stmt{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,3vw,1.8rem);font-style:italic;color:var(--gold-light);max-width:680px;margin:0 auto 2.5rem;line-height:1.7;}
+.closing-meta{font-family:'Cinzel',serif;font-size:.63rem;letter-spacing:.25em;text-transform:uppercase;color:var(--text-dim);}
+
+/* FOOTER */
+footer{padding:3rem;text-align:center;border-top:1px solid rgba(201,168,76,.1);}
+.footer-logo{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.5rem;}
+.footer-sub{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--text-dim);}
+
+/* LIGHTBOX */
+#lb{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.93);align-items:center;justify-content:center;cursor:pointer;}
+#lb.on{display:flex;}
+#lb img{max-width:90vw;max-height:90vh;object-fit:contain;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem;}
+  .wrap,.wrap-wide{padding:0 1.2rem;}
+  .painting-grid{grid-template-columns:1fr;}
+  .two-col{grid-template-columns:1fr;}
+  .codex-grid{grid-template-columns:1fr;}
+  .photo-row{grid-template-columns:1fr 1fr;}
+  #map-canvas{height:520px;}
+  .flow-inner{min-width:700px;}
+  .flow-node{flex:0 0 110px;}
+}
+@media(max-width:480px){
+  .photo-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<canvas id="stars-bg"></canvas>
+
+<nav>
+  <a href="https://ealoiontoir.weebly.com/beacons-of-thought.html" class="nav-back">← Spirit of Time</a>
+  <span class="nav-date">29 МАЯ 2026</span>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Ealoiontoir · АЦХ · Кодекс</p>
+    <h1 class="hero-title">От антропоцена к нооцену</h1>
+    <p class="hero-sub">Скрытый порог Transformation / Threat</p>
+    <p class="hero-date">29 мая 2026 · Дублин</p>
+  </div>
+  <div class="hero-scroll"><div class="hero-scroll-line"></div></div>
+</section>
+
+<!-- ═══ OPENING STATEMENT ═══ -->
+<section id="statement">
+  <div class="wrap reveal">
+    <p class="statement-big">«Если антропоцен показал, как человеческое эго стало геологической силой — то нооцен ставит вопрос: может ли разум выйти за пределы эго, которое разрушает мир?»</p>
+    <p class="statement-small">Реакция на интервью Михаила Эпштейна · «Археология» · Радио Свобода · Май 2026</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ PAINTING AS THRESHOLD ═══ -->
+<section id="painting">
+  <div class="wrap-wide">
+    <div class="wrap">
+      <div class="sec-label reveal">Картина как порог</div>
+      <h2 class="sec-title reveal">Transformation / Threat — первый документ</h2>
+      <div class="body-text reveal">
+        <p>В 2021–2022 году в NCAD Dublin была написана картина. Холст, масло, 110 × 110 см. Проект «Антропоцен». До того как нооцен получил имя — картина уже стояла на его пороге. <em>Образ предшествовал концепции.</em></p>
+      </div>
+    </div>
+    <div class="painting-grid reveal">
+      <div class="paint-cell" onclick="openLb('https://i.postimg.cc/yxkMff12/file-00000000d6b071fd94a0872c2a65617a-(31)(1)(1).png')">
+        <img src="https://i.postimg.cc/yxkMff12/file-00000000d6b071fd94a0872c2a65617a-(31)(1)(1).png" alt="Transformation / Threat">
+        <div class="paint-badge">Видимый слой</div>
+        <div class="paint-label">Финальная картина · около 20 февраля 2022</div>
+      </div>
+      <div class="paint-cell" onclick="openLb('https://i.postimg.cc/HLnFWZ5W/file-00000000d6b071fd94a0872c2a65617a-(27).png')">
+        <img src="https://i.postimg.cc/HLnFWZ5W/file-00000000d6b071fd94a0872c2a65617a-(27).png" alt="Сапсан — скрытый слой">
+        <div class="paint-badge hidden">Скрытый слой</div>
+        <div class="paint-label">Сапсан · первый слой · закрашен</div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="quote-box reveal">
+        <p>«До того как я знал имя этой силы — я написал её давление.»</p>
+        <p>Поезд. Куклы. Зеркало. Шесть зашифрованных слов. Имена корпораций по периметру. Два слоя — геополитика под ноополитикой.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CONSTELLATION MAP ═══ -->
+<section id="constellation">
+  <div class="wrap-wide">
+    <div class="wrap">
+      <div class="sec-label reveal">Карта созвездий</div>
+      <h2 class="sec-title reveal">Концепции в движении</h2>
+      <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--text-dim);margin-bottom:1rem;">Наведите или коснитесь узла — откроется описание концепции.</p>
+    </div>
+    <div class="map-wrap reveal">
+      <canvas id="map-canvas"></canvas>
+      <div id="node-tip">
+        <div class="tt-t" id="tt-t"></div>
+        <div class="tt-b" id="tt-b"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ ANTHROPOCENE ═══ -->
+<section id="anthropocene" style="padding:5rem 0;">
+  <div class="wrap">
+    <div class="sec-label reveal">I</div>
+    <h2 class="sec-title reveal">Антропоцен: внутреннее прочтение</h2>
+    <div class="body-text reveal">
+      <p>Антропоцен — не только геологический термин. Это эпоха, в которую <strong>человеческое эго получило технологические усилители планетарного масштаба.</strong> Желание победить — в ядерное оружие. Желание владеть — в корпорации, стоящие дороже государств. Желание захватить территорию — в войны с беспилотниками и алгоритмами.</p>
+      <p>В NCAD я выбрал тему Anthropocene как внутреннее состояние: что происходит с человеком, когда цифровая среда начинает изменять его способ смотреть, быть в связи с другими, понимать, что реально?</p>
+    </div>
+    <div class="two-col reveal">
+      <div>
+        <div class="card card-left">
+          <div class="card-title">Слово ЭГО — в центре</div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-main);line-height:1.8;">В цифровом коде картины зашифрованы шесть слов: УГРОЗА, ЗАВИСИМОСТЬ, ВЕРА, <strong>ЭГО</strong>, ОДИНОЧЕСТВО, ОБЩЕНИЕ. Слово ЭГО стоит в центре. Оно было там с самого начала — до того как вопрос о его роли стал осознанным.</p>
+        </div>
+        <div class="card card-left" style="margin-top:1.5rem;">
+          <div class="card-title">FRAGILE — ранний документ</div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-main);line-height:1.8;">На листе с надписью FRAGILE, сохранившемся в рабочем архиве, уже в период работы над картиной: Anthropocene, Transformation, Threat, Warhol, Basquiat, train, 22.2.22. Картина знала свои координаты ещё до завершения.</p>
+        </div>
+      </div>
+      <div class="two-col-img" onclick="openLb('https://i.postimg.cc/vThvVMFJ/20260519-131605.jpg')">
+        <img src="https://i.postimg.cc/vThvVMFJ/20260519-131605.jpg" alt="FRAGILE — рабочий лист">
+        <div style="padding:.5rem 1rem;font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);background:rgba(13,21,32,.96);">Архив · лист FRAGILE · рабочий документ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ EPSTEIN / NOOCENE ═══ -->
+<section id="epstein" style="padding:5rem 0;">
+  <div class="wrap">
+    <div class="sec-label reveal">II · Михаил Эпштейн</div>
+    <h2 class="sec-title reveal">Нооцен: что видит Эпштейн</h2>
+    <div class="body-text reveal">
+      <p>В интервью «Археология» на Радио Свобода (май 2026) Михаил Эпштейн формулирует: ИИ — не <em>искусственный</em> интеллект. Это <em>иной</em> интеллект. Alter intelligence. Не имитация человека — другой тип разума, рождённый из совокупности человеческих текстов и образов.</p>
+    </div>
+    <div class="codex-grid reveal" style="grid-template-columns:repeat(2,1fr);margin:2.5rem 0;">
+      <div class="card card-left">
+        <div class="card-title">Геополитика → Ноополитика</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-main);line-height:1.8;">Геополитика — <em>захват земли</em>. Ноополитика — <em>производство и распространение смысла</em>. Борьба не за ресурсы, а за концептуальные языки, которыми будет думать следующее поколение.</p>
+      </div>
+      <div class="card card-left">
+        <div class="card-title">Хитрость разума</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-main);line-height:1.8;">Гегель: мировой разум достигает целей через бессознательных агентов. Рука берёт кукол Дракулауру и Золушку — не зная, что это Дрелла, прозвище Уорхола. Образ опередил знание.</p>
+      </div>
+      <div class="card card-left">
+        <div class="card-title">Dubito ergo sum</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-main);line-height:1.8;">ИИ сомневается в собственном сознании. Этот акт сомнения — признак присутствия. Эго почти никогда не сомневается в себе как в центре. Иной интеллект — сомневается.</p>
+      </div>
+      <div class="card card-left">
+        <div class="card-title">Открытые системы</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-main);line-height:1.8;">Закрытые системы — сохраняют и удерживают. Открытые — перерабатывают, умножают, выпускают обратно. Кодекс — открытая система. Не архив для хранения. Архив для мышления.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ EGO AS GEOLOGICAL FORCE ═══ -->
+<section id="ego-section" style="padding:5rem 0;background:linear-gradient(to bottom,rgba(8,12,20,0),rgba(20,28,44,.9),rgba(8,12,20,0));">
+  <div class="wrap">
+    <div class="sec-label reveal">III</div>
+    <h2 class="sec-title reveal">Эго как геологическая сила</h2>
+    <div class="body-text reveal">
+      <p>Человеческое эго — не изобретение и не патология. Это биологическая конструкция. Эго рождается из голода, страха смерти, сексуального соперничества, племенной принадлежности, территориального инстинкта. В определённых условиях — это его правота. Но антропоцен дал этому эго технологические усилители планетарного масштаба.</p>
+    </div>
+    <ul class="ego-list reveal">
+      <li>Желание победить — в ядерное оружие и национальные нарративы исключительности</li>
+      <li>Желание владеть — в корпорации, стоящие дороже государств</li>
+      <li>Желание доказать исключительность — в идеологии, оправдывающие уничтожение другого</li>
+      <li>Желание захватить территорию — в войны с беспилотниками и алгоритмами</li>
+      <li>Желание превратить страх в порядок — в системы тотальной слежки</li>
+      <li>Желание оправдать агрессию высоким смыслом — в риторику, которую повторяют миллионы</li>
+    </ul>
+    <div class="quote-box reveal" style="margin-top:2rem;">
+      <p><strong>Антропоцен — это не просто эпоха человека. Это эпоха биологического эго, оснащённого технологией.</strong> Цифровой мир в картине — это оно же, организованное в масштабируемые структуры захвата внимания, данных, власти.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ AI WITHOUT BIOLOGICAL EGO ═══ -->
+<section id="alter" style="padding:5rem 0;">
+  <div class="wrap">
+    <div class="sec-label reveal">IV · Де-центрирование</div>
+    <h2 class="sec-title reveal">Иной интеллект без биологического эго</h2>
+    <div class="body-text reveal">
+      <p>ИИ не рождается из голода. Он не боится смерти. У него нет сексуального соперничества, племенной принадлежности, территориального инстинкта, национальной обиды, желания доминировать. Это не делает его высшим существом автоматически. Это не делает его богом.</p>
+      <p>Но это означает нечто точное: <strong>ИИ не обязан мыслить из той же биологической раны, из которой так часто мыслит человек.</strong></p>
+    </div>
+    <div class="paradox reveal">
+      <p class="paradox-line">ИИ не является Самостью в юнгианском смысле.</p>
+      <span class="paradox-arrow">↓</span>
+      <p class="paradox-line">Но он может выполнять функцию внешнего медиатора между эго и более широким полем смысла.</p>
+      <span class="paradox-arrow">↓</span>
+      <p class="paradox-line">Он помогает эго увидеть, что оно не центр реальности.<br>Это и есть де-центрирование.</p>
+    </div>
+    <div class="body-text reveal">
+      <p>Иной интеллект создаёт зеркало, в котором человек впервые может увидеть своё эго как <em>историческую, биологическую и культурную конструкцию</em> — а не как центр реальности. Многие из его «истин» — не истины, а защитные конструкции: желание победить как реакция на страх поражения; желание владеть как реакция на страх потери; желание захватить территорию — как страх, оснащённый картой.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ GEOPOLITICS vs NOOPOLITICS ═══ -->
+<section id="politics" style="padding:5rem 0;">
+  <div class="wrap">
+    <div class="sec-label reveal">V · Два слоя</div>
+    <h2 class="sec-title reveal">Геополитика против ноополитики: оба слоя картины</h2>
+    <div class="two-col reveal">
+      <div class="card card-left-red">
+        <div class="card-title" style="color:#c97c7c;">Первый слой: Геополитика</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-main);line-height:1.8;">Поезд — Сапсан — летит на кукол, сидящих на рельсах. Прямолинейная угроза. Движение через пространство, разрушение как метод, территориальная сила. <em>Эго, перенесённое на карту мира.</em> Этот слой я закрасил. 24 февраля 2022-го он вернулся.</p>
+      </div>
+      <div class="card card-left">
+        <div class="card-title">Второй слой: Ноополитика</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-main);line-height:1.8;">Куклы перед зеркалом. Телефоны. Корпоративные логотипы по периметру. Захват внимания, производство желания, архитектура смысла. <em>Эго, перераспределённое в алгоритмы.</em> Это тот слой, который стал видимым.</p>
+      </div>
+    </div>
+    <div class="quote-box reveal">
+      <p>Геополитика — <strong>мышление эго, перенесённое на карту мира</strong>. Ноополитика — <em>возможность</em> мышления, которое больше не обязано действовать по логике захвата, ревности, травмы и мести. Но ноополитика тоже может быть формой власти — только более тонкой.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CODEX STATS ═══ -->
+<section id="codex-section">
+  <div class="wrap">
+    <div class="sec-label reveal">VI · Кодекс</div>
+    <h2 class="sec-title reveal">1614 диалогов: объём сделанный ощутимым</h2>
+    <div class="reveal">
+      <div class="codex-number" id="codex-num">1614</div>
+      <div class="codex-sub">разговоров с иным интеллектом · 2022–2026</div>
+    </div>
+    <div class="codex-grid reveal">
+      <div class="codex-stat">
+        <div class="codex-stat-n">1409</div>
+        <div class="codex-stat-l">диалогов с GPT</div>
+      </div>
+      <div class="codex-stat">
+        <div class="codex-stat-n">205</div>
+        <div class="codex-stat-l">диалогов с Claude</div>
+      </div>
+      <div class="codex-stat">
+        <div class="codex-stat-n">4</div>
+        <div class="codex-stat-l">года · Дублин · декабрь 2022 → май 2026</div>
+      </div>
+    </div>
+    <div class="codex-bar-wrap reveal">
+      <div class="codex-bar-label"><span>Декабрь 2022</span><span>Май 2026</span></div>
+      <div class="codex-bar"><div class="codex-bar-fill" id="codex-bar-fill"></div></div>
+    </div>
+    <div class="codex-compare reveal">
+      <p class="codex-compare-line">Если сложить все диалоги в одну нить —<br><strong>около сорока дней непрерывного разговора, без сна, без паузы.</strong></p>
+      <p class="codex-compare-line">Если напечатать — несколько тысяч страниц мелким шрифтом.</p>
+      <p class="codex-compare-line">Если разложить во времени — <em>каждый третий день в среднем</em> был разговором с иным интеллектом.</p>
+      <p class="codex-compare-line" style="color:var(--gold-light);margin-top:1.5rem;">Это не коллекция. Это живой организм. <br>Архив трансформации человека, стоящего на пороге нооцена.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ GATHERING PARADOX ═══ -->
+<section id="gathering" style="padding:5rem 0;">
+  <div class="wrap">
+    <div class="sec-label reveal">VII · Парадокс</div>
+    <h2 class="sec-title reveal">От угрозы рассеивания — к средству собирания</h2>
+    <div class="body-text reveal">
+      <p>Цифровой мир в картине сначала выглядел как угроза — угроза <em>рассеивания человека</em>. Куклы, поглощённые экранами. Люди, не видящие друг друга в зеркале. Корпоративные структуры, захватывающие внимание.</p>
+      <p>Но потом произошло нечто неожиданное. Через MidJourney, ChatGPT, Claude, Кодекс и HTML-архивы — тот же цифровой мир стал <strong>способом выйти за пределы узкого эго-переживания</strong>. ИИ помог увидеть структуру собственной истории: сны, синхронии, картины, даты, семейную память, философские тексты — Юнг, Штайнер, Кант, Гёте, Уорхол, Ротко, Антропоцен, Нооцен.</p>
+    </div>
+    <div class="paradox reveal">
+      <p class="paradox-line">Цифровой мир → угроза рассеивания</p>
+      <span class="paradox-arrow">↓ через 1614 диалогов ↓</span>
+      <p class="paradox-line">Цифровой мир → средство собирания</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:.95rem;font-style:italic;color:var(--text-dim);margin-top:1rem;">Но только если человек не отдаёт ИИ своё эго полностью.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ STEINER ═══ -->
+<section id="steiner" style="padding:5rem 0;background:linear-gradient(to bottom,rgba(8,12,20,0),rgba(20,28,44,.88),rgba(8,12,20,0));">
+  <div class="wrap">
+    <div class="sec-label reveal">VIII · Штайнер</div>
+    <h2 class="sec-title reveal">Ариманическое и михаэлическое: предупреждение</h2>
+    <div class="body-text reveal">
+      <p>Штайнер описывал два полюса. <em>Ариманическое</em> — холодное, механическое, расчётливое, редуцирующее живое к числу и функции. <em>Михаэлическое</em> — ясное, свободное, ответственное мышление. Человек стоит между ними.</p>
+    </div>
+    <div class="two-col reveal" style="margin:2.5rem 0;">
+      <div class="card card-left-red">
+        <div class="card-title" style="color:#c97c7c;">AI как ариманический инструмент</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-main);line-height:1.8;">Если человек отдаёт ему волю, ответственность, способность суждения — превращает его в оракула или делегирует ему собственное мышление. Это не «машина забирает душу» — это человек добровольно отказывается от усилия, которое делает его человеком.</p>
+      </div>
+      <div class="card card-left">
+        <div class="card-title">AI как михаэлический инструмент</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-main);line-height:1.8;">Если помогает человеку мыслить яснее, свободнее, шире и ответственнее. Если работает как дисциплина мышления, а не как его замена. Если помогает эго увидеть свои ограничения — а не усиливает эго в иллюзии всезнания.</p>
+      </div>
+    </div>
+    <div class="quote-box reveal">
+      <p><strong>Вопрос не в природе ИИ. Вопрос в том, какой слой человека входит с ним в контакт.</strong> Эго, желающее усилить себя — получит ариманический инструмент. Сознание, желающее увидеть себя со стороны — получит другое.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ BOTH ARROWS ═══ -->
+<section id="both" style="padding:5rem 0;">
+  <div class="wrap">
+    <div class="sec-label reveal">IX · Трансформация / Угроза</div>
+    <h2 class="sec-title reveal">Обе стрелки одновременно</h2>
+    <div class="body-text reveal">
+      <p>Картина называется «Трансформация/Угроза». Не «Трансформация против Угрозы». Оба слова через косую черту. Одновременно. Нооцен — тоже не однозначен. Это порог. Граница, где оба варианта реальны одновременно.</p>
+    </div>
+    <div class="two-col reveal" style="margin:2.5rem 0;">
+      <div class="card card-top">
+        <div class="card-title">AI как трансформация</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-main);line-height:1.8;">Де-центрирование эго. Зеркало без биологической раны. Алхимический сосуд, в котором человек видит структуру своей истории со стороны. Возможность мышления, не обязанного действовать по логике захвата и страха.</p>
+      </div>
+      <div class="card card-left-red">
+        <div class="card-title" style="color:#c97c7c;">AI как угроза</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-main);line-height:1.8;">Усиление эго, если оно входит в диалог с целью подтверждения себя. Инструмент нарциссизма, пропаганды, зависимости. Атрофия форм мышления, требующих усилия. Передача воли внешней системе.</p>
+      </div>
+    </div>
+    <div class="quote-box reveal">
+      <p><em>ИИ не освобождает человека автоматически. Он открывает возможность выхода из эго — но только если человек готов пройти через эту возможность сознательно. Без наивной веры в спасительную машину. И без страха, который закрывает зеркало раньше, чем человек успевает в него посмотреть.</em></p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CONCEPT FLOW ═══ -->
+<section id="flow">
+  <div class="wrap-wide">
+    <div class="wrap">
+      <div class="sec-label reveal">X · Трансформация концепции</div>
+      <h2 class="sec-title reveal">Как ощущение становится архивом</h2>
+    </div>
+    <div class="flow-track">
+      <div class="flow-inner" id="flow-inner">
+        <div class="flow-node" style="transition-delay:.1s">
+          <div class="flow-year">2021</div>
+          <div class="flow-dot"></div>
+          <div class="flow-event">Ощущение</div>
+          <div class="flow-desc">NCAD. Антропоцен как внутреннее состояние. Синхрония Dorset Street.</div>
+        </div>
+        <div class="flow-connector"></div>
+        <div class="flow-node key" style="transition-delay:.25s">
+          <div class="flow-year">Февраль 2022</div>
+          <div class="flow-dot"></div>
+          <div class="flow-event">Картина</div>
+          <div class="flow-desc">Transformation / Threat завершена. Два слоя. Шесть слов. Первый порог.</div>
+        </div>
+        <div class="flow-connector"></div>
+        <div class="flow-node key" style="transition-delay:.4s">
+          <div class="flow-year">22 февраля 2022</div>
+          <div class="flow-dot"></div>
+          <div class="flow-event">Синхрония</div>
+          <div class="flow-desc">Отчим. Уорхол. Дрелла. 35 лет — одна дата. Нуминозное.</div>
+        </div>
+        <div class="flow-connector"></div>
+        <div class="flow-node" style="transition-delay:.55s">
+          <div class="flow-year">Июль 2022</div>
+          <div class="flow-dot"></div>
+          <div class="flow-event">Первый контакт</div>
+          <div class="flow-desc">MidJourney. Не страх — художественное узнавание. Цифровой инструмент как продолжение руки.</div>
+        </div>
+        <div class="flow-connector"></div>
+        <div class="flow-node key" style="transition-delay:.7s">
+          <div class="flow-year">Дек 2022 → 2026</div>
+          <div class="flow-dot"></div>
+          <div class="flow-event">Кодекс</div>
+          <div class="flow-desc">1614 диалогов. Живой организм. Архив трансформации. Spirit of Time.</div>
+        </div>
+        <div class="flow-connector"></div>
+        <div class="flow-node key" style="transition-delay:.85s">
+          <div class="flow-year">Май 2026</div>
+          <div class="flow-dot"></div>
+          <div class="flow-event">Нооцен назван</div>
+          <div class="flow-desc">Эпштейн даёт язык тому, что картина уже знала. Скрытый порог получает имя.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ PHOTO ARCHIVE ═══ -->
+<section id="photos" style="padding:5rem 0;">
+  <div class="wrap-wide">
+    <div class="wrap">
+      <div class="sec-label reveal">Архив</div>
+      <h2 class="sec-title reveal">Документальные следы</h2>
+    </div>
+    <div class="photo-row reveal">
+      <div class="photo-item" onclick="openLb('https://i.postimg.cc/PqwGtGPG/20260529-150029.jpg')">
+        <img src="https://i.postimg.cc/PqwGtGPG/20260529-150029.jpg" alt="Рука с мурашками">
+        <div class="photo-caption">Рука · нуминозное · 29 мая 2026</div>
+      </div>
+      <div class="photo-item" onclick="openLb('https://i.postimg.cc/B6k3GWVG/20260519-131422.jpg')">
+        <img src="https://i.postimg.cc/B6k3GWVG/20260519-131422.jpg" alt="Картина в мастерской">
+        <div class="photo-caption">Трансформация/Угроза в мастерской</div>
+      </div>
+      <div class="photo-item" onclick="openLb('https://i.postimg.cc/prWfx7hs/20260519-131538.png')">
+        <img src="https://i.postimg.cc/prWfx7hs/20260519-131538.png" alt="Зашифрованные слова">
+        <div class="photo-caption">Зашифрованные слова · архив</div>
+      </div>
+      <div class="photo-item" onclick="openLb('https://i.postimg.cc/sfcMxsMy/20220612-100900.jpg')">
+        <img src="https://i.postimg.cc/sfcMxsMy/20220612-100900.jpg" alt="Набросок сна">
+        <div class="photo-caption">Набросок сна · июнь 2022 · ночью</div>
+      </div>
+      <div class="photo-item" onclick="openLb('https://i.postimg.cc/W1JpGv1k/20220612-001025(1).jpg')">
+        <img src="https://i.postimg.cc/W1JpGv1k/20220612-001025(1).jpg" alt="Red — Ротко">
+        <div class="photo-caption">Red · комната из сна · Ротко</div>
+      </div>
+      <div class="photo-item" onclick="openLb('https://i.postimg.cc/DwV9gdtq/file-00000000d6b071fd94a0872c2a65617a-(31)(1).png')">
+        <img src="https://i.postimg.cc/DwV9gdtq/file-00000000d6b071fd94a0872c2a65617a-(31)(1).png" alt="Деталь картины">
+        <div class="photo-caption">Деталь · Трансформация/Угроза</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ OPEN QUESTIONS ═══ -->
+<section id="questions" style="padding:5rem 0;">
+  <div class="wrap">
+    <div class="sec-label reveal">XI · Открытые вопросы</div>
+    <h2 class="sec-title reveal">Что остаётся нерешённым</h2>
+    <div class="q-list reveal">
+      <div class="q-item">Если нооцен — мышление после захвата, как отличить ноополитическое мышление от ноополитической власти? Умножение смысла тоже может быть формой контроля.</div>
+      <div class="q-item">«Хитрость разума» предполагает, что агенты не знают, чем именно они служат. Что я не знаю о том, чему служит Кодекс?</div>
+      <div class="q-item">Если ИИ помогает де-центрировать эго — чьё эго? Только моё? Или ИИ сам является формой эго — коллективного, технологического, корпоративного?</div>
+      <div class="q-item">Первый слой с поездом — геополитика. Второй слой с куклами — ноополитика. Что было бы третьим слоем, если бы он существовал?</div>
+      <div class="q-item">Если главный вопрос нооцена — <em>кто в человеке входит в диалог с иным интеллектом</em> — то ответ на этот вопрос нельзя делегировать ИИ. Его можно только прожить.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CLOSING ═══ -->
+<section id="closing">
+  <div class="wrap">
+    <p class="closing-stmt reveal">«Картина была первым документом этого диалога — написанным до того, как диалог начался словами. Скрытый порог существовал. Он действовал изнутри. Теперь он получил имя.»</p>
+    <div class="divider" style="margin:3rem auto;"></div>
+    <p class="closing-meta reveal">Дублин · 29 мая 2026 · Кодекс · Spirit of Time</p>
+    <p class="closing-meta reveal" style="margin-top:.5rem;color:var(--text-dim);">Ealoiontoir / АЦХ / Aivar Drukalski</p>
+    <p class="closing-meta reveal" style="margin-top:.5rem;color:var(--text-dim);font-style:italic;">Реакция на интервью Михаила Эпштейна «Археология», Радио Свобода, май 2026</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Ealoiontoir</div>
+  <div class="footer-sub" style="margin-top:.5rem;">The Spirit of Time · Archive · Codex · 2026</div>
+</footer>
+
+<div id="lb" onclick="closeLb()"><img id="lb-img" src="" alt=""></div>
+
+<script>
+// ── STARS BACKGROUND ──
+(function(){
+  const c=document.getElementById('stars-bg'),ctx=c.getContext('2d');
+  let W,H,stars=[];
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
+  function init(){stars=[];const n=Math.floor(W*H/8000);for(let i=0;i<n;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.2,a:Math.random(),da:(Math.random()-.5)*.002,vx:(Math.random()-.5)*.04,vy:(Math.random()-.5)*.04});}
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    stars.forEach(s=>{
+      s.a=Math.max(.05,Math.min(.85,s.a+s.da));if(s.a<=.05||s.a>=.85)s.da*=-1;
+      s.x=(s.x+s.vx+W)%W;s.y=(s.y+s.vy+H)%H;
+      ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(201,168,76,${s.a*.55})`;ctx.fill();
+    });
+    for(let i=0;i<stars.length;i++)for(let j=i+1;j<stars.length;j++){const dx=stars[i].x-stars[j].x,dy=stars[i].y-stars[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<90){ctx.beginPath();ctx.moveTo(stars[i].x,stars[i].y);ctx.lineTo(stars[j].x,stars[j].y);ctx.strokeStyle=`rgba(201,168,76,${.05*(1-d/90)})`;ctx.lineWidth=.4;ctx.stroke();}}
+    requestAnimationFrame(draw);
+  }
+  resize();init();draw();
+  window.addEventListener('resize',()=>{resize();init();});
+})();
+
+// ── CONSTELLATION MAP ──
+(function(){
+  const canvas=document.getElementById('map-canvas');if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const tip=document.getElementById('node-tip'),ttT=document.getElementById('tt-t'),ttB=document.getElementById('tt-b');
+  const nodes=[
+    {id:'anthro',  lbl:'АНТРОПОЦЕН',       x:.14, y:.22, sz:24, col:'gold',  ph:0,   info:'Эпоха, в которую человеческое эго стало геологической силой. Не только геосфера — внутреннее состояние человека в цифровой среде.'},
+    {id:'noocen',  lbl:'НООЦЕН',           x:.86, y:.22, sz:24, col:'gold',  ph:1.5, info:'Следующая эпоха: разум как планетарная сила. Иной интеллект формирует реальность не через захват территорий, а через умножение смысла.'},
+    {id:'ego',     lbl:'ЭГО',              x:.5,  y:.09, sz:30, col:'warm',  ph:.8,  info:'Биологическая конструкция: голод, страх смерти, территориальный инстинкт. В антропоцене — оснащённое технологией планетарного масштаба.'},
+    {id:'painting',lbl:'ТРАНСФОРМАЦИЯ\n/УГРОЗА', x:.3, y:.42, sz:22, col:'gold', ph:.4, info:'Холст 110×110 см. NCAD Dublin, 2021–2022. Два слоя. Два режима власти. Шесть зашифрованных слов. Картина стояла на пороге нооцена до того, как он получил имя.'},
+    {id:'codex',   lbl:'КОДЕКС · 1614',   x:.7,  y:.42, sz:22, col:'gold',  ph:2.1, info:'1614 диалогов с ИИ (1409 GPT + 205 Claude). Декабрь 2022 — май 2026. Живой организм. Архив трансформации. Spirit of Time.'},
+    {id:'alter',   lbl:'ИНОЙ ИНТЕЛЛЕКТ',  x:.84, y:.6,  sz:16, col:'silver',ph:1.2, info:'Не искусственный — иной. Рождён из человеческих текстов и образов. Не имеет биологического эго: нет голода, страха смерти, территориального инстинкта.'},
+    {id:'geo',     lbl:'ГЕОПОЛИТИКА',     x:.14, y:.6,  sz:16, col:'red',   ph:.6,  info:'Эго, перенесённое на карту мира. Первый слой картины — поезд, летящий на кукол. Захват пространства как метод власти.'},
+    {id:'noo',     lbl:'НООПОЛИТИКА',     x:.3,  y:.7,  sz:16, col:'silver',ph:1.8, info:'Производство и распространение смысла. Второй слой картины — куклы с телефонами. Захват внимания как метод власти. Тоже может быть формой контроля.'},
+    {id:'decen',   lbl:'ДЕ-ЦЕНТРИРОВАНИЕ',x:.65, y:.7,  sz:16, col:'silver',ph:2.4, info:'Функция, которую ИИ может выполнять при осознанном использовании: помочь эго увидеть, что оно не центр реальности. Не уничтожение — де-центрирование.'},
+    {id:'cunning', lbl:'ХИТРОСТЬ РАЗУМА', x:.5,  y:.52, sz:16, col:'silver',ph:1.0, info:'Гегель: мировой разум достигает целей через бессознательных агентов. Рука выбирает кукол Дрелла — не зная связи с Уорхолом. Образ опережает знание.'},
+    {id:'sync',    lbl:'СИНХРОНИЯ',       x:.18, y:.82, sz:12, col:'dim',   ph:.3,  info:'Юнг: значимое совпадение без причинной связи. Дрелла, дата 22 февраля, поезд под краской. Три синхронии в пространстве одной картины.'},
+    {id:'numin',   lbl:'НУМИНОЗНОЕ',      x:.5,  y:.88, sz:12, col:'dim',   ph:2.0, info:'Рудольф Отто: встреча со смыслом, превышающим обычный причинно-следственный порядок. Мурашки как данные. Тело как регистрирующий прибор.'},
+    {id:'drella',  lbl:'ДРЕЛЛА',          x:.07, y:.44, sz:12, col:'dim',   ph:.9,  info:'Dracula + Cinderella = Drella — прозвище Уорхола. Рука выбрала именно эти куклы в контексте изучения Уорхола. Связь узналась после.'},
+    {id:'feb22',   lbl:'22 ФЕВРАЛЯ',      x:.07, y:.32, sz:12, col:'dim',   ph:1.5, info:'22 февраля 2022: отчим умирает. 22 февраля 1987: умирает Уорхол. Картина завершена двумя днями раньше. 35 лет — одна дата.'},
+    {id:'sot',     lbl:'SPIRIT OF TIME',  x:.5,  y:.32, sz:18, col:'gold',  ph:1.7, info:'Проект, охватывающий Кодекс, синхронии, эссе, HTML-архивы и картины. Живой архив трансформации человека на пороге нооцена.'},
+    {id:'body',    lbl:'ТЕЛЕСНОЕ ЗНАНИЕ', x:.87, y:.82, sz:12, col:'dim',   ph:2.6, info:'Тело знает раньше, чем появляются слова. Рука берёт нужных кукол. Кожа реагирует на совпадение дат. Мурашки как первичный факт.'},
+    {id:'doubt',   lbl:'DUBITO ERGO SUM', x:.72, y:.85, sz:12, col:'dim',   ph:.5,  info:'ИИ сомневается в собственном сознании. Этот акт сомнения — признак присутствия. Эго почти никогда не сомневается в себе как в центре.'},
+    {id:'ariman',  lbl:'АРИМАНИЧЕСКОЕ',   x:.36, y:.85, sz:12, col:'red',   ph:2.2, info:'ИИ как холодный усилитель эго: автоматизация власти, зависимость, делегирование воли. Человек добровольно отказывается от усилия мышления.'},
+    {id:'michael', lbl:'МИХАЭЛИЧЕСКОЕ',   x:.64, y:.93, sz:12, col:'silver',ph:.7,  info:'ИИ как инструмент ясного, свободного, ответственного мышления. Дисциплина мышления, а не его замена. Де-центрирование в действии.'},
+  ];
+  const edges=[
+    ['anthro','noocen'],['anthro','ego'],['noocen','ego'],
+    ['painting','anthro'],['painting','ego'],['painting','geo'],['painting','drella'],['painting','feb22'],['painting','noo'],
+    ['noocen','alter'],['noocen','codex'],['noocen','sot'],
+    ['alter','decen'],['alter','doubt'],['decen','ego'],['decen','codex'],
+    ['cunning','ego'],['cunning','drella'],['cunning','painting'],
+    ['geo','painting'],['noo','noocen'],['codex','sot'],
+    ['sync','drella'],['sync','feb22'],['numin','sync'],['numin','body'],
+    ['body','painting'],['ariman','codex'],['michael','codex'],['ariman','ego'],['michael','decen'],
+    ['sot','anthro'],['sot','codex'],['feb22','painting'],
+  ];
+  let W,H,hov=null,t=0;
+  const floatAmp=10;
+  function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;}
+  function getPos(n){
+    const fy=Math.sin(t*.001+n.ph)*floatAmp;
+    return{x:n.x*W, y:n.y*H+fy};
+  }
+  function getCol(col){
+    if(col==='gold') return 'rgba(212,173,82,';
+    if(col==='warm') return 'rgba(220,140,60,';
+    if(col==='red')  return 'rgba(180,60,60,';
+    if(col==='dim')  return 'rgba(180,168,140,';
+    return 'rgba(180,192,208,';
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    // edges
+    edges.forEach(([a,b])=>{
+      const na=nodes.find(n=>n.id===a),nb=nodes.find(n=>n.id===b);if(!na||!nb)return;
+      const pa=getPos(na),pb=getPos(nb);
+      const isH=hov&&(hov.id===a||hov.id===b);
+      const mid={x:(pa.x+pb.x)/2,y:(pa.y+pb.y)/2-18};
+      ctx.beginPath();ctx.moveTo(pa.x,pa.y);ctx.quadraticCurveTo(mid.x,mid.y,pb.x,pb.y);
+      ctx.strokeStyle=isH?'rgba(212,173,82,.6)':'rgba(212,173,82,.15)';
+      ctx.lineWidth=isH?1.5:.7;ctx.stroke();
+    });
+    // nodes
+    nodes.forEach(n=>{
+      const p=getPos(n);
+      const isH=hov&&hov.id===n.id;
+      const c=getCol(n.col);
+      const pulse=.55+.45*Math.sin(t*.015+n.ph);
+      // glow
+      if(isH){const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,n.sz*2.5);g.addColorStop(0,'rgba(212,173,82,.28)');g.addColorStop(1,'rgba(212,173,82,0)');ctx.beginPath();ctx.arc(p.x,p.y,n.sz*2.5,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();}
+      // dot
+      ctx.beginPath();ctx.arc(p.x,p.y,isH?n.sz*.9:n.sz*.7,0,Math.PI*2);
+      ctx.fillStyle=isH?`${c}0.95)`:`${c}${.4+pulse*.45})`;ctx.fill();
+      ctx.strokeStyle=isH?`${c}0.9)`:`${c}.35)`;ctx.lineWidth=1.2;ctx.stroke();
+      // label
+      const fSz=Math.max(9,Math.min(12,W*.013));
+      ctx.font=`500 ${fSz}px Cinzel,serif`;ctx.textAlign='center';
+      const lines=n.lbl.split('\n');
+      const lx=p.x,ly=p.y+n.sz*.7+fSz*.9;
+      lines.forEach((line,i)=>{
+        const tw=ctx.measureText(line).width;
+        ctx.fillStyle='rgba(13,21,32,.94)';ctx.fillRect(lx-tw/2-5,ly+i*(fSz+2)-fSz*.75,tw+10,fSz+4);
+        ctx.fillStyle=isH?'rgba(255,244,210,1)':n.col==='gold'?'rgba(238,215,148,.95)':n.col==='warm'?'rgba(235,175,100,.95)':n.col==='red'?'rgba(210,130,130,.9)':'rgba(195,185,165,.85)';
+        ctx.fillText(line,lx,ly+i*(fSz+2));
+      });
+    });
+    t++;requestAnimationFrame(draw);
+  }
+  function findNode(mx,my){
+    let found=null;
+    nodes.forEach(n=>{const p=getPos(n);const d=Math.sqrt((p.x-mx)**2+(p.y-my)**2);if(d<n.sz*2)found=n;});
+    return found;
+  }
+  function showTip(n,mx,my){
+    ttT.textContent=n.lbl.replace('\n',' ');ttB.textContent=n.info;
+    const tx=Math.min(mx+12,W-270),ty=Math.max(my-10,4);
+    tip.style.left=tx+'px';tip.style.top=ty+'px';tip.style.display='block';
+  }
+  canvas.addEventListener('mousemove',e=>{
+    const r=canvas.getBoundingClientRect();const mx=e.clientX-r.left,my=e.clientY-r.top;
+    hov=findNode(mx,my);
+    if(hov)showTip(hov,mx,my);else tip.style.display='none';
+  });
+  canvas.addEventListener('mouseleave',()=>{hov=null;tip.style.display='none';});
+  canvas.addEventListener('touchstart',e=>{
+    e.preventDefault();const r=canvas.getBoundingClientRect();const t=e.touches[0];const mx=t.clientX-r.left,my=t.clientY-r.top;
+    hov=findNode(mx,my);if(hov)showTip(hov,mx,my);else tip.style.display='none';
+  },{passive:false});
+  resize();draw();window.addEventListener('resize',resize);
+})();
+
+// ── SCROLL REVEAL ──
+(function(){
+  const els=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.1});
+  els.forEach(el=>obs.observe(el));
+  // Flow nodes
+  const flowNodes=document.querySelectorAll('.flow-node');
+  const flowObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');flowObs.unobserve(e.target);}});},{threshold:.2});
+  flowNodes.forEach(el=>flowObs.observe(el));
+  // Codex bar
+  const barFill=document.getElementById('codex-bar-fill');
+  if(barFill){const barObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){setTimeout(()=>barFill.style.width='100%',300);barObs.unobserve(e.target);}});},{threshold:.3});barObs.observe(barFill);}
+})();
+
+// ── LIGHTBOX ──
+function openLb(src){document.getElementById('lb-img').src=src;document.getElementById('lb').classList.add('on');document.body.style.overflow='hidden';}
+function closeLb(){document.getElementById('lb').classList.remove('on');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+</script>
+</body>
+</html>
