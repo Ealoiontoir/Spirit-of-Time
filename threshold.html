@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Threshold · Spirit of Time</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#08070a;--bg-alt:#0d0b0f;--gold:#c9a84c;--gold-dim:#7a6530;
+      --gold-faint:rgba(201,168,76,0.08);--text:#e2d4bc;--text-muted:#887a68;
+      --border:rgba(201,168,76,0.18);--font-title:'Cinzel',serif;
+      --font-body:'Cormorant Garamond',serif;--max-w:860px;
+      --img-bleed:8vw;--section-gap:9rem;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;font-size:18px;}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-weight:300;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+    ::selection{background:rgba(201,168,76,0.25);color:var(--text);}
+    #progress-bar{position:fixed;top:0;left:0;height:1px;width:0%;background:var(--gold);z-index:1000;transition:width 0.1s linear;}
+    #hero{position:relative;width:100%;height:100vh;min-height:600px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
+    #particles-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
+    .hero-inner{position:relative;z-index:1;text-align:center;padding:2rem;opacity:0;animation:heroFadeIn 2.4s ease forwards;animation-delay:0.4s;}
+    @keyframes heroFadeIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+    .hero-eyebrow{font-family:var(--font-title);font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:2.2rem;}
+    .hero-title{font-family:var(--font-title);font-size:clamp(2.6rem,7vw,5.2rem);font-weight:400;letter-spacing:0.08em;color:var(--text);line-height:1.15;margin-bottom:1.8rem;}
+    .hero-subtitle{font-family:var(--font-body);font-style:italic;font-size:clamp(1rem,2.2vw,1.25rem);font-weight:300;color:var(--text-muted);letter-spacing:0.04em;max-width:520px;margin:0 auto 3rem;}
+    .hero-rule{width:48px;height:1px;background:var(--gold);margin:0 auto;opacity:0.6;}
+    .hero-scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:1;display:flex;flex-direction:column;align-items:center;gap:0.5rem;opacity:0;animation:heroFadeIn 2s ease forwards;animation-delay:2.2s;}
+    .hero-scroll-hint span{font-family:var(--font-title);font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-dim);}
+    .scroll-arrow{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold-dim),transparent);animation:scrollPulse 2s ease-in-out infinite;}
+    @keyframes scrollPulse{0%,100%{opacity:0.3;}50%{opacity:0.9;}}
+    main{max-width:var(--max-w);margin:0 auto;padding:0 2rem;}
+    .codex-section{padding:var(--section-gap) 0;border-top:1px solid var(--border);}
+    .codex-section:first-child{border-top:none;padding-top:6rem;}
+    .section-number{font-family:var(--font-title);font-size:0.58rem;letter-spacing:0.38em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;display:block;}
+    .section-title{font-family:var(--font-title);font-size:clamp(1.3rem,3vw,1.85rem);font-weight:400;letter-spacing:0.05em;color:var(--text);margin-bottom:2.8rem;line-height:1.3;}
+    .body-text{font-size:clamp(1rem,1.8vw,1.15rem);font-weight:300;line-height:1.9;color:var(--text);}
+    .body-text p{margin-bottom:1.6em;}
+    .body-text p:last-child{margin-bottom:0;}
+    .drop-cap::first-letter{float:left;font-family:var(--font-title);font-size:4.2em;line-height:0.82;padding-right:0.12em;padding-top:0.06em;color:var(--gold);}
+    .pull-quote{margin:var(--section-gap) 0;padding:3rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;}
+    .pull-quote blockquote{font-family:var(--font-body);font-style:italic;font-size:clamp(1.35rem,3.2vw,2rem);font-weight:300;line-height:1.55;color:var(--text);letter-spacing:0.02em;max-width:620px;margin:0 auto;}
+    .pull-quote blockquote cite{display:block;margin-top:1.4rem;font-style:normal;font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);}
+    .img-solo,.img-pair,.img-trio{margin-left:calc(-1 * var(--img-bleed));margin-right:calc(-1 * var(--img-bleed));margin-top:3rem;margin-bottom:3rem;}
+    .img-solo img,.img-pair img,.img-trio img{width:100%;height:auto;display:block;filter:brightness(0.88) contrast(1.05);transition:filter 0.55s ease;cursor:zoom-in;}
+    .img-solo img:hover,.img-pair img:hover,.img-trio img:hover{filter:brightness(0.97) contrast(1.04);}
+    .img-pair{display:flex;flex-direction:row;gap:0.6rem;align-items:flex-start;}
+    .img-pair img{flex:1 1 0;width:0;min-width:0;}
+    .img-trio{display:flex;flex-direction:row;gap:0.5rem;align-items:flex-start;}
+    .img-trio img{flex:1 1 0;width:0;min-width:0;}
+    .img-caption{margin-top:0.8rem;margin-left:var(--img-bleed);margin-right:var(--img-bleed);font-family:var(--font-body);font-style:italic;font-size:0.82rem;color:var(--text-muted);text-align:center;letter-spacing:0.03em;}
+    #lb-overlay{position:fixed;inset:0;background:rgba(5,4,7,0.97);z-index:9999;display:none;align-items:center;justify-content:center;cursor:zoom-out;padding:2rem;}
+    #lb-overlay.open{display:flex;}
+    #lb-img{max-width:90vw;max-height:90vh;object-fit:contain;display:block;filter:brightness(0.96) contrast(1.05);box-shadow:0 0 80px rgba(0,0,0,0.8);}
+    #lb-close{position:fixed;top:1.5rem;right:1.8rem;font-family:var(--font-title);font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-dim);cursor:pointer;z-index:10000;transition:color 0.3s;}
+    #lb-close:hover{color:var(--gold);}
+    .ornament{display:flex;align-items:center;gap:1.2rem;margin:4rem 0;opacity:0.45;}
+    .ornament::before,.ornament::after{content:'';flex:1;height:1px;background:var(--gold);}
+    .ornament-symbol{font-family:var(--font-title);font-size:0.75rem;letter-spacing:0.25em;color:var(--gold);}
+    .closing{padding:7rem 0 10rem;text-align:center;border-top:1px solid var(--border);}
+    .closing-mark{font-family:var(--font-title);font-size:0.58rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:2.5rem;}
+    .closing-text{font-family:var(--font-body);font-style:italic;font-size:clamp(1rem,2vw,1.2rem);font-weight:300;line-height:1.9;color:var(--text-muted);max-width:540px;margin:0 auto 3rem;}
+    .closing-date{font-family:var(--font-title);font-size:0.55rem;letter-spacing:0.35em;color:var(--gold-dim);}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s cubic-bezier(0.25,0.46,0.45,0.94),transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal-delay-1{transition-delay:0.15s;}
+    .reveal-delay-2{transition-delay:0.3s;}
+    .reveal-delay-3{transition-delay:0.45s;}
+    .hand-section{text-align:center;padding:var(--section-gap) 0;}
+    .hand-phrase{font-family:var(--font-title);font-size:clamp(2rem,6vw,4rem);letter-spacing:0.12em;color:var(--gold);margin:3rem 0;opacity:0;animation:none;}
+    .hand-phrase.visible{animation:phraseReveal 1.8s ease forwards;}
+    @keyframes phraseReveal{from{opacity:0;letter-spacing:0.3em;}to{opacity:1;letter-spacing:0.12em;}}
+    .archive-node{margin:5rem 0 0;padding:3.5rem 0;border-top:1px solid var(--border);}
+    .archive-node-label{font-family:var(--font-title);font-size:0.55rem;letter-spacing:0.38em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:2.5rem;display:flex;align-items:center;gap:1rem;}
+    .archive-node-label::after{content:'';flex:1;height:1px;background:var(--border);}
+    .archive-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-left:calc(-1 * var(--img-bleed));margin-right:calc(-1 * var(--img-bleed));}
+    .archive-cell{display:flex;flex-direction:column;}
+    .archive-cell img{width:100%;height:280px;object-fit:contain;display:block;background:#0d0b10;padding:1rem;filter:brightness(0.85) contrast(1.08) sepia(0.12);transition:filter 0.5s ease;cursor:zoom-in;}
+    .archive-cell img:hover{filter:brightness(0.97) contrast(1.05) sepia(0.06);}
+    .archive-cell-caption{padding:0.55rem 0.9rem;font-family:var(--font-title);font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;color:#c8b890;background:rgba(13,11,15,0.97);border:1px solid var(--border);border-top:none;line-height:1.6;}
+    .archive-note{margin-top:2rem;margin-left:var(--img-bleed);margin-right:var(--img-bleed);padding:1.6rem 2rem;border-left:2px solid rgba(201,168,76,0.3);background:rgba(201,168,76,0.03);}
+    .archive-note p{font-family:var(--font-body);font-style:italic;font-size:1rem;font-weight:300;color:var(--text-muted);line-height:1.85;margin:0;}
+    @media (max-width:768px){
+      :root{--section-gap:5rem;--img-bleed:0px;}
+      .img-pair,.img-trio{flex-direction:column;}
+      .img-pair img,.img-trio img{flex:none;width:100%;}
+      .pull-quote blockquote{font-size:1.25rem;}
+      .archive-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<div id="lb-overlay">
+  <span id="lb-close">Закрыть · Esc</span>
+  <img id="lb-img" src="" alt="" />
+</div>
+
+<section id="hero">
+  <canvas id="particles-canvas"></canvas>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Codex . Spirit of Time . From the Series: Synchronicity · Part 1</p>
+    <h1 class="hero-title">The Threshold</h1>
+    <p class="hero-subtitle">A dream of two elders, a hidden door, and the raised left hand</p>
+    <div class="hero-rule"></div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Descend</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<main>
+
+  <section class="codex-section">
+    <div class="reveal">
+      <span class="section-number">I · The Bar</span>
+      <h2 class="section-title">Alpine Threshold</h2>
+    </div>
+    <div class="body-text reveal reveal-delay-1">
+      <p class="drop-cap">Somewhere in the Alps — though I could not have named it so then, the sensation of the mountains was simply present, like pressure in the air. I was seated at a long counter, on one of those high stools that leave the feet unsupported.</p>
+      <p>What held my attention was not the room itself but the bar counter: something was happening to its form. At one end it was contemporary, almost Modernist — clean planes and precise angles. Toward the other end it shifted, slowly, as though the wood itself were remembering something older. Baroque. Renaissance. The ornament deepened as the grain changed. It was not two different objects placed side by side. It was one object in the act of transformation.</p>
+      <p>I watched this metamorphosis as though it were a natural phenomenon — not disturbing, but deeply significant. Time was not sequential here. It was a surface you could run your hand along.</p>
+    </div>
+    <div class="img-trio reveal reveal-delay-2">
+      <img src="https://i.postimg.cc/13LJcL6T/file-00000000b6e87246899d6dd1cb8650c1.png" alt="The bar at the threshold" loading="lazy" />
+      <img src="https://i.postimg.cc/8cPHzDQd/file-000000003950720ab62b9b893575c936.png" alt="The metamorphosis of the counter" loading="lazy" />
+      <img src="https://i.postimg.cc/XNQLDZdL/file-00000000c00872468701a0c861a72e9c.png" alt="Alpine atmosphere" loading="lazy" />
+    </div>
+    <p class="img-caption reveal">The bar where epochs do not oppose one another but flow.</p>
+  </section>
+
+  <div class="pull-quote reveal">
+    <blockquote>
+      Time was not sequential here. It was a surface you could run your hand along.
+      <cite>— I · Alpine Threshold</cite>
+    </blockquote>
+  </div>
+
+  <section class="codex-section">
+    <div class="reveal">
+      <span class="section-number">II · The Encounter</span>
+      <h2 class="section-title">The Invitation</h2>
+    </div>
+    <div class="body-text reveal reveal-delay-1">
+      <p class="drop-cap">An elderly man approached me. He was grey-haired, composed, unhurried. He suggested we go somewhere together. In the dream I responded almost as I would have in waking life: with mild surprise, a question, a slight hesitation — but no refusal.</p>
+      <p>His invitation carried no compulsion. It was the kind of proposal that seems to have already been decided elsewhere, requiring only acknowledgment. Something in his bearing was familiar — not as a person I had met, but as a figure I had always been approaching. I said yes.</p>
+      <p>I would not recognise the face until later. Only after the path had developed — after Bollingen, the Red Book, the letters and the lectures — did I understand who the figure resembled. But then, in the dream, I simply rose from the stool and followed.</p>
+    </div>
+    <div class="img-solo reveal reveal-delay-2">
+      <img src="https://i.postimg.cc/HsN2dfSP/file-0000000023647246a95c8199c422d0a3.png" alt="The grey-haired elder" loading="lazy" />
+    </div>
+    <div class="img-pair reveal reveal-delay-2">
+      <img src="https://i.postimg.cc/Y0hWPSwC/file-000000007140720a8516ae586fc32a9c.png" alt="Turning from the counter" loading="lazy" />
+      <img src="https://i.postimg.cc/0ypJF3hz/file-000000000c38720a90686ab6e508b2f9.png" alt="Following into the unknown" loading="lazy" />
+    </div>
+    <p class="img-caption reveal">A figure known before knowing. The psychopomp arrives without announcement.</p>
+  </section>
+
+  <section class="codex-section">
+    <div class="reveal">
+      <span class="section-number">III · The Threshold</span>
+      <h2 class="section-title">The Hidden Door</h2>
+    </div>
+    <div class="body-text reveal reveal-delay-1">
+      <p class="drop-cap">We turned from the counter. A few steps. Then a wall: covered in Renaissance ornament — dark botanical forms, interlacing scrollwork, the kind of pattern that holds the eye without resolving into meaning.</p>
+      <p>There was no door visible. No handle. No frame. No seam. The wall presented itself as complete, as final.</p>
+      <p>The old man found it anyway. He knew where the threshold was hidden within the pattern. He opened it — a door that could only be opened by someone who already knew where it was. It offered nothing to those who searched with ordinary eyes.</p>
+      <p>The numinosity arrived then. I did not know the word at the time, but I felt the thing itself: the floor of ordinary experience had given way, and something vast was present just below it. I was standing at an edge.</p>
+    </div>
+    <div class="img-solo reveal reveal-delay-2">
+      <img src="https://i.postimg.cc/NMLFsPCG/file-00000000e664720a8432897ab6743b81.png" alt="The ornamented wall" loading="lazy" />
+    </div>
+    <p class="img-caption reveal">The wall that conceals what it contains.</p>
+    <div class="img-pair reveal reveal-delay-2">
+      <img src="https://i.postimg.cc/J7GPyNsK/file-000000007cfc720a89f0c8136e731c79.png" alt="The hidden threshold" loading="lazy" />
+      <img src="https://i.postimg.cc/59YS9frs/file-00000000b28471f491c678f9ca8ebb4e.png" alt="The moment of opening" loading="lazy" />
+    </div>
+  </section>
+
+  <div class="pull-quote reveal">
+    <blockquote>
+      A door that could only be opened by someone who already knew where it was.
+      <cite>— III · The Hidden Door</cite>
+    </blockquote>
+  </div>
+
+  <section class="codex-section">
+    <div class="reveal">
+      <span class="section-number">IV · The Interior</span>
+      <h2 class="section-title">The Sacred Chamber</h2>
+    </div>
+    <div class="body-text reveal reveal-delay-1">
+      <p class="drop-cap">The room beyond was large — perhaps ten by ten metres, perhaps fifteen — but what defined it was the height. The ceiling rose beyond where lamplight reached. Along the walls, Renaissance frames held canvases: biblical subjects, or scenes from some older sacred vocabulary I could not fully read.</p>
+      <p>The room had the quality of an interior temple — a painter's atelier that had never been entered from outside, that existed only for those who came through the hidden door.</p>
+      <p>To the right of the entrance: a small table. Someone was seated there, or had just left. Beside the table, a lamp — and from it, bare wires protruded, their copper ends exposed. Even within the dream I noticed this with the attention of a craftsman: <em>these wires need insulating — someone could be hurt.</em> The practical thought in the middle of the numinous. The mundane detail that memory always keeps.</p>
+    </div>
+    <div class="img-solo reveal reveal-delay-2">
+      <img src="https://i.postimg.cc/PrYTTkyW/file-000000007fa0720a8553a00bc74213a5.png" alt="The chamber interior" loading="lazy" />
+    </div>
+    <p class="img-caption reveal">The high-ceilinged room. The uncontained light.</p>
+    <div class="img-pair reveal reveal-delay-2">
+      <img src="https://i.postimg.cc/Kz1hVX4Y/file-00000000a03471f48d75e6a9aad3d161.png" alt="Paintings on the wall" loading="lazy" />
+      <img src="https://i.postimg.cc/xTDVs4QL/file-00000000b4cc71f486ff0cba48171afd.png" alt="The lamp with exposed wires" loading="lazy" />
+    </div>
+    <p class="img-caption reveal">The sacred and the broken coexist. The light is present but dangerous.</p>
+  </section>
+
+  <section class="codex-section">
+    <div class="reveal">
+      <span class="section-number">V · Recognition</span>
+      <h2 class="section-title">The Second Elder</h2>
+    </div>
+    <div class="body-text reveal reveal-delay-1">
+      <p class="drop-cap">The old man introduced me to a second figure. We greeted each other simply. His presence was quieter than the first — less a guide than a witness, a person at work with something that did not require explanation.</p>
+      <p>Only later — perhaps half a year after the dream — I saw the play <em>Red</em>, about Mark Rothko. The set disturbed me: a large studio, the table positioned to the right, a lamp. The same spatial logic. The same quality of interior darkness, of canvases as presences rather than pictures.</p>
+      <p>I understood then: the second figure may have been Rothko. Before this dream I had not known Rothko's face, had not read his interviews, had not seen his work in any sustained way. Before this dream I had not known that he was born approximately fifty kilometres from my own birthplace in Latvia. The proximity was not symbolic — it was geographical, biographical, a fact discovered after the image had already arrived.</p>
+    </div>
+    <div class="img-solo reveal reveal-delay-2">
+      <img src="https://i.postimg.cc/2STpSjZW/file-0000000004f871f496095e1b93e82270.png" alt="The second elder in the studio" loading="lazy" />
+    </div>
+    <div class="img-pair reveal reveal-delay-2">
+      <img src="https://i.postimg.cc/wxNSsQN3/file-000000003dcc71f4abe7389edab77566.png" alt="The studio atmosphere" loading="lazy" />
+      <img src="https://i.postimg.cc/Z5wghfGV/file-00000000fbf071f481125a6d8c3b4902.png" alt="Canvases as presences" loading="lazy" />
+    </div>
+    <div class="img-solo reveal reveal-delay-3">
+      <img src="https://i.postimg.cc/bN8FSc8r/file-00000000a7c071f480cbcde1f4c988e1.png" alt="The meeting of the three" loading="lazy" />
+    </div>
+    <p class="img-caption reveal">Dvinsk, Latvia. Fifty kilometres. Geography as symbol.</p>
+  </section>
+
+  <section class="codex-section hand-section">
+    <div class="reveal">
+      <span class="section-number">VI · The Central Act</span>
+      <h2 class="section-title">That's her</h2>
+    </div>
+    <div class="ornament reveal">
+      <span class="ornament-symbol">· · ·</span>
+    </div>
+    <div class="body-text reveal reveal-delay-1">
+      <p>Then the central act.</p>
+      <p>Both elders took my left hand. Together, they lifted it upward. And we began to turn — not chaotically, but around a shared axis, a deliberate rotation through the chamber. All three of us faced the raised hand. They examined it, speaking between themselves.</p>
+    </div>
+    <div class="hand-phrase reveal" id="thats-her-phrase">"That's her"</div>
+    <div class="body-text reveal reveal-delay-2">
+      <p>I asked: <em>What do you mean — that's her?</em></p>
+      <p>But they were no longer attending to me as a person. Their attention had moved past me, to the hand itself — or to what the hand designated. They continued, calmly, with certainty, as though stating what had always been true and only now required stating.</p>
+      <p>What I felt then I can only describe as recognition from outside myself — not pride, not triumph, but a strange interior knowledge: something had been seen in me, or through me, that did not belong entirely to me. I had been marked — but the mark was not a possession. It pointed beyond.</p>
+      <p>The left side: the unconscious, the intuitive, the receiving. Important: I did not raise the hand myself. They raised it. The action originated not from the ego but from something larger, working through the figure assembled in that room.</p>
+    </div>
+  </section>
+
+  <div class="pull-quote reveal">
+    <blockquote>
+      I had been marked — but the mark was not a possession.<br />It pointed beyond.
+      <cite>— VI · The Raised Hand</cite>
+    </blockquote>
+  </div>
+
+  <section class="codex-section">
+    <div class="reveal">
+      <span class="section-number">VII · The Sign</span>
+      <h2 class="section-title">The Left Palm</h2>
+    </div>
+    <div class="body-text reveal reveal-delay-1">
+      <p class="drop-cap">The left hand remained the dream's central image in the ending — the dream ended in that rotation: two elders, the raised hand, the repeated phrase. Not a face. Not a name. A hand held up by two others, examined as though it were both instrument and text.</p>
+      <p>The left palm as organ of reception. As conductor of what passes through and does not originate here. As the site where something was recognised that exceeds the one who carries it.</p>
+    </div>
+    <div class="img-pair reveal reveal-delay-2">
+      <img src="https://i.postimg.cc/CLCPYFBF/file-00000000486871f4936d545340dc8152.png" alt="The left palm — the sign" loading="lazy" />
+      <img src="https://i.postimg.cc/GmMMfqNx/file-000000004cc871f4a976342a3fed6b1a.png" alt="The left hand, raised" loading="lazy" />
+    </div>
+    <p class="img-caption reveal">The left hand. Raised by others. The mark that points beyond.</p>
+
+    <div class="archive-node reveal reveal-delay-2">
+      <p class="archive-node-label">Archive · After the Dream</p>
+      <div class="archive-grid">
+        <div class="archive-cell">
+          <img src="https://i.postimg.cc/sfcMxsMy/20220612-100900.jpg"
+               alt="Dream sketch — drawn at night, a month after the dream" loading="lazy" />
+          <div class="archive-cell-caption">Dream sketch · drawn at night, a month after the dream · in minutes, as if compelled</div>
+        </div>
+        <div class="archive-cell">
+          <img src="https://i.postimg.cc/W1JpGv1k/20220612-001025(1).jpg"
+               alt="Red — the play in which the studio from the dream was recognised" loading="lazy" />
+          <div class="archive-cell-caption"><em style="font-style:italic;text-transform:none;">Red</em> · the play in which the studio from the dream was recognised · the body went before the mind</div>
+        </div>
+      </div>
+      <div class="archive-note reveal reveal-delay-3">
+        <p>A month after the dream, I woke in the night and drew what I had seen — in minutes, as if something had pushed me to capture it before it dissolved. Not a decision. A compulsion. Later, watching <em>Red</em>, I recognised the room: the table to the right, the lamp, the dense darkness, the canvases as presences. Not as resemblance — as identity.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="closing reveal">
+    <p class="closing-mark">Coda · After the Dream</p>
+    <p class="closing-text">
+      When I woke, the world had altered in density. Not dramatically — no visions, no voices — but the pressure of reality had changed. As though the dream had not ended but had left a door open somewhere in the fabric of waking.<br /><br />
+      After this: the synchronicities intensified. A strong line appeared with a client from Riga. Then, gradually, the whole further path unfolded: Jung, Steiner, Rothko, Jaspers, Arendt, Tolstoy — philosophy, painting, the study of time and inner transformation.<br /><br />
+      The dream was not a conclusion. It was a beginning of movement that continues.
+    </p>
+    <div class="ornament" style="max-width:300px;margin:2.5rem auto;">
+      <span class="ornament-symbol">✦</span>
+    </div>
+    <p class="closing-date">Dublin · 2020 — 2021 · Spirit of Time Archive</p>
+  </div>
+
+</main>
+
+<script>
+  const progressBar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    progressBar.style.width = pct + '%';
+  }, { passive: true });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        if (entry.target.id === 'thats-her-phrase') {
+          entry.target.style.animation = '';
+          void entry.target.offsetWidth;
+          entry.target.style.animation = 'phraseReveal 1.8s ease forwards';
+        }
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  const lbOverlay = document.getElementById('lb-overlay');
+  const lbImg     = document.getElementById('lb-img');
+  const lbClose   = document.getElementById('lb-close');
+
+  document.querySelectorAll('.img-solo img, .img-pair img, .img-trio img, .archive-cell img').forEach(img => {
+    img.addEventListener('click', () => {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lbOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLb() {
+    lbOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+  lbOverlay.addEventListener('click', e => { if (e.target !== lbImg) closeLb(); });
+  lbClose.addEventListener('click', closeLb);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+  (function() {
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles, animId;
+    const GOLD = 'rgba(201, 168, 76,';
+    const COUNT = 88, MAX_DIST = 140, SPEED = 0.22;
+    function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+    function Particle() {
+      this.x = Math.random()*W; this.y = Math.random()*H;
+      this.vx = (Math.random()-0.5)*SPEED; this.vy = (Math.random()-0.5)*SPEED;
+      this.r = Math.random()*1.4+0.4; this.alpha = Math.random()*0.55+0.12;
+    }
+    function init() { particles = []; for (let i=0;i<COUNT;i++) particles.push(new Particle()); }
+    function draw() {
+      ctx.clearRect(0,0,W,H);
+      for (let i=0;i<COUNT;i++) {
+        for (let j=i+1;j<COUNT;j++) {
+          const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y;
+          const dist=Math.sqrt(dx*dx+dy*dy);
+          if (dist<MAX_DIST) {
+            const s=1-dist/MAX_DIST;
+            ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y);
+            ctx.strokeStyle=GOLD+(s*0.18)+')'; ctx.lineWidth=s*0.7; ctx.stroke();
+          }
+        }
+      }
+      particles.forEach(p => {
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle=GOLD+p.alpha+')'; ctx.fill();
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<-10)p.x=W+10; if(p.x>W+10)p.x=-10;
+        if(p.y<-10)p.y=H+10; if(p.y>H+10)p.y=-10;
+      });
+      animId=requestAnimationFrame(draw);
+    }
+    const heroObs=new IntersectionObserver(entries=>{
+      if(entries[0].isIntersecting){if(!animId)animId=requestAnimationFrame(draw);}
+      else{cancelAnimationFrame(animId);animId=null;}
+    },{threshold:0});
+    heroObs.observe(document.getElementById('hero'));
+    window.addEventListener('resize',()=>{resize();init();},{passive:true});
+    resize();init();animId=requestAnimationFrame(draw);
+  })();
+
+  const hero = document.getElementById('hero');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y < hero.offsetHeight * 1.5) {
+      hero.style.transform = 'translateY('+(y*0.28)+'px)';
+      hero.style.opacity = 1-(y/hero.offsetHeight)*1.1;
+    }
+  }, { passive: true });
+</script>
+</body>
+</html>
